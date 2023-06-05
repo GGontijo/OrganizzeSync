@@ -1,0 +1,25 @@
+from ofxparse import OfxParser
+from models.generic_models import *
+
+def convert_ofx_to_json(file_path):
+    with open(file_path, 'rb') as ofx_file:
+        ofx = OfxParser.parse(ofx_file)
+        transactions = []
+        for transaction in ofx.account.statement.transactions:
+            transaction_data = OFXTransaction(date_posted=str(transaction.date),
+                                              amount=convert_amount_to_cents(transaction.amount),
+                                              payee=transaction.payee,
+                                              memo=' '.join(transaction.memo.split()))
+            transactions.append(transaction_data)
+        
+        
+        return {"start_date": ofx.account.statement.start_date, 
+                "end_date": ofx.account.statement.end_date, 
+                "transactions": transactions}
+    
+def convert_amount_to_cents(amount):
+    if isinstance(amount, int):
+        cents = amount * 100
+    else:
+        cents = int(amount * 100)
+    return cents
