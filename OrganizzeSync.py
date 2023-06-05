@@ -4,13 +4,15 @@ from models.organizze_models import *
 from helpers.logger_helper import Logger
 from datetime import timedelta, datetime
 from services.organizze_service import Organizze_Service
+import time
 
 class OrganizzeSync:
     def __init__(self) -> None:
         self.logger = Logger()
-        _organizze_service = Organizze_Service(self.logger)
-        self.old_transactions = _organizze_service.get_transactions()
-        self.categories = _organizze_service.get_categories()
+        self._organizze_service = Organizze_Service(self.logger)
+        self.old_transactions = self._organizze_service.get_transactions()
+        self.categories = self._organizze_service.get_categories()
+        self.accounts = self._organizze_service.get_accounts()
         self.category_mapping = None
 
     def process_categories(self):
@@ -35,7 +37,7 @@ class OrganizzeSync:
         self.logger.log("INFO", f"{len(self.category_mapping)} Transacoes processadas e categorias padrão mapeadas!")
     
 
-    def process_new_transactions(self, new_transactions):
+    def process_new_transactions(self, new_transactions, create_transaction: bool = False):
         self.logger.log("INFO", f"Processando novas transacoes")
         if self.category_mapping is None:
             self.process_categories()
@@ -58,6 +60,10 @@ class OrganizzeSync:
                 self.ignored_transactions.append({"transaction": description, "motivo": "Transação é um pix!"})
                 continue
 
+            if 'cdb' or 'aplicacao' or 'resgate' in description: # Retirando qualquer movimentação referente a aporte ou resgate de investimentos, falta mapear transferencias
+                self.ignored_transactions.append({"transaction": description, "motivo": "Transação é referente a investimento!"})
+                continue
+
             if new_transaction.amount_cents > 0: # Ignora se for um crédito (regra complexa demais, ainda não mapeado)
                 self.ignored_transactions.append({"transaction": description, "motivo": "Transação não é um Débito!"})
                 continue
@@ -68,15 +74,22 @@ class OrganizzeSync:
                                                          amount_cents=new_transaction.amount_cents,
                                                          account_id=1,
                                                          category_id=category_id,
-                                                         category_name=self.get_category_name_by_id(category_id))
+                                                         category_name=self.get_category_name_by_id(category_id),
+                                                         notes='API')
                 self.processed_transactions.append(new_transaction)
             else:
                 self.unrecognized_transactions.append(description)
+        
+        if create_transaction:
+            self.logger.log("WARNING", f"CUIDADO! Flag de inserção no Organizze ativado!")
+            self.logger.log("WARNING", f"Arguardando 5 segundos antes de iniciar as inserções...")
+            time.sleep(5)
+            for transaction in self.processed_transactions:
+                self._organizze_service.create_transaction(transaction)
 
-                
-    
         # Retornar as transações processadas
         return self.processed_transactions
+    
     
     def check_existing_transaction(self, new_transaction):
         description = new_transaction.description.lower()
@@ -100,5 +113,5 @@ class OrganizzeSync:
     
 new = convert_ofx_to_json('teste.ofx')
 sync = OrganizzeSync()
-result = sync.process_new_transactions(new["transactions"])
+result = sync.process_new_transactions(new["transactions"],create_transaction=True)
 print(result)

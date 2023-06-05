@@ -2,19 +2,28 @@ from typing import Optional, List
 from pydantic import BaseModel
 
 
-class UserModel(BaseModel):
-    id: int
-    email: str
-    name: str
-    currency: str
-    locale: str
+class GoalModel(BaseModel): # Meta do Organizze
+    amoount_in_cents: int
+    category_id: int
+    category_name: Optional[str]
+    date: str
+    activity_type: int
+    total: int
+    predicted_total: int
+    percentage: str
 
 
 class AccountModel(BaseModel):
     id: int
     name: str
-    balance: float
-    status: str
+    institution_id: str
+    institution_name: Optional[str]
+    description: Optional[str]
+    archived: bool
+    created_at: str
+    updated_at: str
+    default: bool
+    type: str
 
 
 class CategoryModel(BaseModel):
@@ -64,6 +73,7 @@ class TransactionCreateModel(BaseModel):
     category_name: Optional[str]
     account_id: int
     category_id: int
+    notes: Optional[str]
 
     def to_dict(self, **kwargs): #Tem que passar serializada em json/dict pra api do organizze...
         return super().dict(**kwargs)

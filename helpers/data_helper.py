@@ -10,7 +10,7 @@ def convert_ofx_to_json(file_path):
             transaction_data = OFXTransaction(date_posted=str(transaction.date),
                                               amount_cents=convert_amount_to_cents(transaction.amount),
                                               payee=transaction.payee,
-                                              description=' '.join(transaction.memo.split()))
+                                              description=' '.join(transaction.memo.split()).lower())
             transactions.append(transaction_data)
         
         
