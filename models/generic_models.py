@@ -2,6 +2,6 @@ from pydantic import BaseModel
 
 class OFXTransaction(BaseModel):
     date_posted: str
-    amount: int
+    amount_cents: int
     payee: str
-    memo: str
+    description: str

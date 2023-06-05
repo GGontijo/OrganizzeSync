@@ -8,21 +8,20 @@ import json
 
 
 class Organizze_Service:
-    def __init__(self) -> None:
+    def __init__(self, logger: Logger) -> None:
         _config = Config()
         _config_data = _config.get_config("organizze")
         self.username = _config_data["username"]
         self.token = _config_data["token"]
         self.url_base = _config_data["url"]
-        self.log_file = "logs.txt"
-        self.logger = Logger(self.log_file)
+        self.logger = logger
 
     def get_transactions(self, data_inicio=None, data_fim=None):
         try:
             if data_inicio is not None and data_fim is not None: # Se for passado filtro de data
                 start_date = datetime.strptime(data_inicio, "%Y-%m-%d")
                 end_date = datetime.strptime(data_fim, "%Y-%m-%d")
-                self.logger.log("INFO", f"Obtendo transacoes de {start_date} ate {end_date}")
+                self.logger.log("INFO", f"Obtendo transacoes de {str(start_date)[:10]} ate {str(end_date)[:10]}")
                 response = requests.get(f"{self.url_base}/transactions?start_date={start_date}&end_date={end_date}", auth=(self.username, self.token))
                 transactions_data = json.loads(response.content)
             else:
@@ -72,8 +71,7 @@ class Organizze_Service:
             self.logger.log("INFO", "Obtendo categorias")
             response = requests.get(f"{self.url_base}/categories", auth=(self.username, self.token))
             categories_data = json.loads(response.content)
-            self.categories = [CategoryModel(**data) for data in categories_data]
-            return self.categories
+            return [CategoryModel(**data) for data in categories_data]
         except Exception as e:
             error_message = f'Nao foi possivel concluir a requisicao! Detalhes: {e}'
             self.logger.log("ERROR", error_message)
@@ -100,7 +98,7 @@ class Organizze_Service:
         transactions = []
 
         for start_date, end_date in dates:
-            self.logger.log("INFO", f"Obtendo transacoes de {start_date} ate {end_date}")
+            self.logger.log("INFO", f"Obtendo transacoes de {str(start_date)[:10]} ate {str(end_date)[:10]}")
             response = requests.get(f"{self.url_base}/transactions?start_date={start_date}&end_date={end_date}", auth=(self.username, self.token))
             transactions.append(json.loads(response.content))
 

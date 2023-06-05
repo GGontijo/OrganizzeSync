@@ -61,6 +61,7 @@ class TransactionCreateModel(BaseModel):
     description: str
     date: str
     amount_cents: int
+    category_name: Optional[str]
     account_id: int
     category_id: int
 

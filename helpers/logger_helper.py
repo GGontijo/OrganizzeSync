@@ -3,8 +3,11 @@ from datetime import datetime
 from typing import Literal
 
 class Logger:
-    def __init__(self, log_file: str) -> None:
-        self.log_file = log_file
+
+    _instance = None
+
+    def __init__(self) -> None:
+        self.log_file = 'logs.txt'
         self.setup_logging()
 
     def setup_logging(self) -> None:
@@ -17,3 +20,8 @@ class Logger:
 
     def log(self, level: Literal['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'], message: str) -> None:
         getattr(logging, level.lower())(message)
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
