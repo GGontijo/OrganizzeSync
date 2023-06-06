@@ -74,6 +74,7 @@ class TransactionCreateModel(BaseModel):
     account_id: int
     category_id: int
     notes: Optional[str]
+    tags: List[dict] = []
 
     def to_dict(self, **kwargs): #Tem que passar serializada em json/dict pra api do organizze...
         return super().dict(**kwargs)

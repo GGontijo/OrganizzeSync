@@ -106,7 +106,7 @@ class Organizze_Service:
         
     def create_transaction(self, movimentacao: TransactionCreateModel):
         try:
-            response = requests.post(f'{self.url_base}/transactions', json=movimentacao, auth=(self.username, self.token), verify=False)
+            response = requests.post(f'{self.url_base}/transactions', json=movimentacao.to_dict(), auth=(self.username, self.token), verify=False)
             if response.status_code == 201:
                 self.logger.log("INFO", "Movimentação criada com sucesso")
             else:

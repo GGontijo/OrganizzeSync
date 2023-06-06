@@ -60,7 +60,7 @@ class OrganizzeSync:
                 self.ignored_transactions.append({"transaction": description, "motivo": "Transação é um pix!"})
                 continue
 
-            if 'cdb' or 'aplicacao' or 'resgate' in description: # Retirando qualquer movimentação referente a aporte ou resgate de investimentos, falta mapear transferencias
+            if 'cdb' in description or 'aplicacao' in description or 'resgate' in description: # Retirando qualquer movimentação referente a aporte ou resgate de investimentos, falta mapear transferencias
                 self.ignored_transactions.append({"transaction": description, "motivo": "Transação é referente a investimento!"})
                 continue
 
@@ -75,13 +75,14 @@ class OrganizzeSync:
                                                          account_id=1,
                                                          category_id=category_id,
                                                          category_name=self.get_category_name_by_id(category_id),
-                                                         notes='API')
+                                                         notes='Inserido via API',
+                                                         tags=[{"name": "API"}])
                 self.processed_transactions.append(new_transaction)
             else:
                 self.unrecognized_transactions.append(description)
         
         if create_transaction:
-            self.logger.log("WARNING", f"CUIDADO! Flag de inserção no Organizze ativado!")
+            self.logger.log("WARNING", f"CUIDADO! Flag de inserção no Organizze ativada!")
             self.logger.log("WARNING", f"Arguardando 5 segundos antes de iniciar as inserções...")
             time.sleep(5)
             for transaction in self.processed_transactions:
