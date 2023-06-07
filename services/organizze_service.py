@@ -124,8 +124,8 @@ class Organizze_Service:
         transactions = []
 
         for start_date, end_date in dates:
-            self.logger.log("INFO", f"Obtendo transacoes de {str(start_date)[:10]} ate {str(end_date)[:10]}")
             response = requests.get(f"{self.url_base}/transactions?start_date={start_date}&end_date={end_date}", auth=(self.username, self.token), verify=False)
+            self.logger.log("INFO", f"Obtendo {len(json.loads(response.content))} transacoes de {str(start_date)[:10]} ate {str(end_date)[:10]}")
             transactions.append(json.loads(response.content))
 
         return transactions

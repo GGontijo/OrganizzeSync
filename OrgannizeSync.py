@@ -1,10 +1,14 @@
 from collections import defaultdict
 from helpers.data_helper import convert_ofx_to_json
+from helpers.data_helper import get_matching_words
 from models.organizze_models import *
 from helpers.logger_helper import Logger
 from datetime import timedelta, datetime
 from services.organizze_service import Organizze_Service
 import time
+
+
+
 
 class OrganizzeSync:
     def __init__(self) -> None:
@@ -51,10 +55,6 @@ class OrganizzeSync:
             description = new_transaction.description.lower()
             category_id = self.category_mapping.get(description)
             duplicate_transaction = self.check_existing_transaction(new_transaction)
-
-            if duplicate_transaction["duplicated"]: # Ignora se for uma transação duplicada
-                self.duplicated_transactions.append(duplicate_transaction["relationship"])
-                continue
             
             if 'pix' in description: # Retirando o pix, pode ter muitos motivos não da pra mapear categoria
                 self.ignored_transactions.append({"transaction": description, "motivo": "Transação é um pix!"})
@@ -66,6 +66,10 @@ class OrganizzeSync:
 
             if new_transaction.amount_cents > 0: # Ignora se for um crédito (regra complexa demais, ainda não mapeado)
                 self.ignored_transactions.append({"transaction": description, "motivo": "Transação não é um Débito!"})
+                continue
+
+            if duplicate_transaction["duplicated"]: # Ignora se for uma transação duplicada
+                self.duplicated_transactions.append(duplicate_transaction["relationship"])
                 continue
 
             if category_id is not None:
@@ -86,7 +90,8 @@ class OrganizzeSync:
             self.logger.log("WARNING", f"Arguardando 5 segundos antes de iniciar as inserções...")
             time.sleep(5)
             for transaction in self.processed_transactions:
-                self._organizze_service.create_transaction(transaction)
+                #self._organizze_service.create_transaction(transaction)
+                pass
 
         # Retornar as transações processadas
         return self.processed_transactions
@@ -97,12 +102,19 @@ class OrganizzeSync:
         amount_cents = new_transaction.amount_cents
         date_posted = datetime.strptime(new_transaction.date_posted[:10], "%Y-%m-%d").date()
 
-        for old_transaction in self.old_transactions:
+        for old_transaction in self.old_transactions: 
+            old_transaction: TransactionModel #Typing hint
+            
             old_date = datetime.strptime(old_transaction.date[:10], "%Y-%m-%d").date()
-            if description == old_transaction.description.lower() and amount_cents == old_transaction.amount_cents:
+            if description == old_transaction.description.lower() and amount_cents == old_transaction.amount_cents: # Checagem exata (mesma descrição, valor igual e datas iguais ou próximas)
                 if abs(date_posted - old_date) <= timedelta(days=3):
-                    self.logger.log("INFO", f"Ignorando transação {description} de {date_posted}, duplicidade com {old_transaction.description} de {old_transaction.date}...")
-                    return {"duplicated": True, "relationship": (description, old_transaction.description.lower())}
+                    self.logger.log("INFO", f"Ignorando transação {description} de {date_posted}, duplicidade com {old_transaction.description.lower()} de {old_transaction.date}...")
+                    #return {"duplicated": True, "relationship": (description, old_transaction.description.lower())}
+            
+            if date_posted == old_date and amount_cents == old_transaction.amount_cents: # Casos aonde a descrição foi alterada
+                get_matching_words(description, old_transaction.description.lower())
+                self.logger.log("INFO", f"Ignorando transação {description} de {date_posted}, duplicidade com {old_transaction.description.lower()} de {old_transaction.date}...")
+                return {"duplicated": True, "relationship": (description, old_transaction.description.lower())}
 
         return {"duplicated": False, "relationship": None}
 
