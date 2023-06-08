@@ -18,14 +18,37 @@ class Organizze_Service:
         self.url_base = _config_data["url"]
         self.logger = logger
 
-    def get_goals(self):
+    def get_balances(self, account_id: int=None):
         try:
-            self.logger.log("INFO", "Obtendo contas bancarias")
-            response = requests.get(f"{self.url_base}/accounts", auth=(self.username, self.token), verify=False)
-            accounts_data = json.loads(response.content)
-            return [AccountModel(**data) for data in accounts_data]
+            if account_id:
+                self.logger.log("INFO", f"Obtendo saldos das conta bancaria {account_id}")
+                response = requests.get(f"{self.url_base}/balances?account_id{account_id}", auth=(self.username, self.token), verify=False)
+                balances_data = json.loads(response.content)
+                return BalanceModel(**balances_data)
+            
+            self.logger.log("INFO", "Obtendo saldos das contas bancarias")
+            response = requests.get(f"{self.url_base}/balances", auth=(self.username, self.token), verify=False)
+            balances_data = json.loads(response.content)
+            return BalanceModel(**balances_data)
+        
         except requests.exceptions.RequestException as e:
-            error_message = f'Erro ao obter transações: {str(e)}'
+            error_message = f'Erro ao obter saldos das contas bancarias: {str(e)}'
+            self.logger.log("ERROR", error_message)
+            raise Exception(error_message)
+
+    def get_budgets(self):
+        try:
+            self.logger.log("INFO", "Obtendo metas")
+            response = requests.get(f"{self.url_base}/budgets", auth=(self.username, self.token), verify=False)
+            budgets_data = json.loads(response.content)
+            budgets = [BudgetModel(**data) for data in budgets_data]
+            for budget in budgets:
+                category = self.get_categories(budget.category_id)
+                budget.category_name = category.name
+            return budgets
+     
+        except requests.exceptions.RequestException as e:
+            error_message = f'Erro ao obter metas: {str(e)}'
             self.logger.log("ERROR", error_message)
             raise Exception(error_message)
 
@@ -36,7 +59,7 @@ class Organizze_Service:
             accounts_data = json.loads(response.content)
             return [AccountModel(**data) for data in accounts_data]
         except requests.exceptions.RequestException as e:
-            error_message = f'Erro ao obter transações: {str(e)}'
+            error_message = f'Erro ao obter contas bancarias: {str(e)}'
             self.logger.log("ERROR", error_message)
             raise Exception(error_message)
 
@@ -92,25 +115,33 @@ class Organizze_Service:
             self.logger.log("ERROR", error_message)
             raise Exception(error_message)
 
-    def get_categories(self):
+    def get_categories(self, category_id: int=None):
         try:
+            if category_id:
+                self.logger.log("INFO", f"Obtendo categoria {category_id}")
+                response = requests.get(f"{self.url_base}/categories/{category_id}", auth=(self.username, self.token), verify=False)
+                categories_data = json.loads(response.content)
+                return CategoryModel(**categories_data)
+            
             self.logger.log("INFO", "Obtendo categorias")
             response = requests.get(f"{self.url_base}/categories", auth=(self.username, self.token), verify=False)
             categories_data = json.loads(response.content)
             return [CategoryModel(**data) for data in categories_data]
         except Exception as e:
-            error_message = f'Nao foi possivel concluir a requisicao! Detalhes: {e}'
+            error_message = f'Erro ao obter categorias: {str(e)}'
             self.logger.log("ERROR", error_message)
             raise Exception(error_message)
-
         
     def create_transaction(self, movimentacao: TransactionCreateModel):
         try:
+            movimentacao.description = movimentacao.description + ' - ' + 'Inserido Via [API]'
+            movimentacao.notes = f'Inserido via API em {datetime.now().strftime("%d-%m-%Y %H:%M:%S")}'
+            movimentacao.tags = [{"name": "API"}]
             response = requests.post(f'{self.url_base}/transactions', json=movimentacao.to_dict(), auth=(self.username, self.token), verify=False)
             if response.status_code == 201:
-                self.logger.log("INFO", "Movimentação criada com sucesso")
+                self.logger.log("INFO", f"Movimentação criada com sucesso: {movimentacao.description}")
             else:
-                error_message = f'Erro ao criar a movimentação: {response.content}'
+                error_message = f'Erro ao criar a movimentação: {movimentacao.description} Detalhes: {response.content}'
                 self.logger.log("ERROR", error_message)
                 raise Exception(error_message)
 
@@ -129,4 +160,3 @@ class Organizze_Service:
             transactions.append(json.loads(response.content))
 
         return transactions
-
