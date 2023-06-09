@@ -29,6 +29,8 @@ def convert_amount_to_cents(amount: int) -> int:
     return cents
 
 def match_strings(string1: str, string2: str, simillar: bool = False, threshold: int = 1) -> bool:
+    ''' Essa função tem como objetivo analisar duas strings e determinar se elas são referente ao mesmo "assunto".
+        No contexto atual, é analisado se duas transações são referente ao mesmo estabelecimento comercial'''
 
     ignored_words = [ "compra", "venda", "pagamento", "recebimento", "transferencia", "transferência", "deposito", "depósito",
     "saque", "debito", "débito", "credito", "crédito", "saldo", "conta", "cartao", "cartão", "boleto", "fatura",

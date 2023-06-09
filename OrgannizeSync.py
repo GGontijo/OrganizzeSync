@@ -53,14 +53,16 @@ class OrganizzeSync:
         self.ignored_transactions = []
 
         for new_transaction in new_transactions:
+            new_transaction: TransactionCreateModel # Typing hint
+
             description = new_transaction.description.lower()
 
-            if 'pix' in description: # Retirando o pix, pode ter muitos motivos não da pra mapear categoria
-                self.ignored_transactions.append({"transaction": description, "motivo": "Transação é um pix!"})
+            if 'pix' in description or 'ted' in description or 'doc' in description or 'transferencia' in description: # Retirando transferências, pode ter muitos motivos não da pra mapear categoria
+                self.ignored_transactions.append({"transaction": description, "motivo": "Transação é uma transferência!"})
                 continue
 
             if 'cdb' in description or 'aplicacao' in description or 'resgate' in description: # Retirando qualquer movimentação referente a aporte ou resgate de investimentos, falta mapear transferencias
-                self.ignored_transactions.append({"transaction": description, "motivo": "Transação é referente a investimento!"})
+                self.ignored_transactions.append({"transaction": description, "motivo": "Transação é um investimento!"})
                 continue
 
             if new_transaction.amount_cents > 0: # Ignora se for um crédito (regra complexa demais, ainda não mapeado)
@@ -97,12 +99,18 @@ class OrganizzeSync:
             time.sleep(5)
             for transaction in self.processed_transactions:
                 self._organizze_service.create_transaction(transaction)
-                pass
 
         # Retornar as transações processadas
         return self.processed_transactions
     
     
+    def delete_all_api_transactions(self):
+        self.logger.log("WARNING", f"CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!")
+        self.logger.log("WARNING", f"Arguardando 15 segundos antes de iniciar...")
+        time.sleep(15)
+
+        [self._organizze_service.delete_transaction(transaction) for transaction  in self.old_transactions if "[API]" in transaction.description]
+
     def check_existing_transaction(self, new_transaction):
         new_description = new_transaction.description.lower()
         new_amount_cents = new_transaction.amount_cents
@@ -110,6 +118,9 @@ class OrganizzeSync:
 
         for old_transaction in self.old_transactions: 
             old_transaction: TransactionModel # Typing hint
+
+            if '[API]' in old_transaction.description: # É preciso limpar as descrições de transações já inseridas via API
+                old_transaction.description = old_transaction.description.split(" - Inserido Via [API]")[0].strip()
             
             old_date = datetime.strptime(old_transaction.date[:10], "%Y-%m-%d").date()
             if new_description == old_transaction.description.lower() and new_amount_cents == old_transaction.amount_cents: # Checagem exata (mesma descrição, valor igual e datas iguais ou próximas)
@@ -121,7 +132,13 @@ class OrganizzeSync:
                 if match_strings(new_description, old_transaction.description.lower(), simillar=False, threshold=2):
                     self.logger.log("INFO", f"Ignorando transação {new_description} de {new_date_posted}, duplicidade com {old_transaction.description.lower()} de {old_transaction.date}...")
                     return {"duplicated": True, "relationship": (new_description, old_transaction.description.lower())}
-
+            
+            if abs(new_date_posted - old_date) <= timedelta(days=3) and new_amount_cents % 1 != 0 and new_amount_cents == old_transaction.amount_cents and new_description != old_transaction.description.lower(): # Casos aonde a descrição foi alterada e não são da mesma data
+                if match_strings(new_description, old_transaction.description.lower(), simillar=False, threshold=2):
+                    self.logger.log("INFO", f"Ignorando transação {new_description} de {new_date_posted}, duplicidade com {old_transaction.description.lower()} de {old_transaction.date}...")
+                    return {"duplicated": True, "relationship": (new_description, old_transaction.description.lower())}
+                
+            if new_date_posted == old_date and new_amount_cents % 1 != 0 and 
         return {"duplicated": False, "relationship": None}
     
     def determine_category(self, transaction_description: str) -> int:
@@ -150,5 +167,6 @@ class OrganizzeSync:
     
 new = convert_ofx_to_json('teste.ofx')
 sync = OrganizzeSync()
-result = sync.process_new_transactions(new["transactions"],4375871,create_transaction=True)
+#result = sync.process_new_transactions(new["transactions"],4375871,create_transaction=True)
+result = sync.delete_all_api_transactions()
 print(result)

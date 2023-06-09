@@ -8736,3 +8736,1110 @@ parent_id
 2023-06-08 16:27:16 | INFO: Processando transacoes por categorias
 2023-06-08 16:27:16 | INFO: 1775 Transacoes processadas e categorias padrão mapeadas!
 2023-06-08 16:27:22 | INFO: Ignorando transação abastecimento shell box - 111262612 de 2023-06-06, duplicidade com abastecimento shell box - 111262612 - inserido via [api] de 2023-06-06...
+2023-06-09 13:38:53 | INFO: Obtendo transacoes mensais
+2023-06-09 13:38:54 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 13:38:54 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 13:38:55 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 13:38:56 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 13:38:57 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 13:38:58 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 13:38:59 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 13:38:59 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 13:39:00 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 13:39:01 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 13:39:02 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 13:39:03 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 13:39:04 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 13:39:05 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 13:39:06 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 13:39:07 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 13:39:08 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 13:39:09 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 13:39:10 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 13:39:11 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 13:39:13 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 13:39:14 | INFO: Obtendo 217 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 13:39:15 | INFO: Obtendo 203 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 13:39:16 | INFO: Obtendo 25 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 13:39:16 | INFO: Obtendo categorias
+2023-06-09 13:39:17 | INFO: Obtendo contas bancarias
+2023-06-09 13:39:17 | WARNING: CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!
+2023-06-09 13:39:17 | WARNING: Arguardando 15 segundos antes de iniciar...
+2023-06-09 13:40:33 | INFO: Obtendo transacoes mensais
+2023-06-09 13:40:33 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 13:40:34 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 13:40:34 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 13:40:35 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 13:40:36 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 13:40:37 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 13:40:38 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 13:40:38 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 13:40:39 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 13:40:40 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 13:40:41 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 13:40:42 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 13:40:43 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 13:40:44 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 13:40:45 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 13:40:46 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 13:40:47 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 13:40:47 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 13:40:48 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 13:40:49 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 13:40:50 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 13:40:51 | INFO: Obtendo 217 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 13:40:52 | INFO: Obtendo 203 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 13:40:53 | INFO: Obtendo 25 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 13:40:53 | INFO: Obtendo categorias
+2023-06-09 13:40:53 | INFO: Obtendo contas bancarias
+2023-06-09 13:40:54 | WARNING: CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!
+2023-06-09 13:40:54 | WARNING: Arguardando 15 segundos antes de iniciar...
+2023-06-09 13:42:00 | INFO: Obtendo transacoes mensais
+2023-06-09 13:42:01 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 13:42:02 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 13:42:02 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 13:42:03 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 13:42:04 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 13:42:04 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 13:42:05 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 13:42:06 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 13:42:06 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 13:42:07 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 13:42:08 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 13:42:09 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 13:42:10 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 13:42:11 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 13:42:12 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 13:42:13 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 13:42:14 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 13:42:14 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 13:42:15 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 13:42:16 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 13:42:18 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 13:42:19 | INFO: Obtendo 217 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 13:42:20 | INFO: Obtendo 203 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 13:42:20 | INFO: Obtendo 25 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 13:42:21 | INFO: Obtendo categorias
+2023-06-09 13:42:21 | INFO: Obtendo contas bancarias
+2023-06-09 13:42:21 | WARNING: CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!
+2023-06-09 13:42:21 | WARNING: Arguardando 15 segundos antes de iniciar...
+2023-06-09 13:43:02 | INFO: Obtendo transacoes mensais
+2023-06-09 13:43:02 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 13:43:03 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 13:43:04 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 13:43:04 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 13:43:05 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 13:43:06 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 13:43:07 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 13:43:07 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 13:43:08 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 13:43:09 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 13:43:10 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 13:43:11 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 13:43:11 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 13:43:12 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 13:43:13 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 13:43:14 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 13:43:15 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 13:43:16 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 13:43:17 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 13:43:18 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 13:43:19 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 13:43:20 | INFO: Obtendo 217 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 13:43:21 | INFO: Obtendo 203 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 13:43:21 | INFO: Obtendo 25 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 13:43:21 | INFO: Obtendo categorias
+2023-06-09 13:43:22 | INFO: Obtendo contas bancarias
+2023-06-09 13:43:22 | WARNING: CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!
+2023-06-09 13:43:22 | WARNING: Arguardando 15 segundos antes de iniciar...
+2023-06-09 13:51:06 | ERROR: Nao foi possivel criar a movimentação! Detalhes: 'str' object has no attribute 'id'
+2023-06-09 13:51:39 | INFO: Obtendo transacoes mensais
+2023-06-09 13:51:39 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 13:51:40 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 13:51:40 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 13:51:41 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 13:51:42 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 13:51:43 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 13:51:43 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 13:51:45 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 13:51:45 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 13:51:46 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 13:51:47 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 13:51:48 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 13:51:49 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 13:51:50 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 13:51:51 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 13:51:51 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 13:51:52 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 13:51:53 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 13:51:54 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 13:51:55 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 13:51:56 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 13:51:57 | INFO: Obtendo 217 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 13:51:58 | INFO: Obtendo 203 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 13:51:58 | INFO: Obtendo 25 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 13:51:58 | INFO: Obtendo categorias
+2023-06-09 13:51:59 | INFO: Obtendo contas bancarias
+2023-06-09 13:51:59 | WARNING: CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!
+2023-06-09 13:51:59 | WARNING: Arguardando 15 segundos antes de iniciar...
+2023-06-09 13:52:00 | ERROR: Erro ao deletar a movimentação: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API] Detalhes: b'{"id":2506793091,"description":"compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]","date":"2023-04-10","paid":true,"amount_cents":-900,"total_installments":1,"installment":1,"recurring":false,"account_id":4375871,"category_id":110043496,"notes":"Inserido via API em 08-06-2023 16:21:13","attachments_count":0,"credit_card_id":null,"credit_card_invoice_id":null,"paid_credit_card_id":null,"paid_credit_card_invoice_id":null,"oposite_transaction_id":null,"oposite_account_id":null,"created_at":"2023-06-08T17:21:13-03:00","updated_at":"2023-06-08T17:21:13-03:00","tags":[],"attachments":[],"recurrence_id":null,"deleted":true}'
+2023-06-09 13:52:00 | ERROR: Nao foi possivel criar a movimentação! Detalhes: Erro ao deletar a movimentação: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API] Detalhes: b'{"id":2506793091,"description":"compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]","date":"2023-04-10","paid":true,"amount_cents":-900,"total_installments":1,"installment":1,"recurring":false,"account_id":4375871,"category_id":110043496,"notes":"Inserido via API em 08-06-2023 16:21:13","attachments_count":0,"credit_card_id":null,"credit_card_invoice_id":null,"paid_credit_card_id":null,"paid_credit_card_invoice_id":null,"oposite_transaction_id":null,"oposite_account_id":null,"created_at":"2023-06-08T17:21:13-03:00","updated_at":"2023-06-08T17:21:13-03:00","tags":[],"attachments":[],"recurrence_id":null,"deleted":true}'
+2023-06-09 13:52:46 | INFO: Obtendo transacoes mensais
+2023-06-09 13:52:47 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 13:52:48 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 13:52:48 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 13:52:49 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 13:52:50 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 13:52:50 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 13:52:51 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 13:52:52 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 13:52:52 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 13:52:53 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 13:52:54 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 13:52:55 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 13:52:56 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 13:52:57 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 13:52:58 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 13:52:59 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 13:53:00 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 13:53:00 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 13:53:01 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 13:53:02 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 13:53:03 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 13:53:04 | INFO: Obtendo 216 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 13:53:05 | INFO: Obtendo 203 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 13:53:06 | INFO: Obtendo 25 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 13:53:06 | INFO: Obtendo categorias
+2023-06-09 13:53:07 | INFO: Obtendo contas bancarias
+2023-06-09 13:53:07 | WARNING: CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!
+2023-06-09 13:53:07 | WARNING: Arguardando 15 segundos antes de iniciar...
+2023-06-09 13:54:21 | INFO: Obtendo transacoes mensais
+2023-06-09 13:54:21 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 13:54:22 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 13:54:23 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 13:54:24 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 13:54:24 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 13:54:25 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 13:54:26 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 13:54:26 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 13:54:27 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 13:54:28 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 13:54:29 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 13:54:29 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 13:54:30 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 13:54:31 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 13:54:32 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 13:54:33 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 13:54:34 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 13:54:35 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 13:54:36 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 13:54:37 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 13:54:38 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 13:54:39 | INFO: Obtendo 215 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 13:54:40 | INFO: Obtendo 203 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 13:54:40 | INFO: Obtendo 25 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 13:54:41 | INFO: Obtendo categorias
+2023-06-09 13:54:41 | INFO: Obtendo contas bancarias
+2023-06-09 13:54:41 | WARNING: CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!
+2023-06-09 13:54:42 | WARNING: Arguardando 15 segundos antes de iniciar...
+2023-06-09 13:54:42 | INFO: Movimentação deletada com sucesso: recarga claro - claro - Inserido Via [API]
+2023-06-09 13:54:42 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:43 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:43 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento rafael do coco cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:43 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 106217042 - Inserido Via [API]
+2023-06-09 13:54:44 | INFO: Movimentação deletada com sucesso: recarga claro - claro - Inserido Via [API]
+2023-06-09 13:54:44 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:44 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 106839330 - Inserido Via [API]
+2023-06-09 13:54:45 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento uber *uber *trip sao paulo bra - Inserido Via [API]
+2023-06-09 13:54:45 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento ancar centro oeste est cuiaba b - Inserido Via [API]
+2023-06-09 13:54:45 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento multicoisas cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:46 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:46 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:46 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:47 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento poesy aviamentos cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:47 | INFO: Movimentação deletada com sucesso: recarga claro - claro - Inserido Via [API]
+2023-06-09 13:54:47 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento estacionamento do shop varzea g - Inserido Via [API]
+2023-06-09 13:54:48 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass varzea g - Inserido Via [API]
+2023-06-09 13:54:48 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento gran boliche varzea grande bra - Inserido Via [API]
+2023-06-09 13:54:48 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento uber *trip help.uber.c sp bra - Inserido Via [API]
+2023-06-09 13:54:49 | INFO: Movimentação deletada com sucesso: compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat - Inserido Via [API]
+2023-06-09 13:54:49 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:50 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:50 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:50 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento ancar centro oeste est cuiaba b - Inserido Via [API]
+2023-06-09 13:54:51 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento wanderson goncalves ro cuiaba b - Inserido Via [API]
+2023-06-09 13:54:51 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:51 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:52 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento rafael do coco cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:52 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento mercearia n s aparecid cuiaba b - Inserido Via [API]
+2023-06-09 13:54:52 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 107546292 - Inserido Via [API]
+2023-06-09 13:54:53 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:53 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:54 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:54 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:54 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:55 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:55 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass cuiaba b - Inserido Via [API]
+2023-06-09 13:54:55 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass cuiaba b - Inserido Via [API]
+2023-06-09 13:54:56 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass cuiaba b - Inserido Via [API]
+2023-06-09 13:54:56 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:56 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 108338368 - Inserido Via [API]
+2023-06-09 13:54:57 | INFO: Movimentação deletada com sucesso: recarga claro - claro - Inserido Via [API]
+2023-06-09 13:54:57 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:58 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento silvia hair cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:58 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:58 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:59 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento drogasil 2405 cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:59 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 13:54:59 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:00 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento drogasil 2405 cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:00 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:00 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:01 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:01 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b - Inserido Via [API]
+2023-06-09 13:55:01 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:02 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pague menos 1078 cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:02 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:02 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:03 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:03 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:03 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:04 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:04 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:05 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:05 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:05 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:06 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento edna barbosa de souza cuiaba br - Inserido Via [API]
+2023-06-09 13:55:06 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento castor materiais para cuiaba br - Inserido Via [API]
+2023-06-09 13:55:06 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:07 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 13:55:07 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 111262612 - Inserido Via [API]
+2023-06-09 13:59:57 | INFO: Obtendo transacoes mensais
+2023-06-09 13:59:58 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 13:59:58 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 13:59:59 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:00:00 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:00:00 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:00:01 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:00:02 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:00:03 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:00:03 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:00:04 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:00:05 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:00:06 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:00:07 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:00:08 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:00:09 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:00:10 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:00:10 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:00:11 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:00:12 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:00:13 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:00:14 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:00:15 | INFO: Obtendo 190 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:00:16 | INFO: Obtendo 157 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:00:17 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:00:17 | INFO: Obtendo categorias
+2023-06-09 14:00:17 | INFO: Obtendo contas bancarias
+2023-06-09 14:00:18 | INFO: Processando novas transacoes
+2023-06-09 14:00:18 | INFO: Processando transacoes por categorias
+2023-06-09 14:00:18 | INFO: 1744 Transacoes processadas e categorias padrão mapeadas!
+2023-06-09 14:01:15 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-05-31, duplicidade com ancar centro oeste est cuiaba bra  de 2023-05-31...
+2023-06-09 14:01:15 | INFO: Ignorando transação compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-31, duplicidade com cea pan 223 ecpc cuiaba bra  de 2023-05-31...
+2023-06-09 14:01:15 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-05-29, duplicidade com quiosque granpark cuiaba bra  de 2023-05-29...
+2023-06-09 14:01:18 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-08...
+2023-06-09 14:01:18 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:01:18 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:01:18 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:01:18 | INFO: Ignorando transação compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-08...
+2023-06-09 14:01:18 | INFO: Ignorando transação abastecimento shell box - 108338368 de 2023-05-08, duplicidade com abastecimento shell box - 108338368 de 2023-05-08...
+2023-06-09 14:01:19 | INFO: Ignorando transação recarga claro - claro de 2023-05-08, duplicidade com recarga claro - claro de 2023-05-08...
+2023-06-09 14:01:19 | INFO: Ignorando transação compra cartao - no estabelecimento silvia hair cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento silvia hair cuiaba bra de 2023-05-08...
+2023-06-09 14:01:19 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-05, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-05...
+2023-06-09 14:01:19 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-03, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-03...
+2023-06-09 14:01:19 | INFO: Ignorando transação compra cartao - no estabelecimento havan cuiaba bosq da s cuiaba b de 2023-05-02, duplicidade com havan cuiaba bosq da s cuiaba bra  de 2023-05-02...
+2023-06-09 14:01:20 | INFO: Ignorando transação compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-02...
+2023-06-09 14:01:20 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-02...
+2023-06-09 14:01:20 | INFO: Ignorando transação compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-05-02...
+2023-06-09 14:01:20 | INFO: Ignorando transação compra cartao - no estabelecimento mercearia n s aparecid cuiaba b de 2023-05-02, duplicidade com compra cartao - no estabelecimento mercearia n s aparecid cuiaba b de 2023-05-02...
+2023-06-09 14:01:20 | INFO: Ignorando transação abastecimento shell box - 107546292 de 2023-05-02, duplicidade com abastecimento shell box - 107546292 de 2023-05-02...
+2023-06-09 14:01:20 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-02...
+2023-06-09 14:01:20 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27...
+2023-06-09 14:01:20 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27, duplicidade com compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27...
+2023-06-09 14:01:21 | INFO: Ignorando transação compra cartao - no estabelecimento uber *trip help.uber.c sp bra de 2023-04-25, duplicidade com compra cartao - no estabelecimento uber *trip help.uber.c sp bra de 2023-04-25...
+2023-06-09 14:01:21 | INFO: Ignorando transação compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat de 2023-04-25, duplicidade com compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat de 2023-04-25...
+2023-06-09 14:01:21 | INFO: Ignorando transação compra cartao - no estabelecimento uber *uber *trip sao paulo bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento uber *uber *trip sao paulo bra de 2023-04-24...
+2023-06-09 14:01:21 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-24, duplicidade com compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27...
+2023-06-09 14:01:21 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27...
+2023-06-09 14:01:21 | INFO: Ignorando transação compra cartao - no estabelecimento poesy aviamentos cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento poesy aviamentos cuiaba bra de 2023-04-24...
+2023-06-09 14:01:22 | INFO: Ignorando transação recarga claro - claro de 2023-04-24, duplicidade com recarga claro - claro de 2023-04-24...
+2023-06-09 14:01:22 | INFO: Ignorando transação abastecimento shell box - 106839330 de 2023-04-24, duplicidade com abastecimento shell box - 106839330 de 2023-04-24...
+2023-06-09 14:01:22 | INFO: Ignorando transação compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b de 2023-04-19, duplicidade com mp *sucolaranjadas nac osasco bra  de 2023-04-19...
+2023-06-09 14:01:22 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-04-19, duplicidade com quiosque granpark cuiaba bra  de 2023-04-19...
+2023-06-09 14:01:23 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-04-11, duplicidade com quiosque granpark cuiaba bra  de 2023-04-11...
+2023-06-09 14:01:24 | INFO: Ignorando transação compra cartao - no estabelecimento pg *ton edexpress sao paulo bra de 2023-04-03, duplicidade com pg *ton edexpress sao paulo bra  de 2023-04-03...
+2023-06-09 14:01:25 | INFO: Ignorando transação compra cartao - no estabelecimento vet sao francisco cuiaba bra de 2023-03-27, duplicidade com vet sao francisco cuiaba bra castração luna  de 2023-03-27...
+2023-06-09 14:01:25 | INFO: Ignorando transação compra cartao - no estabelecimento g. paz rodrigues cuiaba bra de 2023-03-06, duplicidade com compra cartao - no estabelecimento g. paz rodrigues cuiaba bra de 2023-03-06...
+2023-06-09 14:01:25 | WARNING: CUIDADO! Flag de inserção no Organizze ativada!
+2023-06-09 14:01:25 | WARNING: Arguardando 5 segundos antes de iniciar as inserções...
+2023-06-09 14:01:53 | INFO: Obtendo transacoes mensais
+2023-06-09 14:01:53 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:01:54 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:01:55 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:01:56 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:01:56 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:01:57 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:01:58 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:01:58 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:01:59 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:02:12 | INFO: Obtendo transacoes mensais
+2023-06-09 14:02:13 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:02:14 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:02:15 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:02:20 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:02:38 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:02:40 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:02:42 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:02:44 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:02:45 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:02:46 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:02:47 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:02:48 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:02:49 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:02:50 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:02:52 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:02:53 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:02:54 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:02:55 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:02:56 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:02:57 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:02:58 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:02:59 | INFO: Obtendo 190 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:03:00 | INFO: Obtendo 157 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:03:00 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:03:01 | INFO: Obtendo categorias
+2023-06-09 14:03:01 | INFO: Obtendo contas bancarias
+2023-06-09 14:03:01 | INFO: Processando novas transacoes
+2023-06-09 14:03:01 | INFO: Processando transacoes por categorias
+2023-06-09 14:03:02 | INFO: 1744 Transacoes processadas e categorias padrão mapeadas!
+2023-06-09 14:03:02 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-05-31, duplicidade com ancar centro oeste est cuiaba bra  de 2023-05-31...
+2023-06-09 14:03:02 | INFO: Ignorando transação compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-31, duplicidade com cea pan 223 ecpc cuiaba bra  de 2023-05-31...
+2023-06-09 14:03:02 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-05-29, duplicidade com quiosque granpark cuiaba bra  de 2023-05-29...
+2023-06-09 14:03:05 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-08...
+2023-06-09 14:03:05 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:03:05 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:03:06 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:03:06 | INFO: Ignorando transação compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-08...
+2023-06-09 14:03:06 | INFO: Ignorando transação abastecimento shell box - 108338368 de 2023-05-08, duplicidade com abastecimento shell box - 108338368 de 2023-05-08...
+2023-06-09 14:03:06 | INFO: Ignorando transação recarga claro - claro de 2023-05-08, duplicidade com recarga claro - claro de 2023-05-08...
+2023-06-09 14:03:06 | INFO: Ignorando transação compra cartao - no estabelecimento silvia hair cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento silvia hair cuiaba bra de 2023-05-08...
+2023-06-09 14:03:06 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-05, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-05...
+2023-06-09 14:03:06 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-03, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-03...
+2023-06-09 14:03:07 | INFO: Ignorando transação compra cartao - no estabelecimento havan cuiaba bosq da s cuiaba b de 2023-05-02, duplicidade com havan cuiaba bosq da s cuiaba bra  de 2023-05-02...
+2023-06-09 14:03:07 | INFO: Ignorando transação compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-02...
+2023-06-09 14:03:07 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-02...
+2023-06-09 14:03:07 | INFO: Ignorando transação compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-05-02...
+2023-06-09 14:03:07 | INFO: Ignorando transação compra cartao - no estabelecimento mercearia n s aparecid cuiaba b de 2023-05-02, duplicidade com compra cartao - no estabelecimento mercearia n s aparecid cuiaba b de 2023-05-02...
+2023-06-09 14:03:07 | INFO: Ignorando transação abastecimento shell box - 107546292 de 2023-05-02, duplicidade com abastecimento shell box - 107546292 de 2023-05-02...
+2023-06-09 14:03:07 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-02...
+2023-06-09 14:03:07 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27...
+2023-06-09 14:03:08 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27, duplicidade com compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27...
+2023-06-09 14:03:08 | INFO: Ignorando transação compra cartao - no estabelecimento uber *trip help.uber.c sp bra de 2023-04-25, duplicidade com compra cartao - no estabelecimento uber *trip help.uber.c sp bra de 2023-04-25...
+2023-06-09 14:03:08 | INFO: Ignorando transação compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat de 2023-04-25, duplicidade com compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat de 2023-04-25...
+2023-06-09 14:03:08 | INFO: Ignorando transação compra cartao - no estabelecimento uber *uber *trip sao paulo bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento uber *uber *trip sao paulo bra de 2023-04-24...
+2023-06-09 14:03:08 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-24, duplicidade com compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27...
+2023-06-09 14:03:08 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27...
+2023-06-09 14:03:09 | INFO: Ignorando transação compra cartao - no estabelecimento poesy aviamentos cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento poesy aviamentos cuiaba bra de 2023-04-24...
+2023-06-09 14:03:09 | INFO: Ignorando transação recarga claro - claro de 2023-04-24, duplicidade com recarga claro - claro de 2023-04-24...
+2023-06-09 14:03:09 | INFO: Ignorando transação abastecimento shell box - 106839330 de 2023-04-24, duplicidade com abastecimento shell box - 106839330 de 2023-04-24...
+2023-06-09 14:03:09 | INFO: Ignorando transação compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b de 2023-04-19, duplicidade com mp *sucolaranjadas nac osasco bra  de 2023-04-19...
+2023-06-09 14:03:09 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-04-19, duplicidade com quiosque granpark cuiaba bra  de 2023-04-19...
+2023-06-09 14:03:10 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-04-11, duplicidade com quiosque granpark cuiaba bra  de 2023-04-11...
+2023-06-09 14:03:11 | INFO: Ignorando transação compra cartao - no estabelecimento pg *ton edexpress sao paulo bra de 2023-04-03, duplicidade com pg *ton edexpress sao paulo bra  de 2023-04-03...
+2023-06-09 14:03:12 | INFO: Ignorando transação compra cartao - no estabelecimento vet sao francisco cuiaba bra de 2023-03-27, duplicidade com vet sao francisco cuiaba bra castração luna  de 2023-03-27...
+2023-06-09 14:03:12 | INFO: Ignorando transação compra cartao - no estabelecimento g. paz rodrigues cuiaba bra de 2023-03-06, duplicidade com compra cartao - no estabelecimento g. paz rodrigues cuiaba bra de 2023-03-06...
+2023-06-09 14:03:12 | WARNING: CUIDADO! Flag de inserção no Organizze ativada!
+2023-06-09 14:03:12 | WARNING: Arguardando 5 segundos antes de iniciar as inserções...
+2023-06-09 14:03:17 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:18 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:18 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento edna barbosa de souza cuiaba br - Inserido Via [API]
+2023-06-09 14:03:19 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento castor materiais para cuiaba br - Inserido Via [API]
+2023-06-09 14:03:19 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:19 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:20 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:20 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:20 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pague menos 1078 cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:21 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b - Inserido Via [API]
+2023-06-09 14:03:21 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:22 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:22 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:22 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:23 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento drogasil 2405 cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:23 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:23 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento wanderson goncalves ro cuiaba b - Inserido Via [API]
+2023-06-09 14:03:24 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:24 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:24 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento multicoisas cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:25 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:25 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:26 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento estacionamento do shop varzea g - Inserido Via [API]
+2023-06-09 14:03:26 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass varzea g - Inserido Via [API]
+2023-06-09 14:03:26 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento gran boliche varzea grande bra - Inserido Via [API]
+2023-06-09 14:03:27 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:27 | INFO: Movimentação criada com sucesso: recarga claro - claro - Inserido Via [API]
+2023-06-09 14:03:27 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:28 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:28 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento rafael do coco cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:29 | INFO: Movimentação criada com sucesso: abastecimento shell box - 106217042 - Inserido Via [API]
+2023-06-09 14:03:29 | INFO: Movimentação criada com sucesso: recarga claro - claro - Inserido Via [API]
+2023-06-09 14:03:29 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:30 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:30 | INFO: Movimentação criada com sucesso: abastecimento shell box - 105472015 - Inserido Via [API]
+2023-06-09 14:03:30 | INFO: Movimentação criada com sucesso: ted enviada - 102 0002 0000000674362 gabriel dercilio batista g - Inserido Via [API]
+2023-06-09 14:03:31 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass cuiaba b - Inserido Via [API]
+2023-06-09 14:03:31 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento multicoisas cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:31 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento rafael do coco cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:32 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pratica manutencao de cuiaba br - Inserido Via [API]
+2023-06-09 14:03:32 | INFO: Movimentação criada com sucesso: abastecimento shell box - 104891296 - Inserido Via [API]
+2023-06-09 14:03:33 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pague menos 1078 cuiaba bra - Inserido Via [API]
+2023-06-09 14:03:33 | INFO: Movimentação criada com sucesso: abastecimento shell box - 104471186 - Inserido Via [API]
+2023-06-09 14:03:51 | INFO: Obtendo transacoes mensais
+2023-06-09 14:03:51 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:03:52 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:03:53 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:03:54 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:03:54 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:03:55 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:03:56 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:03:56 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:03:57 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:03:58 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:03:59 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:03:59 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:04:00 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:04:01 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:04:02 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:04:03 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:04:04 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:04:05 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:04:06 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:04:07 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:04:08 | INFO: Obtendo 208 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:04:09 | INFO: Obtendo 213 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:04:10 | INFO: Obtendo 174 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:04:10 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:04:10 | INFO: Obtendo categorias
+2023-06-09 14:04:11 | INFO: Obtendo contas bancarias
+2023-06-09 14:04:11 | INFO: Processando novas transacoes
+2023-06-09 14:04:11 | INFO: Processando transacoes por categorias
+2023-06-09 14:04:11 | INFO: 1768 Transacoes processadas e categorias padrão mapeadas!
+2023-06-09 14:05:10 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-31, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-31...
+2023-06-09 14:05:10 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-05-31, duplicidade com ancar centro oeste est cuiaba bra  de 2023-05-31...
+2023-06-09 14:05:10 | INFO: Ignorando transação compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-31, duplicidade com cea pan 223 ecpc cuiaba bra  de 2023-05-31...
+2023-06-09 14:05:11 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-05-29, duplicidade com quiosque granpark cuiaba bra  de 2023-05-29...
+2023-06-09 14:05:11 | INFO: Ignorando transação compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-29, duplicidade com compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-29...
+2023-06-09 14:05:11 | INFO: Ignorando transação compra cartao - no estabelecimento edna barbosa de souza cuiaba br de 2023-05-29, duplicidade com compra cartao - no estabelecimento edna barbosa de souza cuiaba br de 2023-05-29...
+2023-06-09 14:05:11 | INFO: Ignorando transação compra cartao - no estabelecimento castor materiais para cuiaba br de 2023-05-29, duplicidade com compra cartao - no estabelecimento castor materiais para cuiaba br de 2023-05-29...
+2023-06-09 14:05:11 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-25, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-25...
+2023-06-09 14:05:11 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-25, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-25...
+2023-06-09 14:05:12 | INFO: Ignorando transação compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-22, duplicidade com compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-22...
+2023-06-09 14:05:12 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-19, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-19...
+2023-06-09 14:05:12 | INFO: Ignorando transação compra cartao - no estabelecimento pague menos 1078 cuiaba bra de 2023-05-18, duplicidade com compra cartao - no estabelecimento pague menos 1078 cuiaba bra de 2023-05-18...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b de 2023-05-17, duplicidade com compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b de 2023-05-17...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-05-17, duplicidade com compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-05-17...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-15, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-15...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-11, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-11...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-05-11, duplicidade com compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-05-11...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento drogasil 2405 cuiaba bra de 2023-05-11, duplicidade com compra cartao - no estabelecimento drogasil 2405 cuiaba bra de 2023-05-11...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-08...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:05:13 | INFO: Ignorando transação compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-08...
+2023-06-09 14:05:14 | INFO: Ignorando transação abastecimento shell box - 108338368 de 2023-05-08, duplicidade com abastecimento shell box - 108338368 de 2023-05-08...
+2023-06-09 14:05:14 | INFO: Ignorando transação recarga claro - claro de 2023-05-08, duplicidade com recarga claro - claro de 2023-05-08...
+2023-06-09 14:05:14 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-08...
+2023-06-09 14:05:14 | INFO: Ignorando transação compra cartao - no estabelecimento silvia hair cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento silvia hair cuiaba bra de 2023-05-08...
+2023-06-09 14:05:14 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-05, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-05...
+2023-06-09 14:05:14 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-03, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-03...
+2023-06-09 14:05:14 | INFO: Ignorando transação compra cartao - no estabelecimento havan cuiaba bosq da s cuiaba b de 2023-05-02, duplicidade com havan cuiaba bosq da s cuiaba bra  de 2023-05-02...
+2023-06-09 14:05:14 | INFO: Ignorando transação compra cartao - no estabelecimento wanderson goncalves ro cuiaba b de 2023-05-02, duplicidade com compra cartao - no estabelecimento wanderson goncalves ro cuiaba b de 2023-05-02...
+2023-06-09 14:05:14 | INFO: Ignorando transação compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-02...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-02...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-05-02...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento mercearia n s aparecid cuiaba b de 2023-05-02, duplicidade com compra cartao - no estabelecimento mercearia n s aparecid cuiaba b de 2023-05-02...
+2023-06-09 14:05:15 | INFO: Ignorando transação abastecimento shell box - 107546292 de 2023-05-02, duplicidade com abastecimento shell box - 107546292 de 2023-05-02...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-02...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27, duplicidade com compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-26, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-26...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-04-26, duplicidade com compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-04-26...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento uber *trip help.uber.c sp bra de 2023-04-25, duplicidade com compra cartao - no estabelecimento uber *trip help.uber.c sp bra de 2023-04-25...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat de 2023-04-25, duplicidade com compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat de 2023-04-25...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento uber *uber *trip sao paulo bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento uber *uber *trip sao paulo bra de 2023-04-24...
+2023-06-09 14:05:15 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-24, duplicidade com compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27...
+2023-06-09 14:05:16 | INFO: Ignorando transação compra cartao - no estabelecimento multicoisas cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento multicoisas cuiaba bra de 2023-04-24...
+2023-06-09 14:05:16 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-24...
+2023-06-09 14:05:16 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-24...
+2023-06-09 14:05:16 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27...
+2023-06-09 14:05:16 | INFO: Ignorando transação compra cartao - no estabelecimento poesy aviamentos cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento poesy aviamentos cuiaba bra de 2023-04-24...
+2023-06-09 14:05:16 | INFO: Ignorando transação recarga claro - claro de 2023-04-24, duplicidade com recarga claro - claro de 2023-04-24...
+2023-06-09 14:05:16 | INFO: Ignorando transação compra cartao - no estabelecimento estacionamento do shop varzea g de 2023-04-24, duplicidade com compra cartao - no estabelecimento estacionamento do shop varzea g de 2023-04-24...
+2023-06-09 14:05:16 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass varzea g de 2023-04-24, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass varzea g de 2023-04-24...
+2023-06-09 14:05:16 | INFO: Ignorando transação compra cartao - no estabelecimento gran boliche varzea grande bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento gran boliche varzea grande bra de 2023-04-24...
+2023-06-09 14:05:16 | INFO: Ignorando transação abastecimento shell box - 106839330 de 2023-04-24, duplicidade com abastecimento shell box - 106839330 de 2023-04-24...
+2023-06-09 14:05:16 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-20, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-20...
+2023-06-09 14:05:17 | INFO: Ignorando transação compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b de 2023-04-19, duplicidade com mp *sucolaranjadas nac osasco bra  de 2023-04-19...
+2023-06-09 14:05:17 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-04-19, duplicidade com quiosque granpark cuiaba bra  de 2023-04-19...
+2023-06-09 14:05:17 | INFO: Ignorando transação recarga claro - claro de 2023-04-18, duplicidade com recarga claro - claro de 2023-04-18...
+2023-06-09 14:05:17 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-17, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-17...
+2023-06-09 14:05:17 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-17, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-17...
+2023-06-09 14:05:17 | INFO: Ignorando transação compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-04-17, duplicidade com compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-04-17...
+2023-06-09 14:05:17 | INFO: Ignorando transação abastecimento shell box - 106217042 de 2023-04-17, duplicidade com abastecimento shell box - 106217042 de 2023-04-17...
+2023-06-09 14:05:17 | INFO: Ignorando transação recarga claro - claro de 2023-04-14, duplicidade com recarga claro - claro de 2023-04-14...
+2023-06-09 14:05:17 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-04-11, duplicidade com quiosque granpark cuiaba bra  de 2023-04-11...
+2023-06-09 14:05:17 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-04-11, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-04-11...
+2023-06-09 14:05:17 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-10, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-10...
+2023-06-09 14:05:17 | INFO: Ignorando transação abastecimento shell box - 105472015 de 2023-04-06, duplicidade com abastecimento shell box - 105472015 de 2023-04-06...
+2023-06-09 14:05:18 | INFO: Ignorando transação ted enviada - 102 0002 0000000674362 gabriel dercilio batista g de 2023-04-04, duplicidade com ted enviada - 102 0002 0000000674362 gabriel dercilio batista g de 2023-04-04...
+2023-06-09 14:05:18 | INFO: Ignorando transação compra cartao - no estabelecimento pg *ton edexpress sao paulo bra de 2023-04-03, duplicidade com pg *ton edexpress sao paulo bra  de 2023-04-03...
+2023-06-09 14:05:18 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-04-03, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-04-03...
+2023-06-09 14:05:18 | INFO: Ignorando transação compra cartao - no estabelecimento multicoisas cuiaba bra de 2023-04-03, duplicidade com compra cartao - no estabelecimento multicoisas cuiaba bra de 2023-04-03...
+2023-06-09 14:05:18 | INFO: Ignorando transação compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-04-03, duplicidade com compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-04-03...
+2023-06-09 14:05:18 | INFO: Ignorando transação compra cartao - no estabelecimento pratica manutencao de cuiaba br de 2023-04-03, duplicidade com compra cartao - no estabelecimento pratica manutencao de cuiaba br de 2023-04-03...
+2023-06-09 14:05:18 | INFO: Ignorando transação abastecimento shell box - 104891296 de 2023-03-31, duplicidade com abastecimento shell box - 104891296 de 2023-03-31...
+2023-06-09 14:05:18 | INFO: Ignorando transação compra cartao - no estabelecimento pague menos 1078 cuiaba bra de 2023-03-29, duplicidade com compra cartao - no estabelecimento pague menos 1078 cuiaba bra de 2023-03-29...
+2023-06-09 14:05:19 | INFO: Ignorando transação compra cartao - no estabelecimento vet sao francisco cuiaba bra de 2023-03-27, duplicidade com vet sao francisco cuiaba bra castração luna  de 2023-03-27...
+2023-06-09 14:05:19 | INFO: Ignorando transação abastecimento shell box - 104471186 de 2023-03-27, duplicidade com abastecimento shell box - 104471186 de 2023-03-27...
+2023-06-09 14:05:19 | INFO: Ignorando transação compra cartao - no estabelecimento g. paz rodrigues cuiaba bra de 2023-03-06, duplicidade com compra cartao - no estabelecimento g. paz rodrigues cuiaba bra de 2023-03-06...
+2023-06-09 14:05:19 | WARNING: CUIDADO! Flag de inserção no Organizze ativada!
+2023-06-09 14:05:19 | WARNING: Arguardando 5 segundos antes de iniciar as inserções...
+2023-06-09 14:05:59 | INFO: Obtendo transacoes mensais
+2023-06-09 14:06:00 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:06:01 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:06:01 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:06:02 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:06:03 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:06:03 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:06:04 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:06:05 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:06:05 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:06:06 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:06:07 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:06:08 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:06:09 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:06:09 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:06:10 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:06:11 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:06:12 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:06:13 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:06:14 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:06:15 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:06:16 | INFO: Obtendo 208 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:06:17 | INFO: Obtendo 213 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:06:18 | INFO: Obtendo 174 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:06:19 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:06:19 | INFO: Obtendo categorias
+2023-06-09 14:06:20 | INFO: Obtendo contas bancarias
+2023-06-09 14:06:20 | WARNING: CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!
+2023-06-09 14:06:20 | WARNING: Arguardando 15 segundos antes de iniciar...
+2023-06-09 14:06:37 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 104471186 - Inserido Via [API]
+2023-06-09 14:06:39 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pague menos 1078 cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:40 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 104891296 - Inserido Via [API]
+2023-06-09 14:06:40 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass cuiaba b - Inserido Via [API]
+2023-06-09 14:06:40 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento multicoisas cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:41 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento rafael do coco cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:41 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pratica manutencao de cuiaba br - Inserido Via [API]
+2023-06-09 14:06:41 | INFO: Movimentação deletada com sucesso: ted enviada - 102 0002 0000000674362 gabriel dercilio batista g - Inserido Via [API]
+2023-06-09 14:06:42 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 105472015 - Inserido Via [API]
+2023-06-09 14:06:42 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:42 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:43 | INFO: Movimentação deletada com sucesso: recarga claro - claro - Inserido Via [API]
+2023-06-09 14:06:43 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:43 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:44 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento rafael do coco cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:44 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 106217042 - Inserido Via [API]
+2023-06-09 14:06:44 | INFO: Movimentação deletada com sucesso: recarga claro - claro - Inserido Via [API]
+2023-06-09 14:06:45 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:45 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento multicoisas cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:46 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:46 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:46 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento estacionamento do shop varzea g - Inserido Via [API]
+2023-06-09 14:06:47 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass varzea g - Inserido Via [API]
+2023-06-09 14:06:47 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento gran boliche varzea grande bra - Inserido Via [API]
+2023-06-09 14:06:47 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:48 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:48 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento wanderson goncalves ro cuiaba b - Inserido Via [API]
+2023-06-09 14:06:48 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:49 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:49 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:49 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento drogasil 2405 cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:50 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:50 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b - Inserido Via [API]
+2023-06-09 14:06:50 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:51 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pague menos 1078 cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:51 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:51 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:52 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:52 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:53 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 14:06:53 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento edna barbosa de souza cuiaba br - Inserido Via [API]
+2023-06-09 14:06:53 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento castor materiais para cuiaba br - Inserido Via [API]
+2023-06-09 14:06:54 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 14:08:24 | INFO: Obtendo transacoes mensais
+2023-06-09 14:08:24 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:08:25 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:08:25 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:08:26 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:08:27 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:08:27 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:08:28 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:08:29 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:08:30 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:08:49 | INFO: Obtendo transacoes mensais
+2023-06-09 14:08:50 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:08:51 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:08:51 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:08:52 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:08:53 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:08:53 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:08:54 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:08:55 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:08:55 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:08:56 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:08:57 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:08:58 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:08:58 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:08:59 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:09:00 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:09:01 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:09:02 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:09:03 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:09:04 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:09:05 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:09:06 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:09:07 | INFO: Obtendo 190 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:09:08 | INFO: Obtendo 157 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:09:08 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:09:08 | INFO: Obtendo categorias
+2023-06-09 14:09:09 | INFO: Obtendo contas bancarias
+2023-06-09 14:09:09 | INFO: Processando novas transacoes
+2023-06-09 14:09:09 | INFO: Processando transacoes por categorias
+2023-06-09 14:09:09 | INFO: 1744 Transacoes processadas e categorias padrão mapeadas!
+2023-06-09 14:09:09 | WARNING: CUIDADO! Flag de inserção no Organizze ativada!
+2023-06-09 14:09:09 | WARNING: Arguardando 5 segundos antes de iniciar as inserções...
+2023-06-09 14:11:45 | INFO: Obtendo transacoes mensais
+2023-06-09 14:11:46 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:11:46 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:11:47 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:11:48 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:11:48 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:11:49 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:11:50 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:11:50 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:11:51 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:11:52 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:11:53 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:11:54 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:11:54 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:11:55 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:11:56 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:11:57 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:11:58 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:11:59 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:11:59 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:12:00 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:12:01 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:12:02 | INFO: Obtendo 190 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:12:03 | INFO: Obtendo 157 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:12:04 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:12:04 | INFO: Obtendo categorias
+2023-06-09 14:12:04 | INFO: Obtendo contas bancarias
+2023-06-09 14:12:05 | INFO: Processando novas transacoes
+2023-06-09 14:12:05 | INFO: Processando transacoes por categorias
+2023-06-09 14:12:05 | INFO: 1744 Transacoes processadas e categorias padrão mapeadas!
+2023-06-09 14:12:05 | WARNING: CUIDADO! Flag de inserção no Organizze ativada!
+2023-06-09 14:12:05 | WARNING: Arguardando 5 segundos antes de iniciar as inserções...
+2023-06-09 14:12:19 | INFO: Obtendo transacoes mensais
+2023-06-09 14:12:19 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:12:20 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:12:21 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:12:22 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:12:22 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:12:23 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:12:24 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:12:24 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:12:25 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:12:26 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:12:27 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:12:27 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:12:28 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:12:29 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:12:30 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:12:31 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:12:32 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:12:33 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:12:34 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:12:34 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:12:36 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:12:37 | INFO: Obtendo 190 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:12:37 | INFO: Obtendo 157 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:12:38 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:12:38 | INFO: Obtendo categorias
+2023-06-09 14:12:39 | INFO: Obtendo contas bancarias
+2023-06-09 14:12:39 | INFO: Processando novas transacoes
+2023-06-09 14:12:39 | INFO: Processando transacoes por categorias
+2023-06-09 14:12:39 | INFO: 1744 Transacoes processadas e categorias padrão mapeadas!
+2023-06-09 14:12:39 | WARNING: CUIDADO! Flag de inserção no Organizze ativada!
+2023-06-09 14:12:39 | WARNING: Arguardando 5 segundos antes de iniciar as inserções...
+2023-06-09 14:12:55 | INFO: Obtendo transacoes mensais
+2023-06-09 14:12:55 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:12:56 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:12:57 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:12:58 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:12:58 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:12:59 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:13:00 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:13:01 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:13:02 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:13:03 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:13:04 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:13:04 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:13:05 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:13:06 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:13:07 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:13:08 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:13:09 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:13:10 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:13:11 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:13:12 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:13:13 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:13:14 | INFO: Obtendo 190 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:13:15 | INFO: Obtendo 157 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:13:16 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:13:16 | INFO: Obtendo categorias
+2023-06-09 14:13:16 | INFO: Obtendo contas bancarias
+2023-06-09 14:13:17 | INFO: Processando novas transacoes
+2023-06-09 14:13:17 | INFO: Processando transacoes por categorias
+2023-06-09 14:13:17 | INFO: 1744 Transacoes processadas e categorias padrão mapeadas!
+2023-06-09 14:14:20 | INFO: Obtendo transacoes mensais
+2023-06-09 14:14:20 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:14:21 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:14:22 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:14:22 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:14:23 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:14:24 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:14:24 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:14:25 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:14:26 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:14:27 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:14:27 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:14:28 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:14:29 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:14:30 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:14:31 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:14:32 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:14:33 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:14:34 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:14:35 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:14:35 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:14:37 | INFO: Obtendo 205 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:14:38 | INFO: Obtendo 190 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:14:39 | INFO: Obtendo 157 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:14:39 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:14:39 | INFO: Obtendo categorias
+2023-06-09 14:14:40 | INFO: Obtendo contas bancarias
+2023-06-09 14:14:40 | INFO: Processando novas transacoes
+2023-06-09 14:14:40 | INFO: Processando transacoes por categorias
+2023-06-09 14:14:40 | INFO: 1744 Transacoes processadas e categorias padrão mapeadas!
+2023-06-09 14:14:40 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-05-31, duplicidade com ancar centro oeste est cuiaba bra  de 2023-05-31...
+2023-06-09 14:14:41 | INFO: Ignorando transação compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-31, duplicidade com cea pan 223 ecpc cuiaba bra  de 2023-05-31...
+2023-06-09 14:14:41 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-05-29, duplicidade com quiosque granpark cuiaba bra  de 2023-05-29...
+2023-06-09 14:14:43 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-08...
+2023-06-09 14:14:43 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:14:43 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:14:43 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:14:44 | INFO: Ignorando transação compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-08...
+2023-06-09 14:14:44 | INFO: Ignorando transação abastecimento shell box - 108338368 de 2023-05-08, duplicidade com abastecimento shell box - 108338368 de 2023-05-08...
+2023-06-09 14:14:44 | INFO: Ignorando transação recarga claro - claro de 2023-05-08, duplicidade com recarga claro - claro de 2023-05-08...
+2023-06-09 14:14:44 | INFO: Ignorando transação compra cartao - no estabelecimento silvia hair cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento silvia hair cuiaba bra de 2023-05-08...
+2023-06-09 14:14:44 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-05, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-05...
+2023-06-09 14:14:44 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-03, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-03...
+2023-06-09 14:14:44 | INFO: Ignorando transação compra cartao - no estabelecimento havan cuiaba bosq da s cuiaba b de 2023-05-02, duplicidade com havan cuiaba bosq da s cuiaba bra  de 2023-05-02...
+2023-06-09 14:14:44 | INFO: Ignorando transação compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-02...
+2023-06-09 14:14:45 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-02...
+2023-06-09 14:14:45 | INFO: Ignorando transação compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-05-02...
+2023-06-09 14:14:45 | INFO: Ignorando transação compra cartao - no estabelecimento mercearia n s aparecid cuiaba b de 2023-05-02, duplicidade com compra cartao - no estabelecimento mercearia n s aparecid cuiaba b de 2023-05-02...
+2023-06-09 14:14:45 | INFO: Ignorando transação abastecimento shell box - 107546292 de 2023-05-02, duplicidade com abastecimento shell box - 107546292 de 2023-05-02...
+2023-06-09 14:14:45 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-02...
+2023-06-09 14:14:45 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27...
+2023-06-09 14:14:45 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27, duplicidade com compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27...
+2023-06-09 14:14:45 | INFO: Ignorando transação compra cartao - no estabelecimento uber *trip help.uber.c sp bra de 2023-04-25, duplicidade com compra cartao - no estabelecimento uber *trip help.uber.c sp bra de 2023-04-25...
+2023-06-09 14:14:45 | INFO: Ignorando transação compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat de 2023-04-25, duplicidade com compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat de 2023-04-25...
+2023-06-09 14:14:45 | INFO: Ignorando transação compra cartao - no estabelecimento uber *uber *trip sao paulo bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento uber *uber *trip sao paulo bra de 2023-04-24...
+2023-06-09 14:14:45 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-24, duplicidade com compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27...
+2023-06-09 14:14:46 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27...
+2023-06-09 14:14:46 | INFO: Ignorando transação compra cartao - no estabelecimento poesy aviamentos cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento poesy aviamentos cuiaba bra de 2023-04-24...
+2023-06-09 14:14:46 | INFO: Ignorando transação recarga claro - claro de 2023-04-24, duplicidade com recarga claro - claro de 2023-04-24...
+2023-06-09 14:14:46 | INFO: Ignorando transação abastecimento shell box - 106839330 de 2023-04-24, duplicidade com abastecimento shell box - 106839330 de 2023-04-24...
+2023-06-09 14:14:46 | INFO: Ignorando transação compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b de 2023-04-19, duplicidade com mp *sucolaranjadas nac osasco bra  de 2023-04-19...
+2023-06-09 14:14:47 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-04-19, duplicidade com quiosque granpark cuiaba bra  de 2023-04-19...
+2023-06-09 14:14:47 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-04-11, duplicidade com quiosque granpark cuiaba bra  de 2023-04-11...
+2023-06-09 14:14:48 | INFO: Ignorando transação compra cartao - no estabelecimento pg *ton edexpress sao paulo bra de 2023-04-03, duplicidade com pg *ton edexpress sao paulo bra  de 2023-04-03...
+2023-06-09 14:14:49 | INFO: Ignorando transação compra cartao - no estabelecimento vet sao francisco cuiaba bra de 2023-03-27, duplicidade com vet sao francisco cuiaba bra castração luna  de 2023-03-27...
+2023-06-09 14:14:49 | INFO: Ignorando transação compra cartao - no estabelecimento g. paz rodrigues cuiaba bra de 2023-03-06, duplicidade com compra cartao - no estabelecimento g. paz rodrigues cuiaba bra de 2023-03-06...
+2023-06-09 14:14:49 | WARNING: CUIDADO! Flag de inserção no Organizze ativada!
+2023-06-09 14:14:49 | WARNING: Arguardando 5 segundos antes de iniciar as inserções...
+2023-06-09 14:15:25 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:03 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API] | Categoria: Mercado
+2023-06-09 14:16:04 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento edna barbosa de souza cuiaba br - Inserido Via [API] | Categoria: Coisas do Carro
+2023-06-09 14:16:04 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento castor materiais para cuiaba br - Inserido Via [API] | Categoria: Casa
+2023-06-09 14:16:05 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:05 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API] | Categoria: Refrigerante
+2023-06-09 14:16:05 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API] | Categoria: Mercado
+2023-06-09 14:16:06 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:06 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pague menos 1078 cuiaba bra - Inserido Via [API] | Categoria: Farmácia
+2023-06-09 14:16:06 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:07 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API] | Categoria: Combustível
+2023-06-09 14:16:07 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:08 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:08 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API] | Categoria: Combustível
+2023-06-09 14:16:08 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento drogasil 2405 cuiaba bra - Inserido Via [API] | Categoria: Farmácia
+2023-06-09 14:16:09 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API] | Categoria: Refrigerante
+2023-06-09 14:16:09 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento wanderson goncalves ro cuiaba b - Inserido Via [API] | Categoria: Refrigerante
+2023-06-09 14:16:09 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:10 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API] | Categoria: Combustível
+2023-06-09 14:16:10 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento multicoisas cuiaba bra - Inserido Via [API] | Categoria: Casa
+2023-06-09 14:16:11 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API] | Categoria: Refrigerante
+2023-06-09 14:16:11 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:11 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento estacionamento do shop varzea g - Inserido Via [API] | Categoria: Estacionamento
+2023-06-09 14:16:12 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass varzea g - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:12 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento gran boliche varzea grande bra - Inserido Via [API] | Categoria: Lazer e hobbies
+2023-06-09 14:16:12 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API] | Categoria: Refrigerante
+2023-06-09 14:16:13 | INFO: Movimentação criada com sucesso: recarga claro - claro - Inserido Via [API] | Categoria: Celular Pré Pago
+2023-06-09 14:16:13 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API] | Categoria: Refrigerante
+2023-06-09 14:16:14 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:14 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento rafael do coco cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:14 | INFO: Movimentação criada com sucesso: abastecimento shell box - 106217042 - Inserido Via [API] | Categoria: Combustível
+2023-06-09 14:16:15 | INFO: Movimentação criada com sucesso: recarga claro - claro - Inserido Via [API] | Categoria: Celular Pré Pago
+2023-06-09 14:16:16 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:16 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API] | Categoria: Refrigerante
+2023-06-09 14:16:16 | INFO: Movimentação criada com sucesso: abastecimento shell box - 105472015 - Inserido Via [API] | Categoria: Combustível
+2023-06-09 14:16:17 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass cuiaba b - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:17 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento multicoisas cuiaba bra - Inserido Via [API] | Categoria: Casa
+2023-06-09 14:16:18 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento rafael do coco cuiaba bra - Inserido Via [API] | Categoria: Lanches
+2023-06-09 14:16:18 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pratica manutencao de cuiaba br - Inserido Via [API] | Categoria: Casa
+2023-06-09 14:16:18 | INFO: Movimentação criada com sucesso: abastecimento shell box - 104891296 - Inserido Via [API] | Categoria: Combustível
+2023-06-09 14:16:19 | INFO: Movimentação criada com sucesso: compra cartao - no estabelecimento pague menos 1078 cuiaba bra - Inserido Via [API] | Categoria: Farmácia
+2023-06-09 14:16:19 | INFO: Movimentação criada com sucesso: abastecimento shell box - 104471186 - Inserido Via [API] | Categoria: Combustível
+2023-06-09 14:21:38 | INFO: Obtendo transacoes mensais
+2023-06-09 14:21:39 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:21:39 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:21:40 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:21:41 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:21:41 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:21:42 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:21:43 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:21:44 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:21:44 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:21:45 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:21:46 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:21:46 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:21:47 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:21:48 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:21:49 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:21:50 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:21:51 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:21:52 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:21:53 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:21:54 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:21:55 | INFO: Obtendo 208 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:21:57 | INFO: Obtendo 212 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:21:58 | INFO: Obtendo 174 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:21:58 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:21:58 | INFO: Obtendo categorias
+2023-06-09 14:21:59 | INFO: Obtendo contas bancarias
+2023-06-09 14:21:59 | INFO: Processando novas transacoes
+2023-06-09 14:21:59 | INFO: Processando transacoes por categorias
+2023-06-09 14:21:59 | INFO: 1767 Transacoes processadas e categorias padrão mapeadas!
+2023-06-09 14:23:56 | INFO: Obtendo transacoes mensais
+2023-06-09 14:23:56 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 14:23:57 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 14:23:58 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 14:23:59 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 14:23:59 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 14:24:00 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 14:24:02 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 14:24:03 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 14:24:03 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 14:24:04 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 14:24:05 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 14:24:06 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 14:24:07 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 14:24:08 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 14:24:09 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 14:24:09 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 14:24:10 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 14:24:11 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 14:24:12 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 14:24:13 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 14:24:14 | INFO: Obtendo 208 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 14:24:15 | INFO: Obtendo 212 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 14:24:16 | INFO: Obtendo 174 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 14:24:17 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 14:24:17 | INFO: Obtendo categorias
+2023-06-09 14:24:17 | INFO: Obtendo contas bancarias
+2023-06-09 14:24:18 | INFO: Processando novas transacoes
+2023-06-09 14:24:18 | INFO: Processando transacoes por categorias
+2023-06-09 14:24:18 | INFO: 1767 Transacoes processadas e categorias padrão mapeadas!
+2023-06-09 14:24:18 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-31, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-31...
+2023-06-09 14:24:18 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-05-31, duplicidade com ancar centro oeste est cuiaba bra  de 2023-05-31...
+2023-06-09 14:24:18 | INFO: Ignorando transação compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-31, duplicidade com cea pan 223 ecpc cuiaba bra  de 2023-05-31...
+2023-06-09 14:24:19 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-05-29, duplicidade com quiosque granpark cuiaba bra  de 2023-05-29...
+2023-06-09 14:24:19 | INFO: Ignorando transação compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-29, duplicidade com compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-29...
+2023-06-09 14:24:19 | INFO: Ignorando transação compra cartao - no estabelecimento edna barbosa de souza cuiaba br de 2023-05-29, duplicidade com compra cartao - no estabelecimento edna barbosa de souza cuiaba br de 2023-05-29...
+2023-06-09 14:24:19 | INFO: Ignorando transação compra cartao - no estabelecimento castor materiais para cuiaba br de 2023-05-29, duplicidade com compra cartao - no estabelecimento castor materiais para cuiaba br de 2023-05-29...
+2023-06-09 14:24:19 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-25, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-25...
+2023-06-09 14:24:19 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-25, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-25...
+2023-06-09 14:24:20 | INFO: Ignorando transação compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-22, duplicidade com compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-22...
+2023-06-09 14:24:20 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-19, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-19...
+2023-06-09 14:24:20 | INFO: Ignorando transação compra cartao - no estabelecimento pague menos 1078 cuiaba bra de 2023-05-18, duplicidade com compra cartao - no estabelecimento pague menos 1078 cuiaba bra de 2023-05-18...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b de 2023-05-17, duplicidade com compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b de 2023-05-17...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-05-17, duplicidade com compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-05-17...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-15, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-15...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-11, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-11...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-05-11, duplicidade com compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-05-11...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento drogasil 2405 cuiaba bra de 2023-05-11, duplicidade com compra cartao - no estabelecimento drogasil 2405 cuiaba bra de 2023-05-11...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-08...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-05-08...
+2023-06-09 14:24:21 | INFO: Ignorando transação compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento cea pan 223 ecpc cuiaba bra de 2023-05-08...
+2023-06-09 14:24:21 | INFO: Ignorando transação abastecimento shell box - 108338368 de 2023-05-08, duplicidade com abastecimento shell box - 108338368 de 2023-05-08...
+2023-06-09 14:24:22 | INFO: Ignorando transação recarga claro - claro de 2023-05-08, duplicidade com recarga claro - claro de 2023-05-08...
+2023-06-09 14:24:22 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-08...
+2023-06-09 14:24:22 | INFO: Ignorando transação compra cartao - no estabelecimento silvia hair cuiaba bra de 2023-05-08, duplicidade com compra cartao - no estabelecimento silvia hair cuiaba bra de 2023-05-08...
+2023-06-09 14:24:22 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-05, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-05-05...
+2023-06-09 14:24:22 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-03, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-03...
+2023-06-09 14:24:22 | INFO: Ignorando transação compra cartao - no estabelecimento havan cuiaba bosq da s cuiaba b de 2023-05-02, duplicidade com havan cuiaba bosq da s cuiaba bra  de 2023-05-02...
+2023-06-09 14:24:22 | INFO: Ignorando transação compra cartao - no estabelecimento wanderson goncalves ro cuiaba b de 2023-05-02, duplicidade com compra cartao - no estabelecimento wanderson goncalves ro cuiaba b de 2023-05-02...
+2023-06-09 14:24:22 | INFO: Ignorando transação compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento comper 82 cuiaba bra de 2023-05-02...
+2023-06-09 14:24:22 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-05-02...
+2023-06-09 14:24:22 | INFO: Ignorando transação compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-05-02...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento mercearia n s aparecid cuiaba b de 2023-05-02, duplicidade com compra cartao - no estabelecimento mercearia n s aparecid cuiaba b de 2023-05-02...
+2023-06-09 14:24:23 | INFO: Ignorando transação abastecimento shell box - 107546292 de 2023-05-02, duplicidade com abastecimento shell box - 107546292 de 2023-05-02...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-02, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-05-02...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27, duplicidade com compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-26, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-26...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-04-26, duplicidade com compra cartao - no estabelecimento posto 3 r , s cuiaba bra de 2023-04-26...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento uber *trip help.uber.c sp bra de 2023-04-25, duplicidade com compra cartao - no estabelecimento uber *trip help.uber.c sp bra de 2023-04-25...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat de 2023-04-25, duplicidade com compra giftcards - 066a8d90-2242-4044-91bb-d796c047b5a7/sony playstat de 2023-04-25...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento uber *uber *trip sao paulo bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento uber *uber *trip sao paulo bra de 2023-04-24...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-24, duplicidade com compra cartao - no estabelecimento ancar centro oeste est cuiaba b de 2023-04-27...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento multicoisas cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento multicoisas cuiaba bra de 2023-04-24...
+2023-06-09 14:24:23 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-24...
+2023-06-09 14:24:24 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-24...
+2023-06-09 14:24:24 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-27...
+2023-06-09 14:24:24 | INFO: Ignorando transação compra cartao - no estabelecimento poesy aviamentos cuiaba bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento poesy aviamentos cuiaba bra de 2023-04-24...
+2023-06-09 14:24:24 | INFO: Ignorando transação recarga claro - claro de 2023-04-24, duplicidade com recarga claro - claro de 2023-04-24...
+2023-06-09 14:24:24 | INFO: Ignorando transação compra cartao - no estabelecimento estacionamento do shop varzea g de 2023-04-24, duplicidade com compra cartao - no estabelecimento estacionamento do shop varzea g de 2023-04-24...
+2023-06-09 14:24:24 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass varzea g de 2023-04-24, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass varzea g de 2023-04-24...
+2023-06-09 14:24:24 | INFO: Ignorando transação compra cartao - no estabelecimento gran boliche varzea grande bra de 2023-04-24, duplicidade com compra cartao - no estabelecimento gran boliche varzea grande bra de 2023-04-24...
+2023-06-09 14:24:24 | INFO: Ignorando transação abastecimento shell box - 106839330 de 2023-04-24, duplicidade com abastecimento shell box - 106839330 de 2023-04-24...
+2023-06-09 14:24:24 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-20, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-20...
+2023-06-09 14:24:24 | INFO: Ignorando transação compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b de 2023-04-19, duplicidade com mp *sucolaranjadas nac osasco bra  de 2023-04-19...
+2023-06-09 14:24:24 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-04-19, duplicidade com quiosque granpark cuiaba bra  de 2023-04-19...
+2023-06-09 14:24:24 | INFO: Ignorando transação recarga claro - claro de 2023-04-18, duplicidade com recarga claro - claro de 2023-04-18...
+2023-06-09 14:24:24 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-17, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-17...
+2023-06-09 14:24:25 | INFO: Ignorando transação compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-17, duplicidade com compra cartao - no estabelecimento pag*maykonjunior cuiaba bra de 2023-04-17...
+2023-06-09 14:24:25 | INFO: Ignorando transação compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-04-17, duplicidade com compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-04-17...
+2023-06-09 14:24:25 | INFO: Ignorando transação abastecimento shell box - 106217042 de 2023-04-17, duplicidade com abastecimento shell box - 106217042 de 2023-04-17...
+2023-06-09 14:24:25 | INFO: Ignorando transação recarga claro - claro de 2023-04-14, duplicidade com recarga claro - claro de 2023-04-14...
+2023-06-09 14:24:25 | INFO: Ignorando transação compra cartao - no estabelecimento quiosque granpark cuiaba bra de 2023-04-11, duplicidade com quiosque granpark cuiaba bra  de 2023-04-11...
+2023-06-09 14:24:25 | INFO: Ignorando transação compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-04-11, duplicidade com compra cartao - no estabelecimento pag*dogmassas cuiaba bra de 2023-04-11...
+2023-06-09 14:24:25 | INFO: Ignorando transação compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-10, duplicidade com compra cartao - no estabelecimento bebs cuiaba bra de 2023-04-10...
+2023-06-09 14:24:25 | INFO: Ignorando transação abastecimento shell box - 105472015 de 2023-04-06, duplicidade com abastecimento shell box - 105472015 de 2023-04-06...
+2023-06-09 14:24:25 | INFO: Ignorando transação compra cartao - no estabelecimento pg *ton edexpress sao paulo bra de 2023-04-03, duplicidade com pg *ton edexpress sao paulo bra  de 2023-04-03...
+2023-06-09 14:24:25 | INFO: Ignorando transação compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-04-03, duplicidade com compra cartao - no estabelecimento bk brasil operacao ass cuiaba b de 2023-04-03...
+2023-06-09 14:24:26 | INFO: Ignorando transação compra cartao - no estabelecimento multicoisas cuiaba bra de 2023-04-03, duplicidade com compra cartao - no estabelecimento multicoisas cuiaba bra de 2023-04-03...
+2023-06-09 14:24:26 | INFO: Ignorando transação compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-04-03, duplicidade com compra cartao - no estabelecimento rafael do coco cuiaba bra de 2023-04-03...
+2023-06-09 14:24:26 | INFO: Ignorando transação compra cartao - no estabelecimento pratica manutencao de cuiaba br de 2023-04-03, duplicidade com compra cartao - no estabelecimento pratica manutencao de cuiaba br de 2023-04-03...
+2023-06-09 14:24:26 | INFO: Ignorando transação abastecimento shell box - 104891296 de 2023-03-31, duplicidade com abastecimento shell box - 104891296 de 2023-03-31...
+2023-06-09 14:24:26 | INFO: Ignorando transação compra cartao - no estabelecimento pague menos 1078 cuiaba bra de 2023-03-29, duplicidade com compra cartao - no estabelecimento pague menos 1078 cuiaba bra de 2023-03-29...
+2023-06-09 14:24:26 | INFO: Ignorando transação compra cartao - no estabelecimento vet sao francisco cuiaba bra de 2023-03-27, duplicidade com vet sao francisco cuiaba bra castração luna  de 2023-03-27...
+2023-06-09 14:24:26 | INFO: Ignorando transação abastecimento shell box - 104471186 de 2023-03-27, duplicidade com abastecimento shell box - 104471186 de 2023-03-27...
+2023-06-09 14:24:26 | INFO: Ignorando transação compra cartao - no estabelecimento g. paz rodrigues cuiaba bra de 2023-03-06, duplicidade com compra cartao - no estabelecimento g. paz rodrigues cuiaba bra de 2023-03-06...
+2023-06-09 14:24:26 | WARNING: CUIDADO! Flag de inserção no Organizze ativada!
+2023-06-09 14:24:26 | WARNING: Arguardando 5 segundos antes de iniciar as inserções...
+2023-06-09 17:56:05 | INFO: Obtendo transacoes mensais
+2023-06-09 17:56:06 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-09 17:56:07 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-09 17:56:07 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-09 17:56:08 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-09 17:56:10 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-09 17:56:10 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-09 17:56:11 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-09 17:56:12 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-09 17:56:13 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-09 17:56:14 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-09 17:56:15 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-09 17:56:16 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-09 17:56:17 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-09 17:56:18 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-09 17:56:19 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-09 17:56:20 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-09 17:56:21 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-09 17:56:22 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-09 17:56:23 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-09 17:56:24 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-09 17:56:25 | INFO: Obtendo 208 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-09 17:56:26 | INFO: Obtendo 212 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-09 17:56:27 | INFO: Obtendo 174 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-09 17:56:27 | INFO: Obtendo 24 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-09 17:56:28 | INFO: Obtendo categorias
+2023-06-09 17:56:28 | INFO: Obtendo contas bancarias
+2023-06-09 17:56:28 | WARNING: CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!
+2023-06-09 17:56:28 | WARNING: Arguardando 15 segundos antes de iniciar...
+2023-06-09 17:56:44 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 104471186 - Inserido Via [API]
+2023-06-09 17:56:44 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pague menos 1078 cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:45 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 104891296 - Inserido Via [API]
+2023-06-09 17:56:45 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass cuiaba b - Inserido Via [API]
+2023-06-09 17:56:45 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento multicoisas cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:46 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento rafael do coco cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:46 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pratica manutencao de cuiaba br - Inserido Via [API]
+2023-06-09 17:56:46 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 105472015 - Inserido Via [API]
+2023-06-09 17:56:47 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:47 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:47 | INFO: Movimentação deletada com sucesso: recarga claro - claro - Inserido Via [API]
+2023-06-09 17:56:48 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:48 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:48 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento rafael do coco cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:49 | INFO: Movimentação deletada com sucesso: abastecimento shell box - 106217042 - Inserido Via [API]
+2023-06-09 17:56:49 | INFO: Movimentação deletada com sucesso: recarga claro - claro - Inserido Via [API]
+2023-06-09 17:56:49 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:50 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento multicoisas cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:50 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:51 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:51 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento estacionamento do shop varzea g - Inserido Via [API]
+2023-06-09 17:56:51 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bk brasil operacao ass varzea g - Inserido Via [API]
+2023-06-09 17:56:52 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento gran boliche varzea grande bra - Inserido Via [API]
+2023-06-09 17:56:52 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:53 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:53 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento wanderson goncalves ro cuiaba b - Inserido Via [API]
+2023-06-09 17:56:53 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:54 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:54 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:54 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento drogasil 2405 cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:55 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:55 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento mp *sucolaranjadas nac osasco b - Inserido Via [API]
+2023-06-09 17:56:55 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento posto 3 r , s cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:56 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pague menos 1078 cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:56 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*dogmassas cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:57 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:57 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:57 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento bebs cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:58 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento comper 82 cuiaba bra - Inserido Via [API]
+2023-06-09 17:56:58 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento edna barbosa de souza cuiaba br - Inserido Via [API]
+2023-06-09 17:56:58 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento castor materiais para cuiaba br - Inserido Via [API]
+2023-06-09 17:56:59 | INFO: Movimentação deletada com sucesso: compra cartao - no estabelecimento pag*maykonjunior cuiaba bra - Inserido Via [API]

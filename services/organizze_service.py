@@ -139,9 +139,24 @@ class Organizze_Service:
             movimentacao.tags = [{"name": "API"}]
             response = requests.post(f'{self.url_base}/transactions', json=movimentacao.to_dict(), auth=(self.username, self.token), verify=False)
             if response.status_code == 201:
-                self.logger.log("INFO", f"Movimentação criada com sucesso: {movimentacao.description}")
+                self.logger.log("INFO", f"Movimentação criada com sucesso: {movimentacao.description} | Categoria: {movimentacao.category_name}")
             else:
                 error_message = f'Erro ao criar a movimentação: {movimentacao.description} Detalhes: {response.content}'
+                self.logger.log("ERROR", error_message)
+                raise Exception(error_message)
+
+        except Exception as e:
+            error_message = f'Nao foi possivel criar a movimentação! Detalhes: {e}'
+            self.logger.log("ERROR", error_message)
+            raise Exception(error_message)
+        
+    def delete_transaction(self, movimentacao: TransactionModel):
+        try:
+            response = requests.delete(f'{self.url_base}/transactions/{movimentacao.id}', auth=(self.username, self.token), verify=False)
+            if response.status_code == 200:
+                self.logger.log("INFO", f"Movimentação deletada com sucesso: {movimentacao.description}")
+            else:
+                error_message = f'Erro ao deletar a movimentação: {movimentacao.description} Detalhes: {response.content}'
                 self.logger.log("ERROR", error_message)
                 raise Exception(error_message)
 
