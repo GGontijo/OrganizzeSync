@@ -28,6 +28,10 @@ def convert_amount_to_cents(amount: int) -> int:
         cents = int(amount * 100)
     return cents
 
+def convert_amount_to_decimal(amount: int) -> float:
+    return float(amount) / 100
+
+
 def match_strings(string1: str, string2: str, simillar: bool = False, threshold: int = 1) -> bool:
     ''' Essa função tem como objetivo analisar duas strings e determinar se elas são referente ao mesmo "assunto".
         No contexto atual, é analisado se duas transações são referente ao mesmo estabelecimento comercial'''
@@ -43,7 +47,7 @@ def match_strings(string1: str, string2: str, simillar: bool = False, threshold:
     "banco", "s/a", "pix", "enviado", "cp", "-", "18236120", ":", "recebido", "inserido", "interno", "via", "api", "[api]", 
     "cuiaba", "bra", "brasil", "coxipo", "mei", "me", "eireli", "das", "osasco", "pagseguro", "cielo", "mercadopago", 
     "getnet", "izettle", "stone", "sumup", "rede", "dos", "das", "de", "shopping", "goiabeiras", "estacao", "pantanal", "sumuup", 
-    "stonedev", "payleven", "smartpos", "point", "superget", "varzea", "grande", "poesy", "aviamentos"]
+    "stonedev", "payleven", "smartpos", "point", "superget", "varzea", "grande"]
 
     ignored_set = set(ignored_words)
 
@@ -55,11 +59,11 @@ def match_strings(string1: str, string2: str, simillar: bool = False, threshold:
     
     for word1 in words1:
         # Ignora as palavras vazias, palavras da lista de ignoradas, palavras que sejam apenas números e palavras menores que 2 chars
-        if word1 not in ignored_set and not word1.isdigit() and len(word1) > 2:
+        if word1 not in ignored_set and len(word1) > 2:
             # Itera sobre as palavras da segunda string
             for word2 in words2:
                 # Ignora as palavras vazias, palavras da lista de ignoradas, palavras que sejam apenas números e palavras menores que 2 chars
-                if word2 and word2 not in ignored_set and not word2.isdigit() and len(word2) > 2:
+                if word2 and word2 not in ignored_set and len(word2) > 2:
                     # Se for pedido uma analise por similaridade
                     if simillar:
                         # Calcula a similaridade entre as palavras usando a razão de similaridade
