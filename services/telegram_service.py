@@ -1,4 +1,5 @@
 from helpers.config_helper import Config
+from OrgannizeSync import Organizze_Service
 import requests
 import json
 
@@ -12,6 +13,7 @@ class Telegram_Service:
         _download_url = _config_data["DOWNLOAD_URL"]
         self.url_base_download = f'{_download_url}{_token}'
         self.url_base = f'{_url}{_token}/'
+        self._organizze_sync = Organizze_Service()
 
     def process_messages(self):
         update_id = None

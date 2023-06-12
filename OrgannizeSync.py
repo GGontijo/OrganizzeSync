@@ -19,6 +19,7 @@ class OrganizzeSync:
         self.categories = self._organizze_service.get_categories()
         self.accounts = self._organizze_service.get_accounts()
         self.category_mapping = None
+        self.accounts_enum = EnumOrganizzeAccounts
 
     def process_categories(self):
         # Criar um dicionário para armazenar as categorias mais utilizadas por descrição
@@ -62,7 +63,7 @@ class OrganizzeSync:
             if 'pague menos 1078' in description:
                 pass
 
-            if 'pix' in description or 'ted' in description or 'doc' in description or 'transferencia' in description: # Retirando transferências, pode ter muitos motivos não da pra mapear categoria
+            if 'pix' in description or 'ted' in description or 'doc' in description or 'transferencia' in description or 'pagamento' in description: # Retirando transferências, pode ter muitos motivos não da pra mapear categoria
                 self.ignored_transactions.append({"transaction": description, "motivo": "Transação é uma transferência!"})
                 continue
 
@@ -75,6 +76,7 @@ class OrganizzeSync:
                 continue
 
             category_id = self.category_mapping.get(description)
+
 
             if category_id is None: # Se não foi possível determinar a categoria pela descrição exata, procurar descrições próximas
                 category_id = self.determine_category(description)
@@ -128,6 +130,7 @@ class OrganizzeSync:
 
         if new_transaction.date == date.today():
             return {"duplicated": False, "relationship": None}
+        
 
         # Filtrando old_transactions pelo account_id para mitigar falsos positivos
         for old_transaction in list(filter(lambda x: x.account_id == self.account_id, self.old_transactions)): 
@@ -190,8 +193,8 @@ class OrganizzeSync:
                 return category.name
         return None
     
-new = convert_ofx_to_json('teste.ofx')
+#new = convert_ofx_to_json('extratoCC.ofx')
 sync = OrganizzeSync()
-result = sync.process_new_transactions(new["transactions"],4375871,create_transaction=True)
+result = sync.process_new_transactions(new["transactions"],4375850,create_transaction=True)
 #result = sync.delete_all_api_transactions()
 print(result)

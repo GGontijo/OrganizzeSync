@@ -1,5 +1,6 @@
 from typing import Optional, List
 from pydantic import BaseModel
+from enum import Enum
 
 
 class BudgetModel(BaseModel): # Meta do Organizze
@@ -124,3 +125,11 @@ class TransactionCreateModel(BaseModel):
 
     def to_dict(self, **kwargs): #Tem que passar serializada em json/dict pra api do organizze...
         return super().dict(**kwargs)
+    
+class EnumOrganizzeAccounts(Enum):
+    INTER = 4375871
+    INTER_EDELIN = 6585539
+    SANTANDER = 4375850
+    SANTANDER_EDELIN = 6066704
+    NUBANK_EDELIN = 5156963
+    
