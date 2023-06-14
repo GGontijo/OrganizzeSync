@@ -13616,3 +13616,62 @@ parent_id
 2023-06-12 00:18:19 | INFO: Obtendo 58 transacoes de 2023-06-01 ate 2023-06-30
 2023-06-12 00:18:19 | INFO: Obtendo categorias
 2023-06-12 00:18:20 | INFO: Obtendo contas bancarias
+2023-06-14 12:29:36 | INFO: Obtendo transacoes mensais
+2023-06-14 12:29:36 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-14 12:29:38 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-14 12:29:38 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-14 12:29:39 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-14 12:29:40 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-14 12:29:41 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-14 12:29:42 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-14 12:29:43 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-14 12:29:43 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-14 12:29:44 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-14 12:29:45 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-14 12:29:46 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-14 12:29:47 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-14 12:29:48 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-14 12:29:49 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-14 12:29:50 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-14 12:29:51 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-14 12:29:52 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-14 12:29:54 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-14 12:29:54 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-14 12:29:56 | INFO: Obtendo 208 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-14 12:29:57 | INFO: Obtendo 199 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-14 12:29:58 | INFO: Obtendo 219 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-14 12:29:59 | INFO: Obtendo 71 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-14 12:29:59 | INFO: Obtendo categorias
+2023-06-14 12:30:00 | INFO: Obtendo contas bancarias
+2023-06-14 12:30:12 | INFO: Processando novas transacoes
+2023-06-14 12:30:16 | INFO: Processando transacoes por categorias
+2023-06-14 12:30:28 | INFO: 1825 Transacoes processadas e categorias padrão mapeadas!
+2023-06-14 12:39:34 | INFO: Obtendo transacoes mensais
+2023-06-14 12:39:34 | INFO: Obtendo 15 transacoes de 2021-07-01 ate 2021-07-31
+2023-06-14 12:39:35 | INFO: Obtendo 162 transacoes de 2021-08-01 ate 2021-08-31
+2023-06-14 12:39:36 | INFO: Obtendo 89 transacoes de 2021-09-01 ate 2021-09-30
+2023-06-14 12:39:37 | INFO: Obtendo 135 transacoes de 2021-10-01 ate 2021-10-31
+2023-06-14 12:39:38 | INFO: Obtendo 101 transacoes de 2021-11-01 ate 2021-11-30
+2023-06-14 12:39:38 | INFO: Obtendo 107 transacoes de 2021-12-01 ate 2021-12-31
+2023-06-14 12:39:39 | INFO: Obtendo 143 transacoes de 2022-01-01 ate 2022-01-31
+2023-06-14 12:39:40 | INFO: Obtendo 97 transacoes de 2022-02-01 ate 2022-02-28
+2023-06-14 12:39:41 | INFO: Obtendo 98 transacoes de 2022-03-01 ate 2022-03-31
+2023-06-14 12:39:42 | INFO: Obtendo 131 transacoes de 2022-04-01 ate 2022-04-30
+2023-06-14 12:39:43 | INFO: Obtendo 141 transacoes de 2022-05-01 ate 2022-05-31
+2023-06-14 12:39:43 | INFO: Obtendo 136 transacoes de 2022-06-01 ate 2022-06-30
+2023-06-14 12:39:45 | INFO: Obtendo 166 transacoes de 2022-07-01 ate 2022-07-31
+2023-06-14 12:39:46 | INFO: Obtendo 169 transacoes de 2022-08-01 ate 2022-08-31
+2023-06-14 12:39:47 | INFO: Obtendo 164 transacoes de 2022-09-01 ate 2022-09-30
+2023-06-14 12:39:48 | INFO: Obtendo 184 transacoes de 2022-10-01 ate 2022-10-31
+2023-06-14 12:39:49 | INFO: Obtendo 172 transacoes de 2022-11-01 ate 2022-11-30
+2023-06-14 12:39:50 | INFO: Obtendo 169 transacoes de 2022-12-01 ate 2022-12-31
+2023-06-14 12:39:51 | INFO: Obtendo 183 transacoes de 2023-01-01 ate 2023-01-31
+2023-06-14 12:39:52 | INFO: Obtendo 178 transacoes de 2023-02-01 ate 2023-02-28
+2023-06-14 12:39:53 | INFO: Obtendo 208 transacoes de 2023-03-01 ate 2023-03-31
+2023-06-14 12:39:54 | INFO: Obtendo 199 transacoes de 2023-04-01 ate 2023-04-30
+2023-06-14 12:39:56 | INFO: Obtendo 219 transacoes de 2023-05-01 ate 2023-05-31
+2023-06-14 12:39:56 | INFO: Obtendo 71 transacoes de 2023-06-01 ate 2023-06-30
+2023-06-14 12:39:56 | INFO: Obtendo categorias
+2023-06-14 12:39:57 | INFO: Obtendo contas bancarias
+2023-06-14 12:39:57 | INFO: Processando transacoes por categorias
+2023-06-14 12:39:57 | INFO: 1825 Transacoes processadas e categorias padrão mapeadas!

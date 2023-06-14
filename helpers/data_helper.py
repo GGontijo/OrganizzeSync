@@ -2,6 +2,7 @@ from ofxparse import OfxParser
 import difflib
 import json
 from models.generic_models import *
+from decimal import Decimal
 
 def convert_ofx_to_json(file_path: str) -> json:
     with open(file_path, 'rb') as ofx_file:
@@ -27,6 +28,14 @@ def convert_amount_to_cents(amount: int) -> int:
     else:
         cents = int(amount * 100)
     return cents
+
+
+def convert_brl_to_decimal(amount_brl: str):
+    amount_brl = amount_brl.upper()
+
+    if 'R$' in amount_brl:
+        return Decimal(amount_brl.replace("R$", "").strip().replace(",", ".")) 
+    return None
 
 def convert_amount_to_decimal(amount: int) -> float:
     return float(amount) / 100

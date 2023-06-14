@@ -9,8 +9,6 @@ from services.organizze_service import Organizze_Service
 import time
 
 
-
-
 class OrganizzeSync:
     def __init__(self) -> None:
         self.logger = Logger()
@@ -19,6 +17,8 @@ class OrganizzeSync:
         self.categories = self._organizze_service.get_categories()
         self.accounts = self._organizze_service.get_accounts()
         self.category_mapping = None
+        if self.category_mapping is None:
+            self.process_categories()
         self.accounts_enum = EnumOrganizzeAccounts
 
     def process_categories(self):
@@ -46,8 +46,6 @@ class OrganizzeSync:
     def process_new_transactions(self, new_transactions, account_id: int, create_transaction: bool = False):
         self.account_id = account_id
         self.logger.log("INFO", f"Processando novas transacoes")
-        if self.category_mapping is None:
-            self.process_categories()
 
         # Processar as novas transações e definir a categoria com base na correspondência de descrição
         self.duplicated_transactions = []
@@ -193,7 +191,7 @@ class OrganizzeSync:
                 return category.name
         return None
     
-#new = convert_ofx_to_json('extratoCC.ofx')
+new = convert_ofx_to_json('teste.ofx')
 sync = OrganizzeSync()
 result = sync.process_new_transactions(new["transactions"],4375850,create_transaction=True)
 #result = sync.delete_all_api_transactions()
