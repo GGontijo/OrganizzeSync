@@ -2,7 +2,17 @@ from ofxparse import OfxParser
 import difflib
 import json
 from models.generic_models import *
+from models.organizze_models import EnumOrganizzeAccounts
 from decimal import Decimal
+
+
+def determine_account_id(title: str) -> EnumOrganizzeAccounts:
+    title_parsed = title.split()
+
+    for i in title_parsed:
+       for enum in EnumOrganizzeAccounts:
+           if i.upper() == enum.name:
+               return enum.value
 
 def convert_ofx_to_json(file_path: str) -> json:
     with open(file_path, 'rb') as ofx_file:
