@@ -134,7 +134,7 @@ class Organizze_Service:
         
     def create_transaction(self, movimentacao: TransactionCreateModel):
         try:
-            movimentacao.description = movimentacao.description + ' - ' + 'Inserido Via [API]'
+            #movimentacao.description = movimentacao.description + ' - ' + 'Inserido Via [API]' -- Não é mais necessário, utilizar tag {"name": "API"}
             movimentacao.notes = f'Inserido via API em {datetime.now().strftime("%d-%m-%Y %H:%M:%S")}'
             movimentacao.tags = [{"name": "API"}]
             response = requests.post(f'{self.url_base}/transactions', json=movimentacao.to_dict(), auth=(self.username, self.token), verify=False)

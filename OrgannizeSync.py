@@ -90,7 +90,7 @@ class OrganizzeSync:
                                                          category_id=category_id,
                                                          category_name=self.get_category_name_by_id(category_id),
                                                          notes='',
-                                                         tags=[])
+                                                         tags=[{"name": "API"}])
 
             duplicate_transaction = self.check_existing_transaction(new_transaction)
 
@@ -193,6 +193,6 @@ class OrganizzeSync:
     
 new = convert_ofx_to_json('teste.ofx')
 sync = OrganizzeSync()
-result = sync.process_new_transactions(new["transactions"],4375850,create_transaction=True)
+result = sync.process_new_transactions(new["transactions"],4375871,create_transaction=True)
 #result = sync.delete_all_api_transactions()
 print(result)
