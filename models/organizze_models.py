@@ -113,23 +113,22 @@ class TransactionModel(BaseModel):
     attachments: List[dict] = []
     recurrence_id: Optional[int]
 
-class TransactionCreateModel(BaseModel):
-    description: str
-    date: str
-    amount_cents: int
-    category_name: Optional[str]
-    account_id: int
-    category_id: int
-    notes: Optional[str]
-    tags: List[dict] = []
-
-    def to_dict(self, **kwargs): #Tem que passar serializada em json/dict pra api do organizze...
-        return super().dict(**kwargs)
-    
 class EnumOrganizzeAccounts(Enum):
     INTER = 4375871
     INTER_EDELIN = 6585539
     SANTANDER = 4375850
     SANTANDER_EDELIN = 6066704
     NUBANK_EDELIN = 5156963
-    
+
+class TransactionCreateModel(BaseModel):
+    description: str
+    date: str
+    amount_cents: int
+    category_name: Optional[str]
+    account_id: Optional[EnumOrganizzeAccounts]
+    category_id: Optional[int]
+    notes: Optional[str]
+    tags: List[dict] = []
+
+    def to_dict(self, **kwargs): #Tem que passar serializada em json/dict pra api do organizze...
+        return super().dict(**kwargs)

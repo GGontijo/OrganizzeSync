@@ -1,5 +1,5 @@
 from helpers.config_helper import Config
-from OrgannizeSync import Organizze_Service
+from OrganizeSync import Organizze_Service
 import requests
 import json
 

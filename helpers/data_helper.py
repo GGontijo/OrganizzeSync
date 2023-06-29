@@ -1,18 +1,20 @@
 from ofxparse import OfxParser
 import difflib
 import json
-from models.generic_models import *
+from models.organizze_models import TransactionCreateModel
 from models.organizze_models import EnumOrganizzeAccounts
 from decimal import Decimal
 
-
 def determine_account_id(title: str) -> EnumOrganizzeAccounts:
     title_parsed = title.split()
+    
 
     for i in title_parsed:
-       for enum in EnumOrganizzeAccounts:
-           if i.upper() == enum.name:
-               return enum.value
+        enum_name = next((enum for enum in EnumOrganizzeAccounts if enum.name == i.upper()), None)
+        if enum_name:
+            return enum_name
+        
+    raise KeyError('Não foi possível determinar a conta bancária!')
 
 def convert_ofx_to_json(file_path: str) -> json:
     with open(file_path, 'rb') as ofx_file:
@@ -20,10 +22,10 @@ def convert_ofx_to_json(file_path: str) -> json:
         transactions = []
         bank_name = ofx.signon.fi_org
         for transaction in ofx.account.statement.transactions:
-            transaction_data = OFXTransaction(date_posted=str(transaction.date),
-                                              amount_cents=convert_amount_to_cents(transaction.amount),
-                                              payee=transaction.payee,
-                                              description=' '.join(transaction.memo.split()).lower())
+            transaction_data = TransactionCreateModel(description=' '.join(transaction.memo.split()).lower(),
+                                                      date=str(transaction.date),
+                                                      amount_cents=convert_amount_to_cents(transaction.amount)
+                                                    )
             transactions.append(transaction_data)
         
         
@@ -33,11 +35,14 @@ def convert_ofx_to_json(file_path: str) -> json:
                 "bank_name": bank_name}
     
 def convert_amount_to_cents(amount: int) -> int:
-    if isinstance(amount, int):
-        cents = amount * 100
-    else:
-        cents = int(amount * 100)
-    return cents
+    try:
+        if isinstance(amount, int):
+            cents = amount * 100
+        else:
+            cents = int(amount * 100)
+        return cents
+    except TypeError:
+        raise ValueError("O valor fornecido não é um número inteiro.")
 
 
 def convert_brl_to_decimal(amount_brl: str):

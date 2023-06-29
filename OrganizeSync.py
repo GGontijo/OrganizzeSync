@@ -1,7 +1,5 @@
 from collections import defaultdict
-from helpers.data_helper import match_strings
-from helpers.data_helper import convert_amount_to_decimal
-from helpers.data_helper import convert_ofx_to_json
+from helpers.data_helper import match_strings, convert_ofx_to_json, determine_account_id
 from models.organizze_models import *
 from helpers.logger_helper import Logger
 from datetime import timedelta, datetime, date
@@ -83,14 +81,9 @@ class OrganizzeSync:
                 self.unrecognized_transactions.append(description)
                 continue
 
-            new_transaction = TransactionCreateModel(description=description,
-                                                         date=new_transaction.date_posted,
-                                                         amount_cents=new_transaction.amount_cents,
-                                                         account_id=self.account_id,
-                                                         category_id=category_id,
-                                                         category_name=self.get_category_name_by_id(category_id),
-                                                         notes='',
-                                                         tags=[{"name": "API"}])
+            new_transaction.account_id=self.account_id
+            new_transaction.category_name=self.get_category_name_by_id(category_id)
+            new_transaction.tags=[{"name": "API"}]
 
             duplicate_transaction = self.check_existing_transaction(new_transaction)
 
@@ -106,7 +99,6 @@ class OrganizzeSync:
             time.sleep(5)
             for transaction in self.processed_transactions:
                 self._organizze_service.create_transaction(transaction)
-                pass
 
         # Retornar as transações processadas
         return self.processed_transactions
@@ -191,8 +183,8 @@ class OrganizzeSync:
                 return category.name
         return None
     
-new = convert_ofx_to_json('teste.ofx')
-sync = OrganizzeSync()
-result = sync.process_new_transactions(new["transactions"],4375871,create_transaction=True)
+#new = convert_ofx_to_json('teste.ofx')
+#sync = OrganizzeSync()
+#result = sync.process_new_transactions(new["transactions"],account_id=4375850,create_transaction=True)
 #result = sync.delete_all_api_transactions()
-print(result)
+#print(result)

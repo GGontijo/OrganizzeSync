@@ -1,43 +1,53 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 from fastapi import APIRouter, status, Response
 from helpers.data_helper import convert_amount_to_cents, determine_account_id
-from OrgannizeSync import OrganizzeSync
-from datetime import date
+from OrganizeSync import OrganizzeSync
 from models.organizze_models import *
 from uvicorn import run
+import datetime
 
 organizze_router = APIRouter()
 
 @organizze_router.get("/create")
-def create(description: str, amount: str, date: date, account_id: int = None, title: str = None):
+def create(response: Response, description: str, amount: str, date: str, account_id: int = None, title: str = None):
     try:
-        _organizze_sync = OrganizzeSync()
 
         if title:
-            transaction_obj = TransactionCreateModel(description=description,
+            try:
+                _account_id = determine_account_id(title)
+                transaction_obj = TransactionCreateModel(description=description,
                                                      date=date,
-                                                     account_id=determine_account_id(title),
+                                                     account_id=_account_id,
                                                      amount_cents=convert_amount_to_cents(amount))
-            _organizze_sync.process_new_transactions()
+                Server._organizze_sync.process_new_transactions([transaction_obj])
+            except KeyError as e:
+                response.status_code = status.HTTP_400_BAD_REQUEST
+                return str(e), 400
 
         if account_id:
-            transaction_obj = TransactionCreateModel(description=description,
+            try:
+                transaction_obj = TransactionCreateModel(description=description,
                                                      date=date,
                                                      amount_cents=convert_amount_to_cents(amount))
-            _organizze_sync.process_new_transactions()
+                Server._organizze_sync.process_new_transactions()
+            except KeyError as e:
+                response.status_code = status.HTTP_400_BAD_REQUEST
+                return str(e), 400
         
+        raise ValueError('Favor informar apenas um dos parâmetros: [account_id, title].')
+    
     except Exception as e:
-        raise f'Houve um erro ao criar transação via API: {str(e)}'
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return str(e), 400
 
 
 class Server():
+
+    _organizze_sync = OrganizzeSync()
     
     def __init__(self) -> None:
         self.api = FastAPI(title='OrganizzeSync', 
                            description='API de sincronização com o Organizze', 
                            version='1.0.0')
         self.api.include_router(organizze_router)
-
-    async def run_server(self, _Organizze_instance: OrganizzeSync):
-
         run(self.api, port=6556, host='0.0.0.0')
