@@ -1,5 +1,5 @@
 from collections import defaultdict
-from helpers.data_helper import match_strings, convert_ofx_to_json, determine_account_id
+from helpers.data_helper import match_strings, convert_ofx_to_json
 from models.organizze_models import *
 from helpers.logger_helper import Logger
 from datetime import timedelta, datetime, date
@@ -11,13 +11,24 @@ class OrganizzeSync:
     def __init__(self) -> None:
         self.logger = Logger()
         self._organizze_service = Organizze_Service(self.logger)
+        self.old_transactions: list
         self.old_transactions = self._organizze_service.get_transactions()
         self.categories = self._organizze_service.get_categories()
         self.accounts = self._organizze_service.get_accounts()
         self.category_mapping = None
         if self.category_mapping is None:
             self.process_categories()
-        self.accounts_enum = EnumOrganizzeAccounts
+
+    def update_old_transactions(self):
+        max_date = max(self.old_transactions, key=lambda transaction: transaction.date).date
+        new_transactions = self._organizze_service.get_transactions(data_inicio=max_date, data_fim=date.today().strftime('%Y-%m-%d'))
+
+        # Filtrar apenas os itens novos com base nos IDs não existentes em old_transactions
+        old_ids = set(transaction.id for transaction in self.old_transactions)
+        new_transactions_filtered = [transaction for transaction in new_transactions if transaction.id not in old_ids]
+        if new_transactions_filtered:
+            self.old_transactions.append(new_transactions_filtered) # Atualiza a base de transações em memória
+
 
     def process_categories(self):
         # Criar um dicionário para armazenar as categorias mais utilizadas por descrição
@@ -41,8 +52,9 @@ class OrganizzeSync:
         self.logger.log("INFO", f"{len(self.category_mapping)} Transacoes processadas e categorias padrão mapeadas!")
     
 
-    def process_new_transactions(self, new_transactions, account_id: int, create_transaction: bool = False):
-        self.account_id = account_id
+    def process_new_transactions(self, new_transactions, account_id: EnumOrganizzeAccounts, create_transaction: bool = False):
+        self.update_old_transactions()
+        self.account_id = account_id.value
         self.logger.log("INFO", f"Processando novas transacoes")
 
         # Processar as novas transações e definir a categoria com base na correspondência de descrição
@@ -83,6 +95,7 @@ class OrganizzeSync:
 
             new_transaction.account_id=self.account_id
             new_transaction.category_name=self.get_category_name_by_id(category_id)
+            new_transaction.category_id = category_id
             new_transaction.tags=[{"name": "API"}]
 
             duplicate_transaction = self.check_existing_transaction(new_transaction)
@@ -94,9 +107,6 @@ class OrganizzeSync:
             self.processed_transactions.append(new_transaction)
         
         if create_transaction:
-            self.logger.log("WARNING", f"CUIDADO! Flag de inserção no Organizze ativada!")
-            self.logger.log("WARNING", f"Arguardando 5 segundos antes de iniciar as inserções...")
-            time.sleep(5)
             for transaction in self.processed_transactions:
                 self._organizze_service.create_transaction(transaction)
 
@@ -105,11 +115,12 @@ class OrganizzeSync:
     
     
     def delete_all_api_transactions(self):
+        self.update_old_transactions()
         self.logger.log("WARNING", f"CUIDADO! Essa ação irá deletar todas as transações inseridas via API no Organizze!")
         self.logger.log("WARNING", f"Arguardando 15 segundos antes de iniciar...")
         time.sleep(15)
 
-        [self._organizze_service.delete_transaction(transaction) for transaction  in self.old_transactions if "[API]" in transaction.description]
+        [self._organizze_service.delete_transaction(transaction) for transaction  in self.old_transactions if "[API]" in transaction.description] # TO-DO Considerar pela tag também
 
     def check_existing_transaction(self, new_transaction: TransactionCreateModel):
         '''O Objetivo principal desse método é checar se uma transação nova (à ser inserida) já não existe na base do Organizze.'''

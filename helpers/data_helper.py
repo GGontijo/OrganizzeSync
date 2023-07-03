@@ -1,6 +1,7 @@
 from ofxparse import OfxParser
 import difflib
 import json
+import re
 from models.organizze_models import TransactionCreateModel
 from models.organizze_models import EnumOrganizzeAccounts
 from decimal import Decimal
@@ -43,7 +44,28 @@ def convert_amount_to_cents(amount: int) -> int:
         return cents
     except TypeError:
         raise ValueError("O valor fornecido não é um número inteiro.")
+    
+def parse_notification(description: str, account_id: EnumOrganizzeAccounts) -> dict:
+    '''Realiza a separação do nome do Estabelecimento e o Valor da compra da notificação passada para a API'''
+    if account_id == EnumOrganizzeAccounts.INTER or account_id == EnumOrganizzeAccounts.INTER_EDELIN:
+        # Encontrar o estabelecimento usando regex
+        place = re.search(r'no (.+?) o valor', description).group(1)
 
+        # Encontrar o valor usando regex
+        amount = convert_brl_to_decimal(re.search(r'R\$ ([\d.,]+)', description).group(1))
+        return {"amount": convert_amount_to_cents(amount), "place": place }
+        
+    if account_id == EnumOrganizzeAccounts.SANTANDER or account_id == EnumOrganizzeAccounts.SANTANDER_EDELIN:
+        # Padrão da notificação do Santander
+        padrao = r'(R\$ \d+,\d{2}).*? (?:em \d{2}/\d{2}/\d{2} as \d{2}:\d{2} )?(.*)'
+
+        results = re.search(padrao, description)
+        amount = convert_brl_to_decimal(results.group(1))
+        return {"amount": convert_amount_to_cents(amount), "place": results.group(2) }
+    if account_id == EnumOrganizzeAccounts.NUBANK_EDELIN:
+        pass
+    else:
+        raise KeyError('Não foi possivel separar os dados da descrição!')
 
 def convert_brl_to_decimal(amount_brl: str):
     amount_brl = amount_brl.upper()

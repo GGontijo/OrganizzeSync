@@ -19,3 +19,7 @@ def generate_monthly_dates():
         current_date = next_month.replace(day=1)
 
     return dates
+
+def convert_timestamp_to_date(timestamp: str):
+    data = datetime.fromtimestamp(float(timestamp)).date()
+    return data.strftime("%Y-%m-%d")

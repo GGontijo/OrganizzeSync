@@ -125,7 +125,7 @@ class TransactionCreateModel(BaseModel):
     date: str
     amount_cents: int
     category_name: Optional[str]
-    account_id: Optional[EnumOrganizzeAccounts]
+    account_id: Optional[int]
     category_id: Optional[int]
     notes: Optional[str]
     tags: List[dict] = []
