@@ -18,6 +18,10 @@ class OrganizzeSync:
         self.category_mapping = None
         if self.category_mapping is None:
             self.process_categories()
+        self.duplicated_transactions = []
+        self.unrecognized_transactions = [] # Transações que não deu pra mapear a categoria
+        self.processed_transactions = []
+        self.ignored_transactions = []
 
     def update_old_transactions(self):
         max_date = max(self.old_transactions, key=lambda transaction: transaction.date).date
@@ -51,67 +55,54 @@ class OrganizzeSync:
         
         self.logger.log("INFO", f"{len(self.category_mapping)} Transacoes processadas e categorias padrão mapeadas!")
     
+    def process_ofx_transactions(self):
+        '''TO-DO Ler arquivo OFX e chamar process new transaction'''
+        self.logger.log("INFO", f"Processando novas transacoes")
+        pass
 
-    def process_new_transactions(self, new_transactions, account_id: EnumOrganizzeAccounts, create_transaction: bool = False):
+    def process_new_transaction(self, new_transaction: TransactionCreateModel, account_id: EnumOrganizzeAccounts, create_transaction: bool = False) -> str:
+        '''Processar as novas transações e definir a categoria com base na correspondência de descrição'''
         self.update_old_transactions()
         self.account_id = account_id.value
-        self.logger.log("INFO", f"Processando novas transacoes")
+        new_transaction: TransactionCreateModel # Typing hint
 
-        # Processar as novas transações e definir a categoria com base na correspondência de descrição
-        self.duplicated_transactions = []
-        self.unrecognized_transactions = [] # Transações que não deu pra mapear a categoria
-        self.processed_transactions = []
-        self.ignored_transactions = []
+        description = new_transaction.description.lower()
 
-        for new_transaction in new_transactions:
-            new_transaction: TransactionCreateModel # Typing hint
+        if 'pix' in description or 'ted' in description or 'doc' in description or 'transferencia' in description or 'pagamento' in description: # Retirando transferências, pode ter muitos motivos não da pra mapear categoria
+            self.ignored_transactions.append({"transaction": description, "motivo": "Transação é uma transferência!"})
+            return "Transação é uma transferência!"
 
-            description = new_transaction.description.lower()
+        if 'cdb' in description or 'aplicacao' in description or 'resgate' in description: # Retirando qualquer movimentação referente a aporte ou resgate de investimentos, falta mapear transferencias
+            self.ignored_transactions.append({"transaction": description, "motivo": "Transação é um investimento!"})
+            return "Transação é um investimento!"
 
-            if 'pague menos 1078' in description:
-                pass
+        if new_transaction.amount_cents > 0: # Ignora se for um crédito (regra complexa demais, ainda não mapeado)
+            self.ignored_transactions.append({"transaction": description, "motivo": "Transação é um crédito!"})
+            return "Transação é um crédito!"
 
-            if 'pix' in description or 'ted' in description or 'doc' in description or 'transferencia' in description or 'pagamento' in description: # Retirando transferências, pode ter muitos motivos não da pra mapear categoria
-                self.ignored_transactions.append({"transaction": description, "motivo": "Transação é uma transferência!"})
-                continue
+        category_id = self.category_mapping.get(description)
 
-            if 'cdb' in description or 'aplicacao' in description or 'resgate' in description: # Retirando qualquer movimentação referente a aporte ou resgate de investimentos, falta mapear transferencias
-                self.ignored_transactions.append({"transaction": description, "motivo": "Transação é um investimento!"})
-                continue
+        if category_id is None: # Se não foi possível determinar a categoria pela descrição exata, procurar descrições próximas
+            category_id = self.determine_category(description)
 
-            if new_transaction.amount_cents > 0: # Ignora se for um crédito (regra complexa demais, ainda não mapeado)
-                self.ignored_transactions.append({"transaction": description, "motivo": "Transação é um crédito!"})
-                continue
+        if category_id is None: # Se não foi possível determinar a categoria por descrições próximas, ignorar..
+            self.unrecognized_transactions.append(description)
+            return "Não foi possível determinar uma categoria!"
 
-            category_id = self.category_mapping.get(description)
+        new_transaction.account_id=self.account_id
+        new_transaction.category_name=self.get_category_name_by_id(category_id)
+        new_transaction.category_id = category_id
+        new_transaction.tags=[{"name": "API"}]
 
+        duplicate_transaction = self.check_existing_transaction(new_transaction)
 
-            if category_id is None: # Se não foi possível determinar a categoria pela descrição exata, procurar descrições próximas
-                category_id = self.determine_category(description)
+        if duplicate_transaction and duplicate_transaction["duplicated"]: # Ignora se for uma transação duplicada
+            self.duplicated_transactions.append(duplicate_transaction["relationship"])
+            return f"Esta Movimentação já foi lançada anteriormente: {duplicate_transaction['relationship']}"
 
-            if category_id is None: # Se não foi possível determinar a categoria por descrições próximas, ignorar..
-                self.unrecognized_transactions.append(description)
-                continue
-
-            new_transaction.account_id=self.account_id
-            new_transaction.category_name=self.get_category_name_by_id(category_id)
-            new_transaction.category_id = category_id
-            new_transaction.tags=[{"name": "API"}]
-
-            duplicate_transaction = self.check_existing_transaction(new_transaction)
-
-            if duplicate_transaction and duplicate_transaction["duplicated"]: # Ignora se for uma transação duplicada
-                self.duplicated_transactions.append(duplicate_transaction["relationship"])
-                continue
-
-            self.processed_transactions.append(new_transaction)
-        
         if create_transaction:
-            for transaction in self.processed_transactions:
-                self._organizze_service.create_transaction(transaction)
-
-        # Retornar as transações processadas
-        return self.processed_transactions
+            self._organizze_service.create_transaction(new_transaction)
+            return f'Movimentação criada com sucesso! Categoria: {new_transaction.category_name}'
     
     
     def delete_all_api_transactions(self):
@@ -146,27 +137,27 @@ class OrganizzeSync:
             if new_description == old_transaction.description.lower() and new_amount_cents == old_transaction.amount_cents: 
                 if abs(new_date_posted - old_date) <= timedelta(days=3):
                     self.logger.log("INFO", f"Ignorando transação {new_description} de {new_date_posted}, duplicidade com {old_transaction.description.lower()} de {old_transaction.date}...")
-                    return {"duplicated": True, "relationship": (new_description, old_transaction.description.lower())}
+                    return {"duplicated": True, "relationship": ((new_description, new_transaction.date), (old_transaction.description.lower(), old_transaction.date))}
             
             # Casos aonde a descrição foi alterada
             if new_date_posted == old_date and new_amount_cents == old_transaction.amount_cents and new_description != old_transaction.description.lower(): 
                 if match_strings(new_description, old_transaction.description.lower(), simillar=False, threshold=2):
                     self.logger.log("INFO", f"Ignorando transação {new_description} de {new_date_posted}, duplicidade com {old_transaction.description.lower()} de {old_transaction.date}...")
-                    return {"duplicated": True, "relationship": (new_description, old_transaction.description.lower())}
+                    return {"duplicated": True, "relationship": ((new_description, new_transaction.date), (old_transaction.description.lower(), old_transaction.date))}
             
             if abs(new_date_posted - old_date) <= timedelta(days=2) and new_amount_cents == old_transaction.amount_cents and new_description != old_transaction.description.lower(): 
                 if match_strings(new_description, old_transaction.description.lower(), simillar=False, threshold=1):
                     self.logger.log("INFO", f"Ignorando transação {new_description} de {new_date_posted}, duplicidade com {old_transaction.description.lower()} de {old_transaction.date}...")
-                    return {"duplicated": True, "relationship": (new_description, old_transaction.description.lower())}
+                    return {"duplicated": True, "relationship": ((new_description, new_transaction.date), (old_transaction.description.lower(), old_transaction.date))}
                 
                 if new_date_posted == old_date and new_transaction.category_id == old_transaction.category_id:
                     self.logger.log("INFO", f"Ignorando transação {new_description} de {new_date_posted}, duplicidade com {old_transaction.description.lower()} de {old_transaction.date}...")
-                    return {"duplicated": True, "relationship": (new_description, old_transaction.description.lower())}
+                    return {"duplicated": True, "relationship": ((new_description, new_transaction.date), (old_transaction.description.lower(), old_transaction.date))}
                 
             if abs(new_date_posted - old_date) <= timedelta(days=3) and new_amount_cents == old_transaction.amount_cents and new_description != old_transaction.description.lower() and old_transaction.category_id == new_transaction.category_id:
                 if match_strings(new_description, old_transaction.description.lower(), simillar=False, threshold=1):
                     self.logger.log("INFO", f"Ignorando transação {new_description} de {new_date_posted}, duplicidade com {old_transaction.description.lower()} de {old_transaction.date}...")
-                    return {"duplicated": True, "relationship": (new_description, old_transaction.description.lower())}
+                    return {"duplicated": True, "relationship": ((new_description, new_transaction.date), (old_transaction.description.lower(), old_transaction.date))}
         
         return {"duplicated": False, "relationship": None}
     

@@ -49,10 +49,10 @@ def parse_notification(description: str, account_id: EnumOrganizzeAccounts) -> d
     '''Realiza a separação do nome do Estabelecimento e o Valor da compra da notificação passada para a API'''
     if account_id == EnumOrganizzeAccounts.INTER or account_id == EnumOrganizzeAccounts.INTER_EDELIN:
         # Encontrar o estabelecimento usando regex
-        place = re.search(r'no (.+?) o valor', description).group(1)
+        place = re.search(r'no débito no (.+?) o valor', description).group(1)
 
         # Encontrar o valor usando regex
-        amount = convert_brl_to_decimal(re.search(r'R\$ ([\d.,]+)', description).group(1))
+        amount = convert_brl_to_decimal(re.search(r'(R\$ \d+(?:,\d+)?)', description).group(1))
         return {"amount": convert_amount_to_cents(amount), "place": place }
         
     if account_id == EnumOrganizzeAccounts.SANTANDER or account_id == EnumOrganizzeAccounts.SANTANDER_EDELIN:

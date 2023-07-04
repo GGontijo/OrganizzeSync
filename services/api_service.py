@@ -23,14 +23,14 @@ def create(response: Response, description: str, date: str, account_id: int = No
                                                          amount_cents=amount,
                                                          date=_date,
                                                          account_id=_account_id)
-                result = Server._organizze_sync.process_new_transactions([transaction_obj], account_id=_account_id, create_transaction=True)
+                result = Server._organizze_sync.process_new_transaction(transaction_obj, account_id=_account_id, create_transaction=True)
                 if result:
                     response.status_code = status.HTTP_200_OK
                     return result
                 else:
                     _telegram = Telegram_Service()
                     _telegram.send_import_error(lat, long, description)
-                    raise KeyError('Não foi possível realizar a importação')
+                    raise result
             except KeyError as e:
                 response.status_code = status.HTTP_400_BAD_REQUEST
                 return str(e)
@@ -41,14 +41,15 @@ def create(response: Response, description: str, date: str, account_id: int = No
                                                          amount_cents=amount,
                                                          date=_date,
                                                          account_id=account_determined.value)
-                result = Server._organizze_sync.process_new_transactions([transaction_obj], account_id=account_determined, create_transaction=True)
-                if result:
+                result = Server._organizze_sync.process_new_transaction(transaction_obj, account_id=account_determined, create_transaction=True)
+                if 'sucesso' in result:
                     response.status_code = status.HTTP_200_OK
                     return result
                 else:
+                    response.status_code = status.HTTP_400_BAD_REQUEST
                     _telegram = Telegram_Service()
-                    _telegram.send_import_error(lat, long, description)
-                    raise KeyError('Não foi possível realizar a importação')
+                    _telegram.send_import_error(lat, long, description, result)
+                    raise Exception(str(result))
             except KeyError as e:
                 response.status_code = status.HTTP_400_BAD_REQUEST
                 return str(e)

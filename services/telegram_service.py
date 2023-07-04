@@ -11,15 +11,14 @@ class Telegram_Service:
         _url = _config_data["url"]
         self.group_chat_id = _config_data["group_chat_id"]
         self.url_base = f'{_url}{_token}/'
-        self._organizze_sync = Organizze_Service()
 
     def send_basic_response(self, message: str):
         link_requisicao = f'{self.url_base}sendMessage?chat_id={self.group_chat_id}&text={message}'
         requests.get(link_requisicao)
 
-    def send_import_error(self, lat: str, long: str, description: str):
+    def send_import_error(self, lat: str, long: str, description: str, reason: str = None):
         location_map = f'http://www.google.com/maps/place/{lat},{long}'
-        message = f'Erro ao importar a notificação {description}: {location_map}'
+        message = f'Erro ao importar a notificação {description}: {location_map} - Motivo: {reason}'
         link_requisicao = f'{self.url_base}sendMessage?chat_id={self.group_chat_id}&text={message}'
         requests.get(link_requisicao)
 
