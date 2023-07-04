@@ -99,6 +99,7 @@ class TransactionModel(BaseModel):
     recurring: bool
     account_id: int
     category_id: int
+    category_name: Optional[str]
     notes: Optional[str]
     attachments_count: int
     credit_card_id: Optional[int]

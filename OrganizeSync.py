@@ -31,7 +31,8 @@ class OrganizzeSync:
         old_ids = set(transaction.id for transaction in self.old_transactions)
         new_transactions_filtered = [transaction for transaction in new_transactions if transaction.id not in old_ids]
         if new_transactions_filtered:
-            self.old_transactions.append(new_transactions_filtered) # Atualiza a base de transações em memória
+            for transaction in new_transactions_filtered:
+                self.old_transactions.append(transaction) # Atualiza a base de transações em memória
 
 
     def process_categories(self):
@@ -65,6 +66,12 @@ class OrganizzeSync:
         self.update_old_transactions()
         self.account_id = account_id.value
         new_transaction: TransactionCreateModel # Typing hint
+
+        # Limpeza de listas
+        self.duplicated_transactions = []
+        self.unrecognized_transactions = []
+        self.processed_transactions = []
+        self.ignored_transactions = []
 
         description = new_transaction.description.lower()
 
