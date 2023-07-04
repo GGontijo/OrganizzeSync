@@ -1,0 +1,11 @@
+version: '3'            
+                        
+services:               
+  organizzesync:     
+    build: .        
+    restart: always     
+    volumes:            
+      - .:/server       
+    ports:              
+      - "6556:6556"     
+    
