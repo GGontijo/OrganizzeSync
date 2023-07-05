@@ -34,6 +34,13 @@ class OrganizzeSync:
             for transaction in new_transactions_filtered:
                 self.old_transactions.append(transaction) # Atualiza a base de transações em memória
 
+        # Filtrar apenas os itens removidos com base nos IDs não existentes em new_transactions
+        new_ids = set(transaction.id for transaction in new_transactions)
+        removed_transactions = [transaction for transaction in self.old_transactions if transaction.id not in new_ids]
+
+        if removed_transactions:
+            for transaction in removed_transactions:
+                self.old_transactions.remove(transaction)  # Remove as transações removidas
 
     def process_categories(self):
         # Criar um dicionário para armazenar as categorias mais utilizadas por descrição
