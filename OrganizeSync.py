@@ -8,9 +8,9 @@ import time
 
 
 class OrganizzeSync:
-    def __init__(self) -> None:
-        self.logger = Logger()
-        self._organizze_service = Organizze_Service(self.logger)
+    def __init__(self, service: Organizze_Service, logger: Logger) -> None:
+        self.logger = logger
+        self._organizze_service = service
         self.old_transactions: list
         self.old_transactions = self._organizze_service.get_transactions()
         self.categories = self._organizze_service.get_categories()
@@ -23,9 +23,12 @@ class OrganizzeSync:
         self.processed_transactions = []
         self.ignored_transactions = []
 
-    def update_old_transactions(self):
+    def update_old_transactions(self, timespan: int = None):
         max_date = max(self.old_transactions, key=lambda transaction: transaction.date).date
-        new_transactions = self._organizze_service.get_transactions(data_inicio=max_date, data_fim=date.today().strftime('%Y-%m-%d'))
+        if timespan:
+            new_transactions = self._organizze_service.get_transactions(data_inicio=(date.today() - timedelta(days=timespan)).strftime('%Y-%m-%d'), data_fim=date.today().strftime('%Y-%m-%d'))
+        else:
+            new_transactions = self._organizze_service.get_transactions(data_inicio=max_date, data_fim=date.today().strftime('%Y-%m-%d'))
 
         # Filtrar apenas os itens novos com base nos IDs não existentes em old_transactions
         old_ids = set(transaction.id for transaction in self.old_transactions)
@@ -36,7 +39,11 @@ class OrganizzeSync:
 
         # Filtrar apenas os itens removidos com base nos IDs não existentes em new_transactions
         new_ids = set(transaction.id for transaction in new_transactions)
-        removed_transactions = [transaction for transaction in self.old_transactions if transaction.date == date.today().strftime('%Y-%m-%d') and transaction.id not in new_ids]
+
+        if timespan:
+            removed_transactions = [transaction for transaction in self.old_transactions if transaction.date >= (date.today() - timedelta(days=timespan)).strftime('%Y-%m-%d') and transaction.id not in new_ids]
+        else:
+            removed_transactions = [transaction for transaction in self.old_transactions if transaction.date == date.today().strftime('%Y-%m-%d') and transaction.id not in new_ids]
 
         if removed_transactions:
             for transaction in removed_transactions:
