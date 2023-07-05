@@ -5,7 +5,8 @@ services:
     build: .        
     restart: always     
     volumes:            
-      - .:/server       
+      - .:/server
+      - /usr/share/zoneinfo/America/Cuiaba:/etc/localtime:ro       
     ports:              
       - "6556:6556"     
     
