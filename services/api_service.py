@@ -4,6 +4,7 @@ from helpers.data_helper import determine_account_id, parse_notification
 from helpers.date_helper import convert_timestamp_to_date
 from services.telegram_service import Telegram_Service
 from OrganizeSync import OrganizzeSync
+from datetime import datetime, timedelta
 from models.organizze_models import *
 from uvicorn import run
 
@@ -38,6 +39,9 @@ class Server():
                         return result
                     else:
                         _telegram = Telegram_Service()
+                        if (datetime.now().timestamp - _date) > timedelta(minutes=15):
+                            lat = None # Limpa os campos para não gerar link do maps, já que provavelmente a localização estará incorreta
+                            long = None
                         _telegram.send_import_error(lat, long, description)
                         raise Exception(str(result))
                 except KeyError as e:
@@ -57,7 +61,10 @@ class Server():
                     else:
                         response.status_code = status.HTTP_400_BAD_REQUEST
                         _telegram = Telegram_Service()
-                        _telegram.send_import_error(lat, long, description, result)
+                        if (datetime.now().timestamp - _date) > timedelta(minutes=15):
+                            lat = None # Limpa os campos para não gerar link do maps, já que provavelmente a localização estará incorreta
+                            long = None
+                        _telegram.send_import_error(lat, long, description)
                         raise Exception(str(result))
                 except KeyError as e:
                     response.status_code = status.HTTP_400_BAD_REQUEST

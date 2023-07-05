@@ -16,9 +16,12 @@ class Telegram_Service:
         link_requisicao = f'{self.url_base}sendMessage?chat_id={self.group_chat_id}&text={message}'
         requests.get(link_requisicao)
 
-    def send_import_error(self, lat: str, long: str, description: str, reason: str = None):
-        location_map = f'http://www.google.com/maps/place/{lat},{long}'
-        message = f'Erro ao importar a notificação {description}: {location_map} - Motivo: {reason}'
+    def send_import_error(self, description: str, lat: str = None, long: str = None, reason: str = None):
+        if lat or long:
+            location_map = f'http://www.google.com/maps/place/{lat},{long}'
+            message = f'Erro ao importar a notificação {description}: {location_map} - Motivo: {reason}'
+        else:
+            message = f'Erro ao importar a notificação {description} - Motivo: {reason}'
         link_requisicao = f'{self.url_base}sendMessage?chat_id={self.group_chat_id}&text={message}'
         requests.get(link_requisicao)
 
