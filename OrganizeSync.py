@@ -75,7 +75,7 @@ class OrganizzeSync:
         self.logger.log("INFO", f"Processando novas transacoes")
         pass
 
-    def process_new_transaction(self, new_transaction: TransactionCreateModel, account_id: EnumOrganizzeAccounts, create_transaction: bool = False) -> str:
+    def process_new_transaction(self, new_transaction: TransactionCreateModel, account_id: EnumOrganizzeAccounts, create_transaction: bool = False, ignore_duplicates: bool = False) -> str:
         '''Processar as novas transações e definir a categoria com base na correspondência de descrição'''
         self.update_old_transactions()
         self.account_id = account_id.value
@@ -115,7 +115,8 @@ class OrganizzeSync:
         new_transaction.category_id = category_id
         new_transaction.tags=[{"name": "API"}]
 
-        duplicate_transaction = self.check_existing_transaction(new_transaction)
+        if not ignore_duplicates: # Utilizar deste tag quando não for um processamento em lote de .ofx
+            duplicate_transaction = self.check_existing_transaction(new_transaction)
 
         if duplicate_transaction and duplicate_transaction["duplicated"]: # Ignora se for uma transação duplicada
             self.duplicated_transactions.append(duplicate_transaction["relationship"])
