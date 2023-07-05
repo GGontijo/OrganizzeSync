@@ -36,7 +36,7 @@ class OrganizzeSync:
 
         # Filtrar apenas os itens removidos com base nos IDs não existentes em new_transactions
         new_ids = set(transaction.id for transaction in new_transactions)
-        removed_transactions = [transaction for transaction in self.old_transactions if transaction.id not in new_ids]
+        removed_transactions = [transaction for transaction in self.old_transactions if transaction.date == date.today().strftime('%Y-%m-%d') and transaction.id not in new_ids]
 
         if removed_transactions:
             for transaction in removed_transactions:
@@ -116,7 +116,7 @@ class OrganizzeSync:
 
         if create_transaction:
             self._organizze_service.create_transaction(new_transaction)
-            return f'Movimentação criada com sucesso! Categoria: {new_transaction.category_name}'
+            return f'Movimentação criada com sucesso! {new_transaction.description} | Categoria: {new_transaction.category_name}'
     
     
     def delete_all_api_transactions(self):
