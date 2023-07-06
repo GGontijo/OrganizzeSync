@@ -9,7 +9,7 @@ def start():
     logger = Logger()
     organizze_service = Organizze_Service(logger)
     organizze = OrganizzeSync(organizze_service, logger)
-    Report(organizze, organizze_service).daily()
+    #Report(organizze, organizze_service).daily()
     Server(organizze)
 
 start()

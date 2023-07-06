@@ -4,6 +4,7 @@ import json
 import re
 from models.organizze_models import TransactionCreateModel
 from models.organizze_models import EnumOrganizzeAccounts
+from PIL import Image, ImageDraw, ImageFont
 from decimal import Decimal
 
 def determine_account_id(title: str) -> EnumOrganizzeAccounts:
@@ -129,3 +130,31 @@ def match_strings(string1: str, string2: str, simillar: bool = False, threshold:
         return True
     
     return False
+
+
+def generate_report_image(report) -> Image:
+    image_width = 800
+    font_size = 20
+
+    x = 20
+    y = 20
+
+    lines = report.split("\n")
+    line_height = font_size + 10  # Altura de cada linha
+    image_height = y + (len(lines) * line_height)
+
+    font_path = "resources/Arial.ttf"
+    bg_color = (255, 255, 255)  # Branco
+    text_color = (0, 0, 0)  # Preto
+    image = Image.new("RGB", (image_width, image_height), bg_color)
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.truetype(font_path, font_size)
+    
+
+    # Escreva o texto no relatório
+    lines = report.split("\n")
+    for line in lines:
+        draw.text((x, y), line, font=font, fill=text_color)
+        y += font_size + 10
+
+    return image

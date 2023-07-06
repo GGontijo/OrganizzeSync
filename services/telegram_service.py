@@ -1,4 +1,6 @@
 from helpers.config_helper import Config
+from PIL import Image
+from io import BytesIO
 from OrganizeSync import Organizze_Service
 import requests
 
@@ -24,5 +26,14 @@ class Telegram_Service:
             message = f'Erro ao importar a notificação {description} - Motivo: {reason}'
         link_requisicao = f'{self.url_base}sendMessage?chat_id={self.group_chat_id}&text={message}'
         requests.get(link_requisicao)
+
+    def send_image(self, image: Image, message: str = None):
+        link_requisicao = f'{self.url_base}sendPhoto'
+
+        image_buffer = BytesIO()
+        image.save(image_buffer, format="PNG")
+        image_buffer.seek(0)
+
+        response = requests.post(link_requisicao, data={"chat_id": self.group_chat_id, "caption": message}, files={"photo": image_buffer})
 
     
