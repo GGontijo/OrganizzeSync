@@ -15,7 +15,7 @@ async def run_report(report: Report):
 
 
 async def run_api_server(api_server: Server):
-    await api_server()
+    await api_server.start()
 
 
 async def main():
