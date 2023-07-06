@@ -6,6 +6,8 @@ from helpers.date_helper import generate_this_month_dates, count_weekend_days, c
 from collections import defaultdict
 from models.organizze_models import *
 from OrganizeSync import OrganizzeSync
+import schedule
+import time
 
 class Report:
     def __init__(self, _organizze_instance: OrganizzeSync, service: Organizze_Service) -> None:
@@ -189,3 +191,11 @@ class Report:
         message = f'{date.today().strftime("%Y-%m-%d")}: Relatório diário 3/3'
 
         self.telegram.send_image(generate_report_image(report), message)
+
+    def schedule(self):
+        schedule.every().day.at("19:00").do(self.daily)
+
+    def run_scheduled(self):
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
