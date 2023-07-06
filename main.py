@@ -1,7 +1,7 @@
 from services.api_service import Server
-from OrganizeSync import OrganizzeSync
+from organizesync import OrganizzeSync
 from services.organizze_service import Organizze_Service
-from Report import Report
+from report import Report
 from helpers.logger_helper import Logger
 import asyncio
 

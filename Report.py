@@ -2,10 +2,10 @@ from datetime import timedelta, datetime, date
 from services.telegram_service import Telegram_Service
 from services.organizze_service import Organizze_Service
 from helpers.data_helper import convert_amount_to_decimal, generate_report_image
-from helpers.date_helper import generate_this_month_dates, count_weekend_days, count_weeks, get_current_week_dates, get_last_week_dates, generate_last_month_dates
+from helpers.date_helper import generate_this_month_dates, count_weekend_days, count_weeks, get_current_week_dates, get_last_week_dates, generate_last_month_dates, get_last_few_week_dates
 from collections import defaultdict
 from models.organizze_models import *
-from OrganizeSync import OrganizzeSync
+from organizesync import OrganizzeSync
 import schedule
 import time
 
@@ -15,22 +15,46 @@ class Report:
         self.organizze_service = service
         self.telegram = Telegram_Service()
 
+    def monthly(self) -> str:
+        pass
+
     def weekly(self) -> str:
-        '''Relatório genérico de gastos gerais diários'''
+        '''Relatório genérico de gastos gerais semanais'''
         self.organizze.update_old_transactions()
         expense: TransactionModel
 
-
-        ##----------------------------------------##
         last_month_dates = generate_last_month_dates()
+        monthly_today_lastday_dates = generate_this_month_dates()
+        this_week_dates = get_current_week_dates()
+        last_week_dates = get_last_week_dates()
+        last_four_weeks_dates = get_last_few_week_dates(4)
 
+        this_week_first_day = this_week_dates[0]
+        this_week_last_day = this_week_dates[1]
+        
         last_month_first_day = last_month_dates[0]
         last_month_last_day = last_month_dates[1]
+
+        last_week_first_day = last_week_dates[0]
+        last_week_last_day = last_week_dates[1]
         
         category_month_to_date_expenses = defaultdict(int)
         category_last_month_expenses = defaultdict(int)
+        category_week_to_date_expenses = defaultdict(int)
+
+        last_seven_days_total_spent: int = 0
+        this_week_total_spent: int = 0
+
+        
 
         last_month_expenses = list(filter(lambda x: last_month_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= last_month_last_day, self.organizze.old_transactions))
+        this_week_expenses = list(filter(lambda x: this_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= this_week_last_day and x.amount_cents < 0 and x.category_id != 71967491, self.organizze.old_transactions))
+        last_week_expenses = list(filter(lambda x: last_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= last_week_last_day and x.amount_cents < 0 and x.category_id != 71967491, self.organizze.old_transactions))
+
+        # Totalizar os gastos por categoria para as transações da semana atual
+        for expense in this_week_expenses:
+            expense.category_name = self.organizze.get_category_name_by_id(expense.category_id)
+            category_week_to_date_expenses[expense.category_name] += expense.amount_cents
 
         for expense in last_month_expenses:
             expense.category_name = self.organizze.get_category_name_by_id(expense.category_id)
@@ -115,7 +139,7 @@ class Report:
         for expense in last_seven_days_expenses:
             last_seven_days_total_spent += expense.amount_cents
         
-        report = "Relatório diário de Gastos:\n\n"
+        report = f"Relatório diário de Gastos ({date.today().strftime('%d-%m-%Y')}):\n\n"
 
         # Média de gastos por dia da semana anterior e total de gasto no dia atual
         report += "[Gastos de hoje]:\n"
@@ -144,7 +168,7 @@ class Report:
         
         report += "\n\n"
 
-        message = f'{date.today().strftime("%Y-%m-%d")}: Relatório diário 1/3'
+        message = f'{date.today().strftime("%d-%m-%Y")}: Relatório diário 1/3'
 
         self.telegram.send_image(generate_report_image(report), message)
 

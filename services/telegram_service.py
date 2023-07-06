@@ -1,7 +1,7 @@
 from helpers.config_helper import Config
 from PIL import Image
 from io import BytesIO
-from OrganizeSync import Organizze_Service
+from organizesync import Organizze_Service
 import requests
 
 class Telegram_Service:

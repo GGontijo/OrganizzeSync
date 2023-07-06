@@ -3,7 +3,7 @@ from fastapi import APIRouter, status, Response
 from helpers.data_helper import determine_account_id, parse_notification
 from helpers.date_helper import convert_timestamp_to_date
 from services.telegram_service import Telegram_Service
-from OrganizeSync import OrganizzeSync
+from organizesync import OrganizzeSync
 from datetime import datetime, timedelta
 from models.organizze_models import *
 from uvicorn import run
@@ -20,7 +20,7 @@ class Server():
         
     def start(self):
         run(self.api, port=6556, host='*')
-        
+
     @organizze_router.get("/create")
     def create(response: Response, description: str, date: str, account_id: int = None, title: str = None, lat: str = None, long: str = None):
         try:
