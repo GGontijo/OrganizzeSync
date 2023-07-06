@@ -1,5 +1,5 @@
 from services.api_service import Server
-from organizesync import OrganizzeSync
+from organizzesync import OrganizzeSync
 from services.organizze_service import Organizze_Service
 from report import Report
 from helpers.logger_helper import Logger
@@ -11,7 +11,7 @@ async def run_report(report: Report):
 
     while True:
         report.run_scheduled()
-        await asyncio.sleep(600)
+        await asyncio.sleep(15)
 
 
 async def run_api_server(api_server: Server):

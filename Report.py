@@ -5,7 +5,7 @@ from helpers.data_helper import convert_amount_to_decimal, generate_report_image
 from helpers.date_helper import generate_this_month_dates, count_weekend_days, count_weeks, get_current_week_dates, get_last_week_dates, generate_last_month_dates, get_last_few_week_dates
 from collections import defaultdict
 from models.organizze_models import *
-from organizesync import OrganizzeSync
+from organizzesync import OrganizzeSync
 import schedule
 import time
 
@@ -220,6 +220,4 @@ class Report:
         schedule.every().day.at("19:00").do(self.daily)
 
     def run_scheduled(self):
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
+        schedule.run_pending()
