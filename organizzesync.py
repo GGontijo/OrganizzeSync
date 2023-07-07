@@ -118,9 +118,9 @@ class OrganizzeSync:
         if not ignore_duplicates: # Utilizar deste tag quando não for um processamento em lote de .ofx
             duplicate_transaction = self.check_existing_transaction(new_transaction)
 
-        if duplicate_transaction and duplicate_transaction["duplicated"]: # Ignora se for uma transação duplicada
-            self.duplicated_transactions.append(duplicate_transaction["relationship"])
-            return f"Esta Movimentação já foi lançada anteriormente: {duplicate_transaction['relationship']}"
+            if duplicate_transaction and duplicate_transaction["duplicated"]: # Ignora se for uma transação duplicada
+                self.duplicated_transactions.append(duplicate_transaction["relationship"])
+                return f"Esta Movimentação já foi lançada anteriormente: {duplicate_transaction['relationship']}"
 
         if create_transaction:
             self._organizze_service.create_transaction(new_transaction)

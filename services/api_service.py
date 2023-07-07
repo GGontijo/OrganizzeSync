@@ -35,16 +35,19 @@ class Server():
                                                              amount_cents=amount,
                                                              date=_date,
                                                              account_id=_account_id)
-                    result = Server.organizze_sync.process_new_transaction(transaction_obj, account_id=account_determined, create_transaction=True)
+                    result = Server.organizze_sync.process_new_transaction(transaction_obj, account_id=account_determined, create_transaction=True, ignore_duplicates=True)
                     if result:
                         response.status_code = status.HTTP_200_OK
                         return result
                     else:
                         _telegram = Telegram_Service()
-                        if (datetime.now().timestamp - _date) > timedelta(minutes=15):
-                            lat = None # Limpa os campos para não gerar link do maps, já que provavelmente a localização estará incorreta
-                            long = None
-                        _telegram.send_import_error(lat, long, description)
+                        current_timestamp = datetime.now().timestamp()
+                        difference = current_timestamp - float(date)
+                        five_minutes = timedelta(minutes=5)
+                        if difference > five_minutes.total_seconds():
+                            _telegram.send_import_error(description, reason= result)
+                        else:
+                            _telegram.send_import_error(lat, long, description, result)
                         raise Exception(str(result))
                 except KeyError as e:
                     response.status_code = status.HTTP_400_BAD_REQUEST
@@ -56,17 +59,19 @@ class Server():
                                                              amount_cents=amount,
                                                              date=_date,
                                                              account_id=account_determined.value)
-                    result = Server.organizze_sync.process_new_transaction(transaction_obj, account_id=account_determined, create_transaction=True)
+                    result = Server.organizze_sync.process_new_transaction(transaction_obj, account_id=account_determined, create_transaction=True, ignore_duplicates=True)
                     if 'sucesso' in result:
                         response.status_code = status.HTTP_200_OK
                         return result
                     else:
-                        response.status_code = status.HTTP_400_BAD_REQUEST
                         _telegram = Telegram_Service()
-                        if (datetime.now().timestamp - _date) > timedelta(minutes=15):
-                            lat = None # Limpa os campos para não gerar link do maps, já que provavelmente a localização estará incorreta
-                            long = None
-                        _telegram.send_import_error(lat, long, description)
+                        current_timestamp = datetime.now().timestamp()
+                        difference = current_timestamp - float(date)
+                        five_minutes = timedelta(minutes=5)
+                        if difference > five_minutes.total_seconds():
+                            _telegram.send_import_error(description, reason= result)
+                        else:
+                            _telegram.send_import_error(lat, long, description, result)
                         raise Exception(str(result))
                 except KeyError as e:
                     response.status_code = status.HTTP_400_BAD_REQUEST
