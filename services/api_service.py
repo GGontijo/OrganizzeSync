@@ -16,9 +16,8 @@ class Server():
                            description='API de sincronização com o Organizze', 
                            version='1.0.0')
         self.api.include_router(Server.organizze_router)
+        run(self.api, port=6556, host='0.0.0.0')
         
-    def start(self):
-        run(self.api, port=6556, host='*')
 
     @organizze_router.get("/create")
     def create(response: Response, description: str, date: str, account_id: int = None, title: str = None, lat: str = None, long: str = None):

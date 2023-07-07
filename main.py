@@ -3,32 +3,33 @@ from organizzesync import OrganizzeSync
 from services.organizze_service import Organizze_Service
 from report import Report
 from helpers.logger_helper import Logger
-import asyncio
+import threading
 
 
-async def run_report(report: Report):
+def start_report(organizze: OrganizzeSync, organizze_service: Organizze_Service):
+    report = Report(organizze, organizze_service)
     report.schedule()
-
-    while True:
-        report.run_scheduled()
-        await asyncio.sleep(15)
+    report.run_scheduled()
 
 
-async def run_api_server(api_server: Server):
-    await api_server.start()
+def start_server(organizze: OrganizzeSync):
+    Server(organizze)
 
 
-async def main():
+def start():
     logger = Logger()
     organizze_service = Organizze_Service(logger)
     organizze = OrganizzeSync(organizze_service, logger)
-    
-    report = Report(organizze, organizze_service)
-    api_server = Server(organizze)
-    
-    tasks = [run_report(report), run_api_server(api_server)]
-    await asyncio.gather(*tasks)
+
+    report_thread = threading.Thread(target=start_report(organizze, organizze_service))
+    server_thread = threading.Thread(target=start_server(organizze))
+
+    report_thread.start()
+    server_thread.start()
+
+    report_thread.join()
+    server_thread.join()
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    start()
