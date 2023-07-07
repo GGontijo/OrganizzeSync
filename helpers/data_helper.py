@@ -143,7 +143,7 @@ def generate_report_image(report) -> Image:
     line_height = font_size + 10  # Altura de cada linha
     image_height = y + (len(lines) * line_height)
 
-    font_path = "resources/Arial.ttf"
+    font_path = "resources/ARIAL.TTF"
     bg_color = (255, 255, 255)  # Branco
     text_color = (0, 0, 0)  # Preto
     image = Image.new("RGB", (image_width, image_height), bg_color)

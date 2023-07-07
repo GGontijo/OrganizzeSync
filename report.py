@@ -37,29 +37,54 @@ class Report:
 
         last_week_first_day = last_week_dates[0]
         last_week_last_day = last_week_dates[1]
+
+        second_week_before_first_day = last_four_weeks_dates[1][0]
+        second_week_before_last_day = last_four_weeks_dates[1][1]
+
+        third_week_before_first_day = last_four_weeks_dates[2][0]
+        third_week_before_last_day = last_four_weeks_dates[2][1]
+
+        fourth_week_before_first_day = last_four_weeks_dates[3][0]
+        fourth_week_before_last_day = last_four_weeks_dates[3][1]
+        
         
         category_month_to_date_expenses = defaultdict(int)
         category_last_month_expenses = defaultdict(int)
         category_week_to_date_expenses = defaultdict(int)
 
         last_seven_days_total_spent: int = 0
+
         this_week_total_spent: int = 0
+        last_four_weeks_average_spent: int = 0
 
         
 
         last_month_expenses = list(filter(lambda x: last_month_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= last_month_last_day, self.organizze.old_transactions))
-        this_week_expenses = list(filter(lambda x: this_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= this_week_last_day and x.amount_cents < 0 and x.category_id != 71967491, self.organizze.old_transactions))
-        last_week_expenses = list(filter(lambda x: last_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= last_week_last_day and x.amount_cents < 0 and x.category_id != 71967491, self.organizze.old_transactions))
+        this_week_expenses = list(filter(lambda x: this_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= this_week_last_day and x.amount_cents <= 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions))
+        last_week_expenses = list(filter(lambda x: last_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= last_week_last_day and x.amount_cents <= 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions))
+        
+        last_week_total_expent = sum(expense.amount_cents for expense in last_week_expenses)
+        second_week_before_total_expent = sum(expense.amount_cents for expense in list(filter(lambda x: second_week_before_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= second_week_before_last_day and x.amount_cents <= 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions)))
+        third_week_before_total_expent = sum(expense.amount_cents for expense in list(filter(lambda x: third_week_before_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= third_week_before_last_day and x.amount_cents <= 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions)))
+        fourth_week_before_total_expent = sum(expense.amount_cents for expense in list(filter(lambda x: fourth_week_before_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= fourth_week_before_last_day and x.amount_cents <= 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions)))
 
-        # Totalizar os gastos por categoria para as transações da semana atual
+        last_four_weeks_average_spent = (last_week_total_expent + second_week_before_total_expent + third_week_before_total_expent + fourth_week_before_total_expent) / 4
+        
         for expense in this_week_expenses:
             expense.category_name = self.organizze.get_category_name_by_id(expense.category_id)
             category_week_to_date_expenses[expense.category_name] += expense.amount_cents
+            this_week_total_spent += expense.amount_cents
 
+        # Totalizar os gastos por categoria para as transações do mês anterior
         for expense in last_month_expenses:
             expense.category_name = self.organizze.get_category_name_by_id(expense.category_id)
             category_last_month_expenses[expense.category_name] += expense.amount_cents
         
+        for expense in last_week_expenses:
+            pass
+
+        report = f"Relatório semanal de Gastos ({date.today().strftime('%m-%Y')}):\n\n"
+
         # Todas as categorias com pelo menos um gasto
         report += "[Todas as categorias]:\n"
         for category, monthly_amount in category_month_to_date_expenses.items():
@@ -109,10 +134,10 @@ class Report:
         today_total_spent: int = 0
 
         today_expenses = list(filter(lambda x: x.date == date.today().strftime('%Y-%m-%d') and x.amount_cents < 0, self.organizze.old_transactions))
-        this_month_expenses = list(filter(lambda x: this_month_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= this_month_last_day and x.amount_cents < 0 and x.category_id != 71967491, self.organizze.old_transactions))
-        this_week_expenses = list(filter(lambda x: this_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= this_week_last_day and x.amount_cents < 0 and x.category_id != 71967491, self.organizze.old_transactions))
-        last_week_expenses = list(filter(lambda x: last_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= last_week_last_day and x.amount_cents < 0 and x.category_id != 71967491, self.organizze.old_transactions))
-        last_seven_days_expenses = list(filter(lambda x: (date.today() - timedelta(days=7)) <= datetime.strptime(x.date, '%Y-%m-%d').date() <= date.today() and x.amount_cents < 0 and x.category_id != 71967491, self.organizze.old_transactions))
+        this_month_expenses = list(filter(lambda x: this_month_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= this_month_last_day and x.amount_cents < 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions))
+        this_week_expenses = list(filter(lambda x: this_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= this_week_last_day and x.amount_cents < 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions))
+        last_week_expenses = list(filter(lambda x: last_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= last_week_last_day and x.amount_cents < 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions))
+        last_seven_days_expenses = list(filter(lambda x: (date.today() - timedelta(days=7)) <= datetime.strptime(x.date, '%Y-%m-%d').date() <= date.today() and x.amount_cents < 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions))
 
         # Totalizar os gastos por categoria para as transações de hoje
         for expense in today_expenses:
@@ -221,3 +246,4 @@ class Report:
 
     def run_scheduled(self):
         schedule.run_pending()
+

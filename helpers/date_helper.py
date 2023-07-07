@@ -80,9 +80,8 @@ def get_last_few_week_dates(weeks: int):
     current_weekday = today.weekday()
     start_of_week = today - timedelta(days=current_weekday + 7)
     end_of_week = start_of_week + timedelta(days=6)
-    
-    last_week_dates = []
-    for _ in range(weeks):
+    last_week_dates = [(start_of_week, end_of_week)]
+    for _ in range(weeks - 1): # Subtrai uma semana, pois já foi inserido acima
         start_of_last_week = start_of_week - timedelta(days=7)
         end_of_last_week = end_of_week - timedelta(days=7)
         last_week_dates.append((start_of_last_week, end_of_last_week))
