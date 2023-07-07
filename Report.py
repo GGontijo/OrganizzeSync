@@ -217,9 +217,7 @@ class Report:
         self.telegram.send_image(generate_report_image(report), message)
 
     def schedule(self):
-        schedule.every().day.at("18:00").do(self.daily)
+        schedule.every().day.at("23:20").do(self.daily)
 
     def run_scheduled(self):
-        while True:
-            schedule.run_pending()
-            time.sleep(15)
+        schedule.run_pending()
