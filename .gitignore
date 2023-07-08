@@ -1,7 +1,8 @@
 config.json
 teste.ofx
 logs.txt
-database/investments.sqlite
+database/investments.sqlite;
+
 
 
 # Byte-compiled / optimized / DLL files
