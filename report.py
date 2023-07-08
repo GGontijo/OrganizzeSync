@@ -1,13 +1,13 @@
-from datetime import timedelta, datetime, date
+import datetime as dtime # Pra não quebrar os outros usos de datetime.datetime
+from datetime import timedelta, date, datetime
 from services.telegram_service import Telegram_Service
 from services.organizze_service import Organizze_Service
 from helpers.data_helper import convert_amount_to_decimal, generate_report_image
-from helpers.date_helper import generate_this_month_dates, count_weekend_days, count_weeks, get_current_week_dates, get_last_week_dates, generate_last_month_dates, get_last_few_week_dates, get_last_few_month_dates
+from helpers.date_helper import *
 from collections import defaultdict
 from models.organizze_models import *
 from organizzesync import OrganizzeSync
 import schedule
-import time
 
 class Report:
     def __init__(self, _organizze_instance: OrganizzeSync, service: Organizze_Service) -> None:
@@ -382,9 +382,18 @@ class Report:
     def schedule(self):
         schedule.every().day.at("18:00").do(self.daily)
         schedule.every().sunday.at("07:00").do(self.weekly)
-        # Falta configurar envio mensal!
 
+        monthly_time = dtime.time(20, 0)
+        schedule.every().day.at(monthly_time.strftime("%H:%M")).tag("monthly_task").do(self.check_last_day_of_month)
+
+    
 
     def run_scheduled(self):
         schedule.run_pending()
 
+    def check_last_day_of_month(self):
+        now = datetime.now()
+        last_day = datetime(now.year, now.month, 28) + timedelta(days=4)
+        last_day = last_day - timedelta(days=last_day.day)
+        if now.day == last_day.day:
+            self.monthly_expenses()
