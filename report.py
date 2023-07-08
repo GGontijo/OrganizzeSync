@@ -133,7 +133,7 @@ class Report:
         last_seven_days_total_spent: int = 0
         today_total_spent: int = 0
 
-        today_expenses = list(filter(lambda x: x.date == date.today().strftime('%Y-%m-%d') and x.amount_cents < 0, self.organizze.old_transactions))
+        today_expenses = list(filter(lambda x: x.date == date.today().strftime('%Y-%m-%d') and x.amount_cents < 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions))
         this_month_expenses = list(filter(lambda x: this_month_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= this_month_last_day and x.amount_cents < 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions))
         this_week_expenses = list(filter(lambda x: this_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= this_week_last_day and x.amount_cents < 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions))
         last_week_expenses = list(filter(lambda x: last_week_first_day <= datetime.strptime(x.date, '%Y-%m-%d').date() <= last_week_last_day and x.amount_cents < 0 and x.category_id != 71967491 and x.category_id != 71967481, self.organizze.old_transactions))
