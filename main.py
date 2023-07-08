@@ -31,13 +31,13 @@ async def main():
 
 
 
-
 def dev():
     logger = Logger()
     organizze_service = Organizze_Service(logger)
     organizze = OrganizzeSync(organizze_service, logger)
     report = Report(organizze, organizze_service)
-    report.weekly()
+
+    report.monthly_expenses()
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()

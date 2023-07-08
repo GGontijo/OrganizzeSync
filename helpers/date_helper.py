@@ -89,3 +89,16 @@ def get_last_few_week_dates(weeks: int):
         end_of_week = end_of_last_week
     
     return last_week_dates
+
+def get_last_few_month_dates(months: int):
+    today = date.today()
+    start_of_month = date(today.year, today.month, 1)
+    end_of_month = start_of_month - timedelta(days=1)
+    last_month_dates = []
+    for _ in range(months):
+        new_end_of_month = start_of_month - timedelta(days=1)
+        new_start_of_month = date(new_end_of_month.year, new_end_of_month.month, 1)
+        last_month_dates.append((new_start_of_month, new_end_of_month))
+        start_of_month = new_start_of_month
+    
+    return last_month_dates
