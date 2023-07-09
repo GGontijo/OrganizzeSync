@@ -254,7 +254,6 @@ class Report:
         last_week_last_day = last_week_dates[1]
 
         month_days_remaining = (this_month_last_day - today_date).days
-        month_weekend_remaining = count_weekend_days(today_date, this_month_last_day)
         month_week_remaining = count_weeks(today_date, this_month_last_day)
 
         category_today_expenses = defaultdict(int)
@@ -319,14 +318,12 @@ class Report:
             budget_remaining = budget_goal - budget_spent
             daily_limit = budget_remaining / month_days_remaining if month_days_remaining != 0 else 0.00
             weekly_limit = budget_remaining / month_week_remaining if month_week_remaining != 0 else 0.00
-            weekend_limit = budget_remaining / month_weekend_remaining if month_weekend_remaining != 0 else 0.00
         
             report += f"Meta de {budget.category_name}:\n"
             report += f"Valor definido da meta: R$ {convert_amount_to_decimal(budget_goal):.2f}\n"
             report += f"meta atingida: {round((budget_spent / budget_goal) * 100, 1)}% (Valor restante: R$ {convert_amount_to_decimal(budget_remaining):.2f})\n"
             report += f"Valor restante por dia: R$ {convert_amount_to_decimal(daily_limit):.2f}\n"
             report += f"Valor restante por semana: R$ {convert_amount_to_decimal(weekly_limit):.2f}\n"
-            report += f"Valor restante nos finais de semana: R$ {convert_amount_to_decimal(weekend_limit):.2f}\n"
             report += "\n"
         
         report += "\n\n"

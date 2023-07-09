@@ -36,20 +36,6 @@ def convert_timestamp_to_date(timestamp: str):
     data = datetime.fromtimestamp(float(timestamp)).date()
     return data.strftime("%Y-%m-%d")
 
-def count_weekend_days(start_date: date, end_date: date) -> int:
-    # Ajustar as datas para o próximo sábado e domingo
-    start_date = start_date + timedelta(days=(5 - start_date.weekday()) % 7)
-    end_date = end_date - timedelta(days=(end_date.weekday() + 1) % 7)
-
-    # Calcular o número de finais de semana completos
-    num_weekends = (end_date - start_date).days // 7
-
-    # Verificar se o final de semana do end_date está completo
-    if end_date.weekday() < start_date.weekday():
-        num_weekends -= 1
-
-    return num_weekends
-
 def count_weeks(start_date: date, end_date: date) -> int:
     # Ajustar as datas para o início da semana (segunda-feira)
     start_date = start_date - timedelta(days=start_date.weekday())
