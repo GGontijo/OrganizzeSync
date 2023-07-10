@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta, date
+from dateutil.relativedelta import *
 
 def generate_this_month_dates():
     start_of_month = date.today().replace(day=1)
@@ -88,3 +89,10 @@ def get_last_few_month_dates(months: int):
         start_of_month = new_start_of_month
     
     return last_month_dates
+
+def count_months_between_dates(start_date: date, end_date: date) -> float:
+    diff = relativedelta(end_date, start_date)
+    #months = diff.years * 12 + diff.months + diff.days / 30
+    return diff
+
+
