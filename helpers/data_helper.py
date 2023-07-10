@@ -92,8 +92,8 @@ def match_strings(string1: str, string2: str, simillar: bool = False, threshold:
     "valor", "parcela", "cheque", "cheque especial", "emprestimo", "empréstimo", "financiamento", "investimento",
     "rendimento", "saldos", "extrato", "comprovante", "anuidade", "tarifa bancaria", "tarifa bancária", "fatura cartao", 
     "banco", "s/a", "pix", "enviado", "cp", "-", "18236120", ":", "recebido", "inserido", "interno", "via", "api", "[api]", 
-    "cuiaba", "bra", "brasil", "coxipo", "mei", "me", "eireli", "das", "osasco", "pagseguro", "cielo", "mercadopago", 
-    "getnet", "izettle", "stone", "sumup", "rede", "dos", "das", "de", "shopping", "goiabeiras", "estacao", "pantanal", "sumuup", 
+    "bra", "brasil", "coxipo", "mei", "me", "eireli", "das", "osasco", "pagseguro", "cielo", "mercadopago", 
+    "getnet", "izettle", "stone", "sumup", "rede", "dos", "das", "de", "shopping", "sumuup", 
     "stonedev", "payleven", "smartpos", "point", "superget", "deb", "mc", "grande"]
 
     ignored_set = set(ignored_words)
