@@ -120,6 +120,7 @@ class EnumOrganizzeAccounts(Enum):
     SANTANDER = 4375850
     SANTANDER_EDELIN = 6066704
     NUBANK_EDELIN = 5156963
+    RENDA_FIXA = 4379453
 
 class TransactionCreateModel(BaseModel):
     description: str

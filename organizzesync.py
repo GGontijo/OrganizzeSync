@@ -23,10 +23,12 @@ class OrganizzeSync:
         self.processed_transactions = []
         self.ignored_transactions = []
 
-    def update_old_transactions(self, timespan: int = None):
+    def update_old_transactions(self, timespan: int = None, resync: bool = False):
         max_date = max(self.old_transactions, key=lambda transaction: transaction.date).date
         if timespan:
             new_transactions = self._organizze_service.get_transactions(data_inicio=(date.today() - timedelta(days=timespan)).strftime('%Y-%m-%d'), data_fim=date.today().strftime('%Y-%m-%d'))
+        if resync:
+            new_transactions = self._organizze_service.get_transactions()
         else:
             new_transactions = self._organizze_service.get_transactions(data_inicio=max_date, data_fim=date.today().strftime('%Y-%m-%d'))
 
@@ -42,9 +44,11 @@ class OrganizzeSync:
 
         if timespan:
             removed_transactions = [transaction for transaction in self.old_transactions if transaction.date >= (date.today() - timedelta(days=timespan)).strftime('%Y-%m-%d') and transaction.id not in new_ids]
+        if resync:
+            removed_transactions = [transaction for transaction in self.old_transactions if transaction.id not in new_ids]
         else:
-            removed_transactions = [transaction for transaction in self.old_transactions if transaction.date == date.today().strftime('%Y-%m-%d') and transaction.id not in new_ids]
-
+            removed_transactions = [transaction for transaction in self.old_transactions if transaction.date >= max_date and transaction <= date.today().strftime('%Y-%m-%d') and transaction.id not in new_ids]
+            
         if removed_transactions:
             for transaction in removed_transactions:
                 self.old_transactions.remove(transaction)  # Remove as transações removidas

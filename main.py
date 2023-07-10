@@ -1,5 +1,6 @@
 from services.api_service import Server
 from organizzesync import OrganizzeSync
+from investments import Investments
 from services.organizze_service import Organizze_Service
 from report import Report
 from helpers.logger_helper import Logger
@@ -34,16 +35,16 @@ async def main():
 
 def dev():
     logger = Logger()
-    #organizze_service = Organizze_Service(logger)
-    #organizze = OrganizzeSync(organizze_service, logger)5
+    organizze_service = Organizze_Service(logger)
+    organizze = OrganizzeSync(organizze_service, logger)
     #report = Report(organizze, organizze_service)
     #report.monthly_expenses()
-    a = B3_Service(logger, "..")
-    b = a.get_movimentacoes('2023-01-01', '2023-07-07')
+    a = Investments(logger, organizze)
+    b = a.sync_renda_fixa(1000)
     print(b)
 
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
-    #dev()
+    #loop = asyncio.get_event_loop()
+    #loop.run_until_complete(main())
+    dev()
 
