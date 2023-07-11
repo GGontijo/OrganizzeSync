@@ -47,7 +47,7 @@ class OrganizzeSync:
         if resync:
             removed_transactions = [transaction for transaction in self.old_transactions if transaction.id not in new_ids]
         else:
-            removed_transactions = [transaction for transaction in self.old_transactions if transaction.date >= max_date and transaction <= date.today().strftime('%Y-%m-%d') and transaction.id not in new_ids]
+            removed_transactions = [transaction for transaction in self.old_transactions if transaction.date >= max_date and transaction.date <= date.today().strftime('%Y-%m-%d') and transaction.id not in new_ids]
             
         if removed_transactions:
             for transaction in removed_transactions:
