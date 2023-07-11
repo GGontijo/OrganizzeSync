@@ -21,6 +21,7 @@ class B3_Service:
         self.logger = logger
     
     def get_proventos(self, dataInicio: str, dataFim: str):
+        '''Formato data: YYYY-MM-DD'''
         try:
             self.logger.log("INFO", "Obtendo proventos da B3")
             response = requests.get(f"{self.url_base}/extrato-eventos-provisionados/v1/recebidos?dtf={dataFim}&dti={dataInicio}", headers=self.headers, verify=False)
@@ -33,6 +34,7 @@ class B3_Service:
             raise Exception(error_message)
         
     def get_movimentacoes(self, dataInicio: str, dataFim: str):
+        '''Formato data: YYYY-MM-DD'''
         try:
             self.logger.log("INFO", "Obtendo proventos da B3")
             response = requests.get(f"{self.url_base}/extrato-movimentacao/v2/movimentacao?dataFim={dataFim}&dataInicio={dataInicio}", headers=self.headers, verify=False)
