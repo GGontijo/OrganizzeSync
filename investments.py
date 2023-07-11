@@ -1,18 +1,24 @@
 from organizzesync import OrganizzeSync
 from helpers.logger_helper import Logger
+from interfaces.database_interface import DatabaseInterface
 from models.organizze_models import *
 from helpers.data_helper import convert_amount_to_cents, convert_amount_to_decimal
 from decimal import Decimal
+from models.b3_models import MesProventos, Provento
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from helpers.date_helper import *
 from services.organizze_service import Organizze_Service
+from services.b3_service import B3_Service
 
-class Investments:   
-    def __init__(self, logger: Logger, organizze: OrganizzeSync, organizze_service: Organizze_Service) -> None:
+class Investments:
+
+    def __init__(self, db: DatabaseInterface, logger: Logger, organizze: OrganizzeSync, organizze_service: Organizze_Service, b3_service: B3_Service) -> None:
+        self.db = db
         self.logger = logger
         self.organizze = organizze
         self.organizze_service = organizze_service
+        self.b3 = b3_service
 
     def sync_renda_fixa(self, valor_liquido: float):
         self.organizze.update_old_transactions(resync=True) # Atualiza a base inteira de dados
@@ -61,4 +67,14 @@ class Investments:
         for i in transactions_list:
             self.organizze_service.create_transaction(i)
 
-        
+    def sync_proventos(self):
+        # Ler tabela de proventos e data de provento mais recente
+        lista_mes_proventos: List[MesProventos]
+        provento: Provento
+        lista_mes_proventos = self.b3.get_proventos('2023-01-01', '2023-07-10')
+        for mes_provento in lista_mes_proventos:
+            for provento in mes_provento.proventos:
+                ticker = provento.descricaoProduto.split('-')[0].strip()
+                _query = f'''INSERT INTO PROVENTO VALUES ('{provento.dataPagamento}', '{ticker}', '{provento.descricaoProduto}', '{provento.precoUnitario}', 
+                            {provento.quantidadeTotal}, '{provento.tipoEvento}', '{provento.totalNegociado}')'''
+                self.db.insert(_query)
