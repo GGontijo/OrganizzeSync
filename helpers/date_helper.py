@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta, date
-from dateutil.relativedelta import *
+from dateutil.relativedelta import relativedelta
 
 def generate_this_month_dates():
     start_of_month = date.today().replace(day=1)
