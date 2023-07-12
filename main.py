@@ -43,7 +43,7 @@ def dev():
     #report = Report(organizze, organizze_service)
     #report.monthly_expenses()
     a = Investments(db, logger, organizze, organizze_service, b3)
-    b = a.sync_proventos()
+    b = a.sync_movimentacoes()
     print(b)
 
 if __name__ == "__main__":
