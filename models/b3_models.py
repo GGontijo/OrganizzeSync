@@ -27,6 +27,7 @@ class Movimento(BaseModel):
     valorOperacao: Optional[float]
     precoUnitario: Optional[float]
     dataMovimentacao: str
+    tipo_ativo: Optional[str]
 
 class MesMovimentos(BaseModel):
     data: str
