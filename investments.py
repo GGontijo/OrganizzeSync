@@ -174,8 +174,51 @@ class Investments:
         return proporcao_df
 
 
+
+
+    def valor_mercado(self):
+        '''Gera uma tabela com o historico de evolução dos valores dos ativos ajustado a mercado'''
+        movimentacoes = self.historico_movimentacoes()
+
+        # Isola os ticker para consulta na API do Yahoo
+        movimentacoes_grouped = movimentacoes.groupby('ticker')
+        tickers = movimentacoes_grouped.groups.keys()
+
+        data_inicio = movimentacoes['data_movimentacao'].min()
+        data_fim = movimentacoes['data_movimentacao'].max()
+
+        # Get the latest quotation for each ticker
+        cotacoes = yf.download([ticker + '.SA' for ticker in tickers], start=data_inicio, end=data_fim)['Adj Close']
+
+        # Create a new DataFrame to hold the final result
+        historico = pd.DataFrame(columns=['data', 'ticker', 'tipo_ativo', 'total_carteira', 'total_ativo', 'valor_carteira', 'valor_ativo'])
+
+        for ticker in tickers:
+            # Filtrar as movimentações para o ticker atual
+            movimentacoes_ticker = movimentacoes[movimentacoes['ticker'] == ticker]
+            # Filtrar as cotações para o ticker atual
+            cotacoes_ticker = cotacoes[ticker + '.SA']
+
+        # Calcular os valores ajustados a mercado
+        movimentacoes_ticker['preco_unitario'] = cotacoes_ticker.reindex(movimentacoes_ticker['data_movimentacao']).values
+        movimentacoes_ticker['valor_ativo'] = movimentacoes_ticker['saldo_carteira'] * movimentacoes_ticker['preco_unitario']
+        movimentacoes_ticker['valor_carteira'] = movimentacoes_ticker['saldo_carteira'] * movimentacoes_ticker['preco_unitario'].sum()
+
+        # Adicionar os dados do ticker ao DataFrame do histórico
+        historico = pd.concat([historico, movimentacoes_ticker], axis=0)
+
+        # Realizar o agrupamento por mês
+        historico.set_index('data_movimentacao', inplace=True)
+        historico = historico.resample('M').sum()
+
+        print(historico)
+
+        return historico
+
+
     
     def valor_mercado(self):
+        '''Gera uma tablea com o consolidado por ticker e os valores atualizados'''
         movimentacoes = self.historico_movimentacoes()
 
         # Group 'movimentacoes' DataFrame by 'ticker'
@@ -188,10 +231,10 @@ class Investments:
         data_fim = movimentacoes['data_movimentacao'].max()
 
         # Get the latest quotation for each ticker
-        latest_quotations = yf.download([ticker + '.SA' for ticker in tickers], start=data_fim, end=data_fim)['Adj Close']
+        latest_quotations = yf.download([ticker + '.SA' for ticker in tickers], start=data_inicio, end=data_fim)['Adj Close']
 
         # Create a new DataFrame to hold the final result
-        result_df = pd.DataFrame(columns=['ticker', 'tipo_ativo', 'saldo', 'valor_atualizado_ativo'])
+        result_df = pd.DataFrame(columns=['data', 'ticker', 'tipo_ativo', 'total_carteira', 'total_ativo', 'valor_carteira', 'valor_ativo'])
 
         # Calculate the updated value for each ticker based on the latest quotation
         for ticker in tickers:
@@ -205,9 +248,12 @@ class Investments:
                 result_df = result_df.append({
                     'ticker': ticker,
                     'tipo_ativo': latest_row['tipo_ativo'],
-                    'saldo': latest_row['saldo'],
-                    'valor_atualizado_ativo': valor_atualizado_ativo
+                    'total_carteira': latest_row['saldo_carteira'],
+                    'total_ativo': latest_row['saldo_acumulado_ticker'],
+                    'valor_ativo': valor_atualizado_ativo
                 }, ignore_index=True)
+
+        print(result_df)
 
         return result_df
 
