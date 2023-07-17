@@ -6,6 +6,7 @@ from services.organizze_service import Organizze_Service
 from report import Report
 from helpers.logger_helper import Logger
 from services.b3_service import B3_Service
+from dashboard import Dashboard
 import asyncio
 
 
@@ -43,8 +44,9 @@ def dev():
     #report = Report(organizze, organizze_service)
     #report.monthly_expenses()
     a = Investments(db, logger, organizze, organizze_service, b3)
-    b = a.sync_movimentacoes()
-    print(b)
+    #b = a.sync_movimentacoes()
+    dashboard = Dashboard(a)
+    dashboard.evolucao_patrimonio_graph()
 
 if __name__ == "__main__":
     #loop = asyncio.get_event_loop()

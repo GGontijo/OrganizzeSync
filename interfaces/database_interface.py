@@ -18,3 +18,7 @@ class DatabaseInterface(ABC):
     @abstractmethod
     def insert(self, query: str):
         pass
+
+    @abstractmethod
+    def connection(self):
+        pass

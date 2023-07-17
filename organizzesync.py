@@ -12,12 +12,12 @@ class OrganizzeSync:
         self.logger = logger
         self._organizze_service = service
         self.old_transactions: list
-        self.old_transactions = self._organizze_service.get_transactions()
-        self.categories = self._organizze_service.get_categories()
-        self.accounts = self._organizze_service.get_accounts()
+        #self.old_transactions = self._organizze_service.get_transactions()
+        #self.categories = self._organizze_service.get_categories()
+        #self.accounts = self._organizze_service.get_accounts()
         self.category_mapping = None
-        if self.category_mapping is None:
-            self.process_categories()
+        #if self.category_mapping is None:
+        #    self.process_categories()
         self.duplicated_transactions = []
         self.unrecognized_transactions = [] # Transações que não deu pra mapear a categoria
         self.processed_transactions = []

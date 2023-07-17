@@ -95,4 +95,13 @@ def count_months_between_dates(start_date: date, end_date: date) -> float:
     #months = diff.years * 12 + diff.months + diff.days / 30
     return diff
 
+def obter_ultimo_dia_util():
+    data_atual = date.today()
+    dia_semana = data_atual.weekday()
 
+    dias_para_subtrair = 3 if dia_semana == 0 else 1
+    while dia_semana >= 5:  # Fim de semana (sábado ou domingo)
+        data_atual -= timedelta(days=dias_para_subtrair)
+        dia_semana = data_atual.weekday()
+
+    return data_atual

@@ -23,6 +23,13 @@ class SQLite(DatabaseInterface):
         else:
             cursor.close()
 
+
+    def connection(self) -> sqlite3.Connection:
+        if self.sqliteConnection is not None:
+            return self.sqliteConnection
+        raise ConnectionError('This object does not have a SQLite connection!')
+
+
     def close(self) -> None:
         if isinstance(self.sqliteConnection, sqlite3.Connection):
             self.sqliteConnection = self.sqliteConnection.close()
