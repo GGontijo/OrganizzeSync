@@ -14,7 +14,7 @@ class Dashboard:
 
     def evolucao_patrimonio_graph(self):
 
-        teste = self.investments.valor_mercado()
+        teste = self.investments.evolucao_posicoes()
         movimentacoes = self.investments.historico_movimentacoes().resample('M', on='data_movimentacao')
 
         proventos = self.investments.ler_proventos().resample('M', on='data_pagamento')

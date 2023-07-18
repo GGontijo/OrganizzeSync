@@ -159,8 +159,105 @@ class Investments:
         # Remover as colunas saldo_credito e saldo_debito
         mov.drop(columns=['saldo_credito_ativo', 'saldo_debito_ativo', 'saldo_ticker'], inplace=True)
 
+        return mov
+    
+    def evolucao_posicoes(self):
+        '''Calcula a evolução das posições ajustado à mercado'''
+
+        conn = self.db.connection()
+        mov_raw = pd.read_sql_query("SELECT * FROM movimentacoes", conn)
+        print(mov_raw)
+
+        # Remove movimentações sem valor unitário (subscrições, cessão de direitos etc...)
+        mov = mov_raw.query("preco_unitario.notna()")
 
         print(mov)
+
+
+
+
+
+        # Define a data mínima e máxima do rastreamento
+        data_inicio = datetime.strptime(mov['data_movimentacao'].min(), '%Y-%m-%d')
+        data_fim = datetime.strptime(mov['data_movimentacao'].max(), '%Y-%m-%d')
+
+        # Cria uma lista com todas as datas úteis entre data_inicio e data_fim
+        datas_uteis = get_dias_uteis(data_inicio, data_fim)
+
+        # Criar dataframe vazio para armazenar os dados rastreados
+        historico_rastreado = pd.DataFrame()
+
+        # Itera sobre cada ativo
+        for ticker in mov['ticker'].unique():
+            # Filtra as movimentações apenas para o ticker atual
+            mov_ativo = mov[mov['ticker'] == ticker].copy()
+
+            # Define o índice do dataframe como a coluna 'data_movimentacao'
+            mov_ativo.set_index('data_movimentacao', inplace=True)
+
+            # Preenche os valores das movimentações em todas as datas úteis
+            mov_ativo_reindex = mov_ativo.reindex(datas_uteis)
+
+            # Preenche os valores faltantes das colunas 'ticker' e 'tipo_ativo'
+            mov_ativo_reindex['ticker'] = ticker
+            mov_ativo_reindex['tipo_ativo'] = mov_ativo['tipo_ativo'].iloc[0]
+
+            # Faz o cálculo do valor de mercado para cada dia
+            mov_ativo_reindex['valor_mercado'] = mov_ativo_reindex['preco_unitario'] * mov_ativo_reindex['quantidade']
+
+            # Adiciona as informações do ativo rastreado ao dataframe final
+            historico_rastreado = pd.concat([historico_rastreado, mov_ativo_reindex])
+
+        # Define o nome da coluna de data como 'data'
+        historico_rastreado.index.rename('data', inplace=True)
+
+        print(historico_rastreado)
+
+
+
+
+
+
+
+
+
+        "-------------"
+
+        mov['data_movimentacao'] = pd.to_datetime(mov['data_movimentacao'])
+        mov['valor_operacao'] = mov['valor_operacao'].astype(float).fillna(0)
+        mov.sort_values(by='data_movimentacao', inplace=True)
+
+        # Calcula a evolução de saldo total da carteira
+        mov['credito'] = mov.loc[mov['tipo_operacao'] == 'Credito', 'valor_operacao']
+        mov['debito'] = mov.loc[mov['tipo_operacao'] == 'Debito', 'valor_operacao']
+
+        mov['credito'].fillna(0, inplace=True)
+        mov['debito'].fillna(0, inplace=True)
+
+        mov['saldo_credito'] = mov['credito'].cumsum()
+        mov['saldo_debito'] = mov['debito'].cumsum()
+
+        mov['saldo_carteira'] = mov['saldo_credito'] - mov['saldo_debito']
+        
+        # Calcula a evolução de saldo total por ativo
+        mov['credito'].fillna(0, inplace=True)
+        mov['debito'].fillna(0, inplace=True)
+
+        mov['saldo_credito_ativo'] = mov.groupby(['ticker', 'data_movimentacao'])['credito'].cumsum()
+        mov['saldo_debito_ativo'] = mov.groupby(['ticker', 'data_movimentacao'])['debito'].cumsum()
+
+        mov['saldo_ticker'] = mov['saldo_credito_ativo'] - mov['saldo_debito_ativo']
+
+        mov['saldo_ticker'].fillna(method='ffill', inplace=True)
+        
+        saldo_acumulado_ticker = mov.groupby(['ticker'])['saldo_ticker'].cumsum()
+
+        # Adicionar o saldo acumulado ao DataFrame
+        mov['saldo_acumulado_ticker'] = saldo_acumulado_ticker
+
+        # Remover as colunas saldo_credito e saldo_debito
+        mov.drop(columns=['saldo_credito_ativo', 'saldo_debito_ativo', 'saldo_ticker'], inplace=True)
+
         return mov
     
     def ler_proporcoes(self):
@@ -176,7 +273,7 @@ class Investments:
 
 
 
-    def valor_mercado(self):
+    def historico_valor_mercado(self): #Será agrupado com evolucao_posicoes!!!
         '''Gera uma tabela com o historico de evolução dos valores dos ativos ajustado a mercado'''
         movimentacoes = self.historico_movimentacoes()
 
@@ -217,7 +314,7 @@ class Investments:
 
 
     
-    def valor_mercado(self):
+    def consolidado_valor_mercado(self):
         '''Gera uma tablea com o consolidado por ticker e os valores atualizados'''
         movimentacoes = self.historico_movimentacoes()
 
