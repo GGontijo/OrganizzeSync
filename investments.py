@@ -119,96 +119,90 @@ class Investments:
             self.logger.log('ERROR', f'Houve um problema ao buscar informações via Yahoo do ativo {ticker}: {err}')
             return None
         
+
+
+
+        
     def historico_movimentacoes(self):
         conn = self.db.connection()
         mov_raw = pd.read_sql_query("SELECT * FROM movimentacoes", conn)
+
+        # Filtra as movimentações não desejadas (subscrição, cessão de direitos etc..)
         mov = mov_raw.query("preco_unitario.notna()")
 
-        mov['data_movimentacao'] = pd.to_datetime(mov['data_movimentacao'])
-        mov['valor_operacao'] = mov['valor_operacao'].astype(float).fillna(0)
-        mov.sort_values(by='data_movimentacao', inplace=True)
+        datas_mov = [datetime.strptime(data, '%Y-%m-%dT%H:%M:%S') for data in mov['data_movimentacao'].unique()]
+
+        # Define a data mínima e máxima do rastreamento
+        data_inicio = datetime.strptime(mov['data_movimentacao'].min(), '%Y-%m-%dT%H:%M:%S')
+        data_fim = datetime.strptime(mov['data_movimentacao'].max(), '%Y-%m-%dT%H:%M:%S')
+
+        datas_uteis = get_dias_uteis(data_inicio, data_fim, exclude_list=datas_mov)
+
+        # Cria um novo DataFrame vazio com o MultiIndex
+        tickers = mov['ticker'].unique()
+        multi_index = pd.MultiIndex.from_product([datas_uteis, tickers], names=['data_movimentacao', 'ticker'])
+        mov_with_duplicates = pd.DataFrame(index=multi_index)
+
+        # Preenche os valores do DataFrame com os dados de movimentações
+        for data, ticker, tipo_ativo, tipo_operacao, preco_unitario, quantidade, valor_operacao in zip(
+            mov['data_movimentacao'], mov['ticker'], mov['tipo_ativo'], mov['tipo_operacao'], mov['preco_unitario'], mov['quantidade'], mov['valor_operacao']
+        ):
+            mov_with_duplicates.loc[(data, ticker), 'tipo_ativo'] = tipo_ativo
+            mov_with_duplicates.loc[(data, ticker), 'tipo_operacao'] = tipo_operacao
+            mov_with_duplicates.loc[(data, ticker), 'preco_unitario'] = float(preco_unitario) if pd.notnull(preco_unitario) else 0.0
+            mov_with_duplicates.loc[(data, ticker), 'quantidade'] = float(quantidade) if pd.notnull(quantidade) else 0.0
+            mov_with_duplicates.loc[(data, ticker), 'valor_operacao'] = float(valor_operacao) if pd.notnull(valor_operacao) else 0.0
+
+        # Preenche os valores NaN com 0 e converte as colunas para float
+        mov_with_duplicates['valor_operacao'] = mov_with_duplicates['valor_operacao'].astype(float).fillna(0)
+        mov_with_duplicates['preco_unitario'] = mov_with_duplicates['preco_unitario'].astype(float).fillna(0)
 
         # Calcula a evolução de saldo total da carteira
-        mov['credito'] = mov.loc[mov['tipo_operacao'] == 'Credito', 'valor_operacao']
-        mov['debito'] = mov.loc[mov['tipo_operacao'] == 'Debito', 'valor_operacao']
+        mov_with_duplicates.sort_index(inplace=True)
 
-        mov['credito'].fillna(0, inplace=True)
-        mov['debito'].fillna(0, inplace=True)
+        # Calcula o crédito e débito para cada movimentação
+        mov_with_duplicates['credito'] = mov_with_duplicates['valor_operacao'].where(mov_with_duplicates['tipo_operacao'] == 'Credito', 0)
+        mov_with_duplicates['debito'] = mov_with_duplicates['valor_operacao'].where(mov_with_duplicates['tipo_operacao'] == 'Debito', 0)
 
-        mov['saldo_credito'] = mov['credito'].cumsum()
-        mov['saldo_debito'] = mov['debito'].cumsum()
+        # Agrupa por ativo para calcular os saldos cumulativos da carteira
+        mov_with_duplicates['saldo_credito'] = mov_with_duplicates.groupby('ticker')['credito'].cumsum()
+        mov_with_duplicates['saldo_debito'] = mov_with_duplicates.groupby('ticker')['debito'].cumsum()
 
-        mov['saldo_carteira'] = mov['saldo_credito'] - mov['saldo_debito']
-        
-        # Calcula a evolução de saldo total por ativo
-        mov['credito'].fillna(0, inplace=True)
-        mov['debito'].fillna(0, inplace=True)
+        # Calcula o saldo da carteira subtraindo o débito do crédito para cada data
+        mov_with_duplicates['saldo_carteira'] = mov_with_duplicates['saldo_credito'] - mov_with_duplicates['saldo_debito']
 
-        mov['saldo_credito_ativo'] = mov.groupby(['ticker', 'data_movimentacao'])['credito'].cumsum()
-        mov['saldo_debito_ativo'] = mov.groupby(['ticker', 'data_movimentacao'])['debito'].cumsum()
+        # Criar uma coluna para o saldo geral da carteira em cada data
+        mov_with_duplicates['saldo_geral_carteira'] = mov_with_duplicates.groupby('data_movimentacao')['saldo_carteira'].transform('sum')
 
-        mov['saldo_ticker'] = mov['saldo_credito_ativo'] - mov['saldo_debito_ativo']
+        print(mov_with_duplicates)
+        return mov_with_duplicates
 
-        mov['saldo_ticker'].fillna(method='ffill', inplace=True)
-        
-        saldo_acumulado_ticker = mov.groupby(['ticker'])['saldo_ticker'].cumsum()
-
-        # Adicionar o saldo acumulado ao DataFrame
-        mov['saldo_acumulado_ticker'] = saldo_acumulado_ticker
-
-        # Remover as colunas saldo_credito e saldo_debito
-        mov.drop(columns=['saldo_credito_ativo', 'saldo_debito_ativo', 'saldo_ticker'], inplace=True)
-
-        return mov
-    
     def evolucao_posicoes(self):
         '''Calcula a evolução das posições ajustado à mercado'''
 
         conn = self.db.connection()
-        mov_raw = pd.read_sql_query("SELECT * FROM movimentacoes", conn)
-        print(mov_raw)
+        #mov_raw = pd.read_sql_query("SELECT * FROM movimentacoes", conn)
+        mov_raw = self.historico_movimentacoes()
 
-        # Remove movimentações sem valor unitário (subscrições, cessão de direitos etc...)
-        mov = mov_raw.query("preco_unitario.notna()")
-
-        print(mov)
-
-
-
-
-
-        # Define a data mínima e máxima do rastreamento
-        data_inicio = datetime.strptime(mov['data_movimentacao'].min(), '%Y-%m-%d')
-        data_fim = datetime.strptime(mov['data_movimentacao'].max(), '%Y-%m-%d')
-
-        # Cria uma lista com todas as datas úteis entre data_inicio e data_fim
-        datas_uteis = get_dias_uteis(data_inicio, data_fim)
 
         # Criar dataframe vazio para armazenar os dados rastreados
         historico_rastreado = pd.DataFrame()
 
-        # Itera sobre cada ativo
         for ticker in mov['ticker'].unique():
             # Filtra as movimentações apenas para o ticker atual
             mov_ativo = mov[mov['ticker'] == ticker].copy()
 
-            # Define o índice do dataframe como a coluna 'data_movimentacao'
+            mov_ativo_reindex['preco_unitario'].fillna(0, inplace=True)
+            mov_ativo_reindex['quantidade'].fillna(0, inplace=True)
+            mov_ativo_reindex['valor_mercado'].fillna(0, inplace=True)
+
             mov_ativo.set_index('data_movimentacao', inplace=True)
-
-            # Preenche os valores das movimentações em todas as datas úteis
             mov_ativo_reindex = mov_ativo.reindex(datas_uteis)
-
-            # Preenche os valores faltantes das colunas 'ticker' e 'tipo_ativo'
             mov_ativo_reindex['ticker'] = ticker
             mov_ativo_reindex['tipo_ativo'] = mov_ativo['tipo_ativo'].iloc[0]
-
-            # Faz o cálculo do valor de mercado para cada dia
             mov_ativo_reindex['valor_mercado'] = mov_ativo_reindex['preco_unitario'] * mov_ativo_reindex['quantidade']
-
-            # Adiciona as informações do ativo rastreado ao dataframe final
             historico_rastreado = pd.concat([historico_rastreado, mov_ativo_reindex])
 
-        # Define o nome da coluna de data como 'data'
         historico_rastreado.index.rename('data', inplace=True)
 
         print(historico_rastreado)
@@ -216,13 +210,6 @@ class Investments:
 
 
 
-
-
-
-
-
-        "-------------"
-
         mov['data_movimentacao'] = pd.to_datetime(mov['data_movimentacao'])
         mov['valor_operacao'] = mov['valor_operacao'].astype(float).fillna(0)
         mov.sort_values(by='data_movimentacao', inplace=True)
@@ -258,6 +245,9 @@ class Investments:
         # Remover as colunas saldo_credito e saldo_debito
         mov.drop(columns=['saldo_credito_ativo', 'saldo_debito_ativo', 'saldo_ticker'], inplace=True)
 
+
+        print(mov)
+        print(mov.tail())
         return mov
     
     def ler_proporcoes(self):

@@ -106,11 +106,15 @@ def get_ultimo_dia_util():
 
     return data_atual
 
-def get_dias_uteis(start_date, end_date):
+def get_dias_uteis(start_date, end_date, exclude_list: list = None):
     dias_uteis = []
     delta = timedelta(days=1)
     while start_date <= end_date:
-        if start_date.weekday() < 5:  # 5 representa sexta-feira
+        if exclude_list and start_date in exclude_list:
+                start_date += delta
+                continue
+        if start_date.weekday() < 5:
+
             dias_uteis.append(start_date)
         start_date += delta
     return dias_uteis
