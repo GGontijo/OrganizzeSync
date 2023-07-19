@@ -138,43 +138,79 @@ class Investments:
 
         datas_uteis = get_dias_uteis(data_inicio, data_fim, exclude_list=datas_mov)
 
-        # Cria um novo DataFrame vazio com o MultiIndex
-        tickers = mov['ticker'].unique()
-        multi_index = pd.MultiIndex.from_product([datas_uteis, tickers], names=['data_movimentacao', 'ticker'])
-        mov_with_duplicates = pd.DataFrame(index=multi_index)
-
-        # Preenche os valores do DataFrame com os dados de movimentações
-        for data, ticker, tipo_ativo, tipo_operacao, preco_unitario, quantidade, valor_operacao in zip(
-            mov['data_movimentacao'], mov['ticker'], mov['tipo_ativo'], mov['tipo_operacao'], mov['preco_unitario'], mov['quantidade'], mov['valor_operacao']
-        ):
-            mov_with_duplicates.loc[(data, ticker), 'tipo_ativo'] = tipo_ativo
-            mov_with_duplicates.loc[(data, ticker), 'tipo_operacao'] = tipo_operacao
-            mov_with_duplicates.loc[(data, ticker), 'preco_unitario'] = float(preco_unitario) if pd.notnull(preco_unitario) else 0.0
-            mov_with_duplicates.loc[(data, ticker), 'quantidade'] = float(quantidade) if pd.notnull(quantidade) else 0.0
-            mov_with_duplicates.loc[(data, ticker), 'valor_operacao'] = float(valor_operacao) if pd.notnull(valor_operacao) else 0.0
-
         # Preenche os valores NaN com 0 e converte as colunas para float
-        mov_with_duplicates['valor_operacao'] = mov_with_duplicates['valor_operacao'].astype(float).fillna(0)
-        mov_with_duplicates['preco_unitario'] = mov_with_duplicates['preco_unitario'].astype(float).fillna(0)
+        mov['valor_operacao'] = mov['valor_operacao'].astype(float).fillna(0)
+        mov['preco_unitario'] = mov['preco_unitario'].astype(float).fillna(0)
+
+        mov.sort_values(by='data_movimentacao', inplace=True)
 
         # Calcula a evolução de saldo total da carteira
-        mov_with_duplicates.sort_index(inplace=True)
+        mov['credito'] = mov.loc[mov['tipo_operacao'] == 'Credito', 'valor_operacao']
+        mov['debito'] = mov.loc[mov['tipo_operacao'] == 'Debito', 'valor_operacao']
 
-        # Calcula o crédito e débito para cada movimentação
-        mov_with_duplicates['credito'] = mov_with_duplicates['valor_operacao'].where(mov_with_duplicates['tipo_operacao'] == 'Credito', 0)
-        mov_with_duplicates['debito'] = mov_with_duplicates['valor_operacao'].where(mov_with_duplicates['tipo_operacao'] == 'Debito', 0)
+        
+        # Calcula a evolução de saldo total por ativo
+        mov['credito'].fillna(0, inplace=True)
+        mov['debito'].fillna(0, inplace=True)
 
-        # Agrupa por ativo para calcular os saldos cumulativos da carteira
-        mov_with_duplicates['saldo_credito'] = mov_with_duplicates.groupby('ticker')['credito'].cumsum()
-        mov_with_duplicates['saldo_debito'] = mov_with_duplicates.groupby('ticker')['debito'].cumsum()
+        mov['saldo_credito_ativo'] = mov.groupby(['ticker', 'data_movimentacao'])['credito'].cumsum()
+        mov['saldo_debito_ativo'] = mov.groupby(['ticker', 'data_movimentacao'])['debito'].cumsum()
 
-        # Calcula o saldo da carteira subtraindo o débito do crédito para cada data
-        mov_with_duplicates['saldo_carteira'] = mov_with_duplicates['saldo_credito'] - mov_with_duplicates['saldo_debito']
+        mov['saldo_ticker'] = mov['saldo_credito_ativo'] - mov['saldo_debito_ativo']
 
-        # Criar uma coluna para o saldo geral da carteira em cada data
-        mov_with_duplicates['saldo_geral_carteira'] = mov_with_duplicates.groupby('data_movimentacao')['saldo_carteira'].transform('sum')
+        mov['saldo_ticker'].fillna(method='ffill', inplace=True)
 
-        print(mov_with_duplicates)
+
+
+        mov['saldo_ticker_diario'] = mov.groupby(['ticker', 'data_movimentacao'])['saldo_ticker'].diff()
+        mov['saldo_ticker_diario'].fillna(mov['saldo_ticker'], inplace=True)
+
+        # Calcula a soma dos saldos diários para cada dia (saldo_carteira)
+        saldo_carteira = mov.groupby('data_movimentacao')['saldo_ticker_diario'].sum().cumsum()
+
+        # Adiciona a coluna 'saldo_carteira' ao DataFrame principal
+        mov = mov.join(saldo_carteira.rename('saldo_carteira'), on='data_movimentacao')
+
+
+        print(mov)
+
+        
+        tickers = mov['ticker'].unique()
+        data_mov = mov['data_movimentacao'].unique()
+        multi_index = pd.MultiIndex.from_product([data_mov, tickers], names=['data_movimentacao', 'ticker'])
+
+        mov.set_index(['data_movimentacao', 'ticker'], inplace=True)
+
+        # Reindexa o DataFrame para incluir todos os níveis do MultiIndex
+        mov = mov.reindex(multi_index)
+
+        mov.sort_values(by='data_movimentacao', inplace=True)
+
+
+        mov['saldo_debito_ativo'].fillna(method='ffill', inplace=True)
+        mov['saldo_ticker'].fillna(method='ffill', inplace=True)
+        mov['saldo_carteira'].fillna(method='ffill', inplace=True)
+
+        print(mov)
+
+        
+
+        multi_index = pd.MultiIndex.from_product([datas_uteis, tickers], names=['data_movimentacao', 'ticker'])
+
+
+        mov = mov.reindex(multi_index)
+
+        print(mov)
+
+        
+
+
+        
+        
+
+
+
+        print(mov)
         return mov_with_duplicates
 
     def evolucao_posicoes(self):
