@@ -130,13 +130,19 @@ class Investments:
         # Filtra as movimentações não desejadas (subscrição, cessão de direitos etc..)
         mov = mov_raw.query("preco_unitario.notna()")
 
+        
+
         datas_mov = [datetime.strptime(data, '%Y-%m-%dT%H:%M:%S') for data in mov['data_movimentacao'].unique()]
+
+        
 
         # Define a data mínima e máxima do rastreamento
         data_inicio = datetime.strptime(mov['data_movimentacao'].min(), '%Y-%m-%dT%H:%M:%S')
         data_fim = datetime.strptime(mov['data_movimentacao'].max(), '%Y-%m-%dT%H:%M:%S')
 
         datas_uteis = get_dias_uteis(data_inicio, data_fim, exclude_list=datas_mov)
+
+        mov['data_movimentacao'] = pd.to_datetime(mov['data_movimentacao'], format='%Y-%m-%dT%H:%M:%S')
 
         # Preenche os valores NaN com 0 e converte as colunas para float
         mov['valor_operacao'] = mov['valor_operacao'].astype(float).fillna(0)
@@ -193,13 +199,33 @@ class Investments:
 
         print(mov)
 
+        mov['valor_operacao'] = mov['valor_operacao'].astype(float).fillna(0)
+        mov['preco_unitario'] = mov['preco_unitario'].astype(float).fillna(0)
+
+
+        multi_index = pd.MultiIndex.from_product([pd.to_datetime(datas_uteis, format='%Y-%m-%dT%H:%M:%S'), tickers], names=['data_movimentacao', 'ticker'])
+
+
+        df_concat = pd.DataFrame(index=multi_index)
         
 
-        multi_index = pd.MultiIndex.from_product([datas_uteis, tickers], names=['data_movimentacao', 'ticker'])
+        print(df_concat)
 
 
-        mov = mov.reindex(multi_index)
+        mov = pd.concat([mov, df_concat], axis=1)
 
+        mov.sort_index(ascending=True, inplace=True)
+
+        
+
+        print(mov)
+
+        mov['saldo_ticker'].fillna(method='ffill', inplace=True)
+        mov['saldo_carteira'].fillna(method='ffill', inplace=True)
+        mov['credito'].fillna(0, inplace=True)
+        mov['debito'].fillna(0, inplace=True)
+
+        
         print(mov)
 
         
@@ -211,7 +237,7 @@ class Investments:
 
 
         print(mov)
-        return mov_with_duplicates
+        return mov
 
     def evolucao_posicoes(self):
         '''Calcula a evolução das posições ajustado à mercado'''

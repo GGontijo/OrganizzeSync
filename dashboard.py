@@ -4,6 +4,7 @@ import dash_bootstrap_components as dbc
 import dash_html_components as html
 import plotly.express as px
 import pandas as pd
+import dash_table
 import plotly.graph_objects as go
 from investments import Investments
 
@@ -16,17 +17,18 @@ class Dashboard:
 
         movimentacoes = self.investments.historico_movimentacoes()
 
+        movimentacoes['indice'] = movimentacoes.index
 
-        table = html.Table(
-            # Header
-            [html.Tr([html.Th(col) for col in movimentacoes.columns])] +
 
-            # Rows
-            [html.Tr([
-            html.Td(movimentacoes.iloc[i][col]) for col in movimentacoes.columns
-            ]) for i in range(len(movimentacoes))]
+        table = dash_table.DataTable(
+            id='tabela-dados',
+            columns=[
+                {'name': 'Índice', 'id': 'indice'}
+            ] + [{'name': col, 'id': col} for col in movimentacoes.columns],
+            data=movimentacoes.to_dict('records'),
         )
-        
+
+
         self.app.layout = html.Div(children=[table])
 
         self.app.run_server(debug=True)
