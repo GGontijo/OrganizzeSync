@@ -17,19 +17,45 @@ class Dashboard:
 
         movimentacoes = self.investments.historico_movimentacoes()
 
-        movimentacoes['indice'] = movimentacoes.index
+        # Movimentacoes possui um multi index entre data_movimentacao e ticker, gostaria de manter apenas o data_movimentacao como index preservando o ticker
+        movimentacoes.reset_index('ticker', inplace=True)
+
+         # Cria o gráfico Plotly
+        chart_ptfvalue = go.Figure()  # generating a figure that will be updated in the following lines
+        chart_ptfvalue.add_trace(go.Scatter(x=movimentacoes.index, y=movimentacoes.saldo_carteira,
+                            mode='lines',  # you can also use "lines+markers", or just "markers"
+                            name='Global Value'))
+        chart_ptfvalue.layout.template = 'plotly_dark'
+        chart_ptfvalue.layout.height=500
+        chart_ptfvalue.update_layout(margin = dict(t=50, b=50, l=25, r=25))  # this will help you optimize the chart space
+        chart_ptfvalue.update_layout(
+        #     title='Global Portfolio Value (USD $)',
+            xaxis_tickfont_size=12,
+            yaxis=dict(
+                title='Value: $ USD',
+                titlefont_size=14,
+                tickfont_size=12,
+                ))
+
+        # Define o layout do dashboard usando componentes HTML do Dash
+        self.app.layout = html.Div(children=[
+            html.H1('Dashboard de Investimentos'),
+            dcc.Graph(figure=chart_ptfvalue)  # Insere o gráfico no dashboard
+        ])
+
+        #movimentacoes['indice'] = movimentacoes.index
 
 
-        table = dash_table.DataTable(
-            id='tabela-dados',
-            columns=[
-                {'name': 'Índice', 'id': 'indice'}
-            ] + [{'name': col, 'id': col} for col in movimentacoes.columns],
-            data=movimentacoes.to_dict('records'),
-        )
+        #table = html.Table(
+        #    # Header
+        #    [html.Tr([html.Th(col) for col in movimentacoes.columns])] +
+        #    # Rows
+        #    [html.Tr([
+        #    html.Td(movimentacoes.iloc[i][col]) for col in movimentacoes.columns
+        #    ]) for i in range(len(movimentacoes))]
+        #)
 
-
-        self.app.layout = html.Div(children=[table])
+        #self.app.layout = html.Div(children=[table])
 
         self.app.run_server(debug=True)
     

@@ -73,7 +73,7 @@ class Investments:
     def sync_movimentacoes(self):
         data_mov = self.db.select('SELECT MAX(data_movimentacao) AS data_movimentacao_recente FROM movimentacoes')[0][0]
         data_inicio = datetime.strptime(data_mov, "%Y-%m-%dT%H:%M:%S") + timedelta(days= 1)
-        ultimo_dia = obter_ultimo_dia_util() # Precisa ser um dia útil anterior
+        ultimo_dia = get_ultimo_dia_util() # Precisa ser um dia útil anterior
         movimento: Movimento
         lista_mes_movimento = self.b3.get_movimentacoes(data_inicio.strftime("%Y-%m-%d"), ultimo_dia.strftime("%Y-%m-%d"))
         #lista_mes_movimento = self.b3.get_movimentacoes('2023-01-01', '2023-06-30')
@@ -158,24 +158,26 @@ class Investments:
         # Calcula a evolução de saldo total por ativo
         mov['credito'].fillna(0, inplace=True)
         mov['debito'].fillna(0, inplace=True)
+        mov['quantidade'].fillna(0, inplace=True)
 
         mov['saldo_credito_ativo'] = mov.groupby(['ticker', 'data_movimentacao'])['credito'].cumsum()
         mov['saldo_debito_ativo'] = mov.groupby(['ticker', 'data_movimentacao'])['debito'].cumsum()
-
         mov['saldo_ticker'] = mov['saldo_credito_ativo'] - mov['saldo_debito_ativo']
+
+        # Passo 2: Calcular o saldo do dia anterior para cada grupo 'ticker'
+        mov['saldo_ticker'] = mov.groupby('ticker')['saldo_ticker'].shift(1)
+
+        # Passo 3: Preencher o saldo do primeiro dia de cada ticker com 0 (ou outro valor adequado)
+        mov['saldo_ticker'] = mov['saldo_ticker'].fillna(0)
+
+        # Passo 4: Somar saldo do dia anterior com saldo_credito_ativo e saldo_debito_ativo para obter o novo saldo_ticker
+        mov['saldo_ticker'] = mov['saldo_ticker'] + mov['saldo_credito_ativo'] - mov['saldo_debito_ativo']
+
 
         mov['saldo_ticker'].fillna(method='ffill', inplace=True)
 
 
-
-        mov['saldo_ticker_diario'] = mov.groupby(['ticker', 'data_movimentacao'])['saldo_ticker'].diff()
-        mov['saldo_ticker_diario'].fillna(mov['saldo_ticker'], inplace=True)
-
-        # Calcula a soma dos saldos diários para cada dia (saldo_carteira)
-        saldo_carteira = mov.groupby('data_movimentacao')['saldo_ticker_diario'].sum().cumsum()
-
-        # Adiciona a coluna 'saldo_carteira' ao DataFrame principal
-        mov = mov.join(saldo_carteira.rename('saldo_carteira'), on='data_movimentacao')
+        
 
 
         print(mov)
@@ -192,10 +194,9 @@ class Investments:
 
         mov.sort_values(by='data_movimentacao', inplace=True)
 
-
         mov['saldo_debito_ativo'].fillna(method='ffill', inplace=True)
-        mov['saldo_ticker'].fillna(method='ffill', inplace=True)
-        mov['saldo_carteira'].fillna(method='ffill', inplace=True)
+
+        
 
         print(mov)
 
@@ -218,9 +219,52 @@ class Investments:
 
         
 
+
+        start_quantidades = mov.groupby('ticker').head(1)
+        mov['saldo_quantidade'] = start_quantidades['quantidade']
+
+
+
+        
+
+
+
+        mov['quantidade_cumsum'] = mov.groupby('ticker')['quantidade'].cumsum()
+
+        mov['saldo_quantidade'] = mov['saldo_quantidade'].fillna(mov['quantidade_cumsum'])
+        mov.drop(columns=['quantidade_cumsum'], inplace=True)
+        
+
         print(mov)
 
-        mov['saldo_ticker'].fillna(method='ffill', inplace=True)
+        #mov['saldo_quantidade'] = mov['saldo_quantidade'] + mov['quantidade'].where(mov['tipo_operacao'] == 'Credito', 0)
+        #mov['saldo_quantidade'] = mov['saldo_quantidade'] - mov['quantidade'].where(mov['tipo_operacao'] == 'Debito', 0)
+        mov['saldo_quantidade'] = mov.groupby('ticker')['saldo_quantidade'].ffill()
+        print(mov)
+
+
+        # Eu preciso que o saldo quantidade mantenha um histórico contínuo
+        #mov['saldo_quantidade'] = mov.groupby('ticker')['saldo_quantidade'].fillna(method='ffill')
+        #mov['saldo_quantidade'] = mov['saldo_quantidade'] + mov['quantidade'].where(mov['tipo_operacao'] == 'Credito', 0)
+        #mov['saldo_quantidade'] = mov['saldo_quantidade'] - mov['quantidade'].where(mov['tipo_operacao'] == 'Debito', 0)
+
+
+
+        
+
+        print(mov)
+        mov['saldo_ticker'] = mov.groupby('ticker')['saldo_ticker'].ffill()
+
+        # Calcula a soma dos saldos diários para cada dia (saldo_carteira)
+        saldo_carteira = mov.groupby('data_movimentacao')['saldo_ticker'].sum()
+
+        # Adiciona a coluna 'saldo_carteira' ao DataFrame principal
+        mov = mov.join(saldo_carteira.rename('saldo_carteira'), on='data_movimentacao')
+        mov['saldo_carteira'].fillna(method='ffill', inplace=True)
+        print(mov)
+    
+
+
         mov['saldo_carteira'].fillna(method='ffill', inplace=True)
         mov['credito'].fillna(0, inplace=True)
         mov['debito'].fillna(0, inplace=True)
