@@ -18,13 +18,14 @@ class Dashboard:
         movimentacoes = self.investments.historico_movimentacoes()
 
         # Movimentacoes possui um multi index entre data_movimentacao e ticker, gostaria de manter apenas o data_movimentacao como index preservando o ticker
-        movimentacoes.reset_index('ticker', inplace=True)
+        #movimentacoes.reset_index('ticker', inplace=True)
 
          # Cria o gráfico Plotly
         chart_ptfvalue = go.Figure()  # generating a figure that will be updated in the following lines
-        chart_ptfvalue.add_trace(go.Scatter(x=movimentacoes.index, y=movimentacoes.saldo_carteira,
+        chart_ptfvalue.add_trace(go.Scatter(x=movimentacoes.index, y=movimentacoes.valor_carteira,
                             mode='lines',  # you can also use "lines+markers", or just "markers"
-                            name='Global Value'))
+                            name='Global Value',
+                            line=dict(color='white')))
         chart_ptfvalue.layout.template = 'plotly_dark'
         chart_ptfvalue.layout.height=500
         chart_ptfvalue.update_layout(margin = dict(t=50, b=50, l=25, r=25))  # this will help you optimize the chart space

@@ -137,7 +137,7 @@ class Investments:
         
 
         # Define a data mínima e máxima do rastreamento
-        data_inicio = datetime.strptime(mov['data_movimentacao'].min(), '%Y-%m-%dT%H:%M:%S')
+        data_inicio = datetime.strptime(mov['data_movimentacao'].min(), '%Y-%m-%dT%H:%M:%S') - timedelta(days=10)
         data_fim = datetime.strptime(mov['data_movimentacao'].max(), '%Y-%m-%dT%H:%M:%S')
 
         datas_uteis = get_dias_uteis(data_inicio, data_fim, exclude_list=datas_mov)
@@ -268,19 +268,34 @@ class Investments:
         mov['saldo_carteira'].fillna(method='ffill', inplace=True)
         mov['credito'].fillna(0, inplace=True)
         mov['debito'].fillna(0, inplace=True)
+        mov['quantidade'].fillna(0, inplace=True)
+        mov['saldo_quantidade'].fillna(0, inplace=True)
+        mov['saldo_ticker'].fillna(0, inplace=True)
+
+ 
+        cotacoes = yf.download([ticker + '.SA' for ticker in tickers], start=data_inicio, end=data_fim)['Adj Close']
+
+        # Add the 'ticker' index back to the 'cotacoes' DataFrame
+        mov.reset_index('ticker', inplace=True)
+
+        # Calculate the value for each stock (ticker) in each row
+        for ticker in tickers:
+            # Select rows where the ticker matches and calculate the value
+            mask = mov['ticker'] == ticker
+            mov.loc[mask, 'valor_acao'] = mov.loc[mask, 'saldo_quantidade'] * cotacoes[ticker + '.SA']
+
+        mov.set_index('ticker')
+
+        valor_carteira = mov[mov['valor_acao'].notnull()].groupby('data_movimentacao')['valor_acao'].sum()
+        mov = mov.join(valor_carteira.rename('valor_carteira'), on='data_movimentacao')
+        mov['valor_carteira'].fillna(method='ffill', inplace=True)
+
+        mov['valor_carteira'].fillna(0, inplace=True)
 
         
         print(mov)
 
-        
 
-
-        
-        
-
-
-
-        print(mov)
         return mov
 
     def evolucao_posicoes(self):
