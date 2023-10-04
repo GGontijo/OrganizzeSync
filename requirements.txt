@@ -9,3 +9,4 @@ python-dateutil==2.8.2
 pandas==2.0.3
 yfinance==0.2.24
 dash==2.11.1
+dash_bootstrap_components==1.4.2
