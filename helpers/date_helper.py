@@ -100,10 +100,12 @@ def get_ultimo_dia_util():
     dia_semana = data_atual.weekday()
 
     dias_para_subtrair = 3 if dia_semana == 0 else 1
+    if dia_semana < 5:
+        data_atual -= timedelta(days=dias_para_subtrair)
+        return data_atual
     while dia_semana >= 5:  # Fim de semana (sábado ou domingo)
         data_atual -= timedelta(days=dias_para_subtrair)
         dia_semana = data_atual.weekday()
-
     return data_atual
 
 def get_dias_uteis(start_date, end_date, exclude_list: list = None):
