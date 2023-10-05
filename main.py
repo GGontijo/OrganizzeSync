@@ -33,7 +33,12 @@ async def main():
 
     await asyncio.gather(report_task, server_task)
 
-
+def dev_report():
+    logger = Logger()
+    organizze_service = Organizze_Service(logger)
+    organizze = OrganizzeSync(organizze_service, logger)
+    report = Report(organizze, organizze_service)
+    report.daily()
 
 def dev():
     db = SQLite('database/investments.sqlite')
@@ -51,5 +56,6 @@ def dev():
 if __name__ == "__main__":
     #loop = asyncio.get_event_loop()
     #loop.run_until_complete(main())
-    dev()
+    #dev()
+    dev_report()
 
