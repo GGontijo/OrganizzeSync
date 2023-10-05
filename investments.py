@@ -1,14 +1,13 @@
+from database.sqlite import SQLite
+from helpers.config_helper import Config
 from organizzesync import OrganizzeSync
 from helpers.logger_helper import Logger
-from interfaces.database_interface import DatabaseInterface
 from models.organizze_models import *
 from helpers.data_helper import convert_amount_to_cents, convert_amount_to_decimal
-from decimal import Decimal
 import pandas as pd
 from models.b3_models import *
 from models.organizze_models import TransactionCreateModel
 from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
 from helpers.date_helper import *
 from services.organizze_service import Organizze_Service
 from services.b3_service import B3_Service
@@ -16,10 +15,13 @@ import yfinance as yf
 
 class Investments:
 
-    def __init__(self, db: DatabaseInterface, logger: Logger, organizze: OrganizzeSync, organizze_service: Organizze_Service, b3_service: B3_Service) -> None:
+    def __init__(self, logger: Logger, organizze: OrganizzeSync, organizze_service: Organizze_Service, b3_service: B3_Service) -> None:
         self.organizze_service = organizze_service
         #self.organizze.update_old_transactions(resync=True) # Atualiza a base inteira de dados
-        self.db = db
+        _config = Config()
+        _database_data = _config.get_config("database")
+        _database_path = _database_data["investments_path"]
+        self.db = SQLite(_database_path)
         self.logger = logger
         self.organizze = organizze
         self.b3 = b3_service

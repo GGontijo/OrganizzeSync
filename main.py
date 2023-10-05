@@ -1,7 +1,6 @@
 from services.api_service import Server
 from organizzesync import OrganizzeSync
 from investments import Investments
-from database.sqlite import SQLite
 from services.organizze_service import Organizze_Service
 from report import Report
 from helpers.logger_helper import Logger
@@ -41,14 +40,15 @@ def dev_report():
     report.daily()
 
 def dev():
-    db = SQLite('database/investments.sqlite')
     logger = Logger()
     organizze_service = Organizze_Service(logger)
     organizze = OrganizzeSync(organizze_service, logger)
     b3 = B3_Service(logger, '')
     #report = Report(organizze, organizze_service)
     #report.monthly_expenses()
-    a = Investments(db, logger, organizze, organizze_service, b3)
+    a = Investments(logger, organizze, organizze_service, b3)
+    #.sync_renda_fixa() #exemplo 99000.99
+    a.sync_movimentacoes()
     #b = a.sync_movimentacoes()
     dashboard = Dashboard(a)
     dashboard.evolucao_patrimonio_graph()

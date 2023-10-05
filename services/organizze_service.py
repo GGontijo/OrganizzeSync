@@ -1,8 +1,9 @@
+from requests.exceptions import HTTPError
 from helpers.config_helper import Config
 from helpers.logger_helper import Logger
 from helpers.date_helper import generate_monthly_dates
 from models.organizze_models import *
-from datetime import datetime
+from datetime import datetime, timedelta
 import urllib3
 import requests
 import json
@@ -170,8 +171,22 @@ class Organizze_Service:
         transactions = []
 
         for start_date, end_date in dates:
-            response = requests.get(f"{self.url_base}/transactions?start_date={start_date}&end_date={end_date}", auth=(self.username, self.token), verify=False)
-            self.logger.log("INFO", f"Obtendo {len(json.loads(response.content))} transacoes de {str(start_date)[:10]} ate {str(end_date)[:10]}")
-            transactions.append(json.loads(response.content))
+            try:
+                response = requests.get(f"{self.url_base}/transactions?start_date={start_date}&end_date={end_date}", auth=(self.username, self.token), verify=False)
+                if response.status_code != 200:
+                    raise HTTPError('Houve um erro interno na API do Organizze')
+                self.logger.log("INFO", f"Obtendo {len(json.loads(response.content))} transacoes de {str(start_date)[:10]} ate {str(end_date)[:10]}")
+                transactions.append(json.loads(response.content))
+            except HTTPError as e:
+                self.logger.log("ERROR", f"Houve um erro ao consultar as transações de {str(start_date)[:10]} ate {str(end_date)[:10]}, buscando por datas individuais...")
+                date_range_list = [start_date + timedelta(days=d) for d in range((end_date - start_date).days + 1)]
+                for date in date_range_list:
+                    response = requests.get(f"{self.url_base}/transactions?start_date={date}&end_date={date}", auth=(self.username, self.token), verify=False)
+                    if response.status_code != 200:
+                        self.logger.log("ERROR", f"Não foi possível recuperar as transações de {str(date)[:10]}!")
+                        continue
+                    if not json.loads(response.content): # Ignora datas sem transações
+                        continue
+                    transactions.append(json.loads(response.content))
 
         return transactions
