@@ -27,7 +27,7 @@ class OrganizzeSync:
         max_date = max(self.old_transactions, key=lambda transaction: transaction.date).date
         if timespan:
             new_transactions = self._organizze_service.get_transactions(data_inicio=(date.today() - timedelta(days=timespan)).strftime('%Y-%m-%d'), data_fim=date.today().strftime('%Y-%m-%d'))
-        if resync:
+        elif resync:
             new_transactions = self._organizze_service.get_transactions()
         else:
             new_transactions = self._organizze_service.get_transactions(data_inicio=max_date, data_fim=date.today().strftime('%Y-%m-%d'))
