@@ -46,11 +46,11 @@ def dev():
     b3 = B3_Service(logger, '')
     #report = Report(organizze, organizze_service)
     #report.monthly_expenses()
-    a = Investments(logger, organizze, organizze_service, b3)
+    investments = Investments(logger, organizze, organizze_service, b3)
     #.sync_renda_fixa() #exemplo 99000.99
-    a.sync_movimentacoes()
+    investments.sync_movimentacoes()
     #b = a.sync_movimentacoes()
-    dashboard = Dashboard(a)
+    dashboard = Dashboard(investments)
     dashboard.evolucao_patrimonio_graph()
 
 if __name__ == "__main__":

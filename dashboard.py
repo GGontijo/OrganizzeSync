@@ -21,19 +21,19 @@ class Dashboard:
         #movimentacoes.reset_index('ticker', inplace=True)
 
          # Cria o gráfico Plotly
-        chart_ptfvalue = go.Figure()  # generating a figure that will be updated in the following lines
+        chart_ptfvalue = go.Figure()
         chart_ptfvalue.add_trace(go.Scatter(x=movimentacoes.index, y=movimentacoes.valor_carteira,
-                            mode='lines',  # you can also use "lines+markers", or just "markers"
+                            mode='lines',
                             name='Global Value',
                             line=dict(color='white')))
         chart_ptfvalue.layout.template = 'plotly_dark'
         chart_ptfvalue.layout.height=500
-        chart_ptfvalue.update_layout(margin = dict(t=50, b=50, l=25, r=25))  # this will help you optimize the chart space
+        chart_ptfvalue.update_layout(margin = dict(t=50, b=50, l=25, r=25))
         chart_ptfvalue.update_layout(
-        #     title='Global Portfolio Value (USD $)',
+            title='Valor Toal Portfólio',
             xaxis_tickfont_size=12,
             yaxis=dict(
-                title='Value: $ USD',
+                title='Valor: R$ BRL',
                 titlefont_size=14,
                 tickfont_size=12,
                 ))
