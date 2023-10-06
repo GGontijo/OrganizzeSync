@@ -318,14 +318,13 @@ class Report:
             budget_remaining = budget_goal - budget_spent
             daily_limit = budget_remaining / month_days_remaining if month_days_remaining != 0 else 0.00
             weekly_limit = budget_remaining / month_week_remaining if month_week_remaining != 0 else 0.00
-        
             report += f"Meta de {budget.category_name}:\n"
             report += f"Valor definido da meta: R$ {convert_amount_to_decimal(budget_goal):.2f}\n"
             report += f"meta atingida: {round((budget_spent / budget_goal) * 100, 1)}% (Valor restante: R$ {convert_amount_to_decimal(budget_remaining):.2f})\n"
             report += f"Valor restante por dia: R$ {convert_amount_to_decimal(daily_limit):.2f}\n"
             report += f"Valor restante por semana: R$ {convert_amount_to_decimal(weekly_limit):.2f}\n"
             report += "\n"
-        
+
         report += "\n\n"
 
         message = f'{date.today().strftime("%d-%m-%Y")}: Relatório diário 1/3'
@@ -358,23 +357,29 @@ class Report:
         report = '' # Limpa o Report
         
         # Categorias gastos na semana
+        report_block_list = []
         report += "[Categorias na semana]:\n"
-        
         for category, weekly_amount in sorted(category_week_to_date_expenses.items(), key=lambda x: x[1]):
+            report_block = {}
             previous_week_amount = category_last_week_expenses[category]
-            percentage_diff = ((weekly_amount - previous_week_amount) / previous_week_amount) * 100 if previous_week_amount != 0 else 0.00
-            
             report += f"Categoria: {category}\n"
             report += f"Gastos na semana anterior: R$ {convert_amount_to_decimal(previous_week_amount):.2f}\n"
             report += f"Gastos na semana até o dia atual: R$ {convert_amount_to_decimal(weekly_amount):.2f}\n"
-            report += f"diferença: {round(percentage_diff, 1)}%\n"
-            report += "\n"
-        
-        report += "\n"
+            percentage = round(((weekly_amount - previous_week_amount) / previous_week_amount) * 100 if previous_week_amount != 0 else 0.00, 1)
+            report += f"Diferença: {percentage}%\n"
+            #report += "\n"
+            report_block['text'] = report
+            report_block['color'] = 'green' if percentage <= 0 else ('yellow' if percentage <= 15 else 'red')
+            report = ''
+            report_block_list.append(report_block)
         
         message = f'{date.today().strftime("%Y-%m-%d")}: Relatório diário 3/3'
 
-        self.telegram.send_image(generate_report_image(report), message)
+        self.telegram.send_image(generate_report_image(None, report_block_list), message)
+
+        report_block.clear() # Limpa o Report
+        report_block_list.clear() # Limpa o Report
+        report = '' # Limpa o Report
 
     def schedule(self):
         schedule.every().day.at("18:00").do(self.daily)

@@ -132,12 +132,49 @@ def match_strings(string1: str, string2: str, simillar: bool = False, threshold:
     return False
 
 
-def generate_report_image(report) -> Image:
+def generate_report_image(report: str, report_block_list: list[dict] = None) -> Image:
+    '''report_bock: dict = {text: str, color: str [None, red, green, yellow]}'''
+    colors = {
+        None: (0, 0, 0),  # Preto
+        "red": (255, 0, 0),      # Vermelho
+        "green": (0, 255, 0),    # Verde
+        "yellow": (255, 255, 0)  # Amarelo
+        }
+    
     image_width = 800
     font_size = 20
 
     x = 20
     y = 20
+
+    if report_block_list:
+        concatenated_text = ''
+        for item in report_block_list:
+            concatenated_text += item['text']
+            concatenated_text += "\n"
+        
+        lines = concatenated_text.split("\n")
+        line_height = font_size + 10  # Altura de cada linha
+        image_height = y + (len(lines) * line_height)
+        font_path = "resources/ARIAL.TTF"
+        bg_color = (255, 255, 255)
+        image = Image.new("RGB", (image_width, image_height), bg_color)
+        draw = ImageDraw.Draw(image)
+        font = ImageFont.truetype(font_path, font_size)
+        
+        for block in report_block_list:
+            text = str(block['text'])
+            color = str(block['color'])
+            text_color = colors.get(color, (0, 0, 0))  # Preto
+
+            # Escreva o texto no relatório
+            lines = text.split("\n")
+            for line in lines:
+                draw.text((x, y), line, font=font, fill=text_color)
+                y += font_size + 10
+
+        return image
+            
 
     lines = report.split("\n")
     line_height = font_size + 10  # Altura de cada linha
