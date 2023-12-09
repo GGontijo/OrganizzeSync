@@ -39,23 +39,23 @@ def dev_report():
     report = Report(organizze, organizze_service)
     report.daily()
 
+TOKEN = ''
+
 def dev():
     logger = Logger()
     organizze_service = Organizze_Service(logger)
     organizze = OrganizzeSync(organizze_service, logger)
-    b3 = B3_Service(logger, '')
+    b3 = B3_Service(logger, TOKEN)
     #report = Report(organizze, organizze_service)
     #report.monthly_expenses()
     investments = Investments(logger, organizze, organizze_service, b3)
     #.sync_renda_fixa() #exemplo 99000.99
-    investments.sync_movimentacoes()
-    #b = a.sync_movimentacoes()
-    dashboard = Dashboard(investments)
-    dashboard.evolucao_patrimonio_graph()
+    #dashboard = Dashboard(investments)
+    #dashboard.evolucao_patrimonio_graph()
 
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
-    #dev()
+    #loop = asyncio.get_event_loop()
+    #loop.run_until_complete(main())
+    dev()
     #dev_report()
 

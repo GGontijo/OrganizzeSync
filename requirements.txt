@@ -1,12 +1,13 @@
 pydantic==1.9.2
 uvicorn==0.18.3
 fastapi==0.81.0
-requests==2.29.0
+requests==2.31.0
 ofxparse==0.21
 Pillow==10.0.0
 schedule==1.2.0
 python-dateutil==2.8.2
 pandas==2.0.3
-yfinance==0.2.24
+yfinance==0.2.33
 dash==2.11.1
 dash_bootstrap_components==1.4.2
+peewee==3.17.0

@@ -14,7 +14,8 @@ from services.b3_service import B3_Service
 import yfinance as yf
 
 class Investments:
-
+    '''Esta classe oferece métodos para sincronização e manipulação de dados de investimentos.'''
+    
     def __init__(self, logger: Logger, organizze: OrganizzeSync, organizze_service: Organizze_Service, b3_service: B3_Service) -> None:
         self.organizze_service = organizze_service
         #self.organizze.update_old_transactions(resync=True) # Atualiza a base inteira de dados
@@ -25,6 +26,8 @@ class Investments:
         self.logger = logger
         self.organizze = organizze
         self.b3 = b3_service
+        self.sync_proventos()
+        self.sync_movimentacoes()
 
     def sync_renda_fixa(self, valor_liquido: float):
         saldo_conta = sum(x.amount_cents for x in list(filter(lambda x: x.account_id == EnumOrganizzeAccounts.RENDA_FIXA.value, self.organizze.old_transactions)))
@@ -72,13 +75,37 @@ class Investments:
         for i in transactions_list:
             self.organizze_service.create_transaction(i)
 
+    def sync_proventos(self):
+        data_prov = self.db.select('SELECT MAX(data_pagamento) AS data_pagamento_recente FROM proventos')[0][0]
+        data_inicio = datetime.strptime(data_prov, "%Y-%m-%dT%H:%M:%S") + timedelta(days= 1)
+        ultimo_dia = get_ultimo_dia_util() # Precisa ser um dia útil anterior
+        provento: Provento
+        lista_mes_provento = self.b3.get_proventos(data_inicio.strftime("%Y-%m-%d"), ultimo_dia.strftime("%Y-%m-%d"))
+        for mes_provento in lista_mes_provento:
+            for provento in mes_provento.proventos:
+                ticker = provento.descricaoProduto.split('-')[0].strip()
+                preco_unitario = f"'{provento.precoUnitario}'" if provento.precoUnitario is not None else 'NULL'
+                quantidade = f"'{provento.quantidadeTotal}'" if provento.quantidadeTotal is not None else 'NULL'
+                tipo_evento = f"'{provento.tipoEvento}'" if provento.tipoEvento is not None else 'NULL'
+                valor_total = f"'{provento.totalNegociado}'" if provento.totalNegociado is not None else 'NULL'
+
+                transaction = TransactionCreateModel(description= f'{ticker} - {provento.tipoEvento} ref {provento.quantidadeTotal} cotas',
+                                                 account_id=EnumOrganizzeAccounts.RENDA_VARIAVEL.value,
+                                                 date=provento.dataPagamento,
+                                                 category_id= 71967471,
+                                                 amount_cents=convert_amount_to_cents(provento.totalNegociado),
+                                                 category_name=self.organizze.get_category_name_by_id(71967471))
+                transaction_log = self.organizze_service.create_transaction(transaction) # Sincroniza proventos no organizze
+                _query = f'''INSERT INTO PROVENTOS VALUES ('{provento.dataPagamento}', '{ticker}', '{provento.descricaoProduto}', {preco_unitario}, 
+                        {quantidade}, {tipo_evento}, {valor_total})'''
+                self.db.insert(_query)
+
     def sync_movimentacoes(self):
         data_mov = self.db.select('SELECT MAX(data_movimentacao) AS data_movimentacao_recente FROM movimentacoes')[0][0]
         data_inicio = datetime.strptime(data_mov, "%Y-%m-%dT%H:%M:%S") + timedelta(days= 1)
         ultimo_dia = get_ultimo_dia_util() # Precisa ser um dia útil anterior
         movimento: Movimento
         lista_mes_movimento = self.b3.get_movimentacoes(data_inicio.strftime("%Y-%m-%d"), ultimo_dia.strftime("%Y-%m-%d"))
-        #lista_mes_movimento = self.b3.get_movimentacoes('2023-01-01', '2023-06-30')
         for mes_movimento in lista_mes_movimento:
             for movimento in mes_movimento.movimentacoes:
                 ticker = movimento.nomeProduto.split('-')[0].strip()
@@ -90,29 +117,17 @@ class Investments:
                 tipo = self.tipo_ativo(ticker)
                 tipo_ativo = f"'{tipo}'" if tipo is not None else 'NULL'
 
-                
 
-                if movimento.tipoMovimentacao == 'Juros Sobre Capital Próprio' or movimento.tipoMovimentacao == 'Rendimento': # Sincroniza proventos no organizze
-                    transaction = TransactionCreateModel(description= f'{ticker} - {movimento.tipoMovimentacao} ref {movimento.quantidade} cotas',
-                                                     account_id=EnumOrganizzeAccounts.RENDA_VARIAVEL.value,
-                                                     date=movimento.dataMovimentacao,
-                                                     category_id= 71967471,
-                                                     amount_cents=convert_amount_to_cents(movimento.valorOperacao))
-                    transaction_log = self.organizze_service.create_transaction(transaction)
-
-                    _query = f'''INSERT INTO PROVENTOS VALUES ('{movimento.dataMovimentacao}', '{ticker}', '{movimento.nomeProduto}', {preco_unitario}, 
-                            {quantidade}, {tipo_movimentacao}, {valor_operacao})'''
-                    self.db.insert(_query)
-
-                else:
+                if movimento.tipoMovimentacao not in ['Juros Sobre Capital Próprio', 'Rendimento', 'Dividendo']: # Ignora proventos
                     _query = f'''INSERT INTO MOVIMENTACOES VALUES ('{movimento.dataMovimentacao}', '{ticker}', '{movimento.nomeProduto}', {preco_unitario}, 
                             {quantidade}, {tipo_movimentacao}, {tipo_operacao}, {valor_operacao}, {tipo_ativo})'''
+                    
                     self.db.insert(_query)
         
     def tipo_ativo(self, ticker: str) -> str:
         ativo_info = yf.Ticker(f'{ticker}.SA').info
         try:
-            if 'fundo De investimento' in ativo_info['longName'].lower() or 'fii' in ativo_info['shortName'].lower():
+            if ('longName' in ativo_info and 'fundo De investimento' in ativo_info['longName'].lower()) or ('shortName' in ativo_info and 'fii' in ativo_info['shortName'].lower()):
                 return 'FII'
             else:
                 return 'Ação'
