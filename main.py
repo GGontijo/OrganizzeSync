@@ -49,9 +49,11 @@ def dev():
     #report = Report(organizze, organizze_service)
     #report.monthly_expenses()
     investments = Investments(logger, organizze, organizze_service, b3)
+    #investments.sync_proventos()
+    #investments.sync_movimentacoes()
     #.sync_renda_fixa() #exemplo 99000.99
-    #dashboard = Dashboard(investments)
-    #dashboard.evolucao_patrimonio_graph()
+    dashboard = Dashboard(investments)
+    dashboard.evolucao_patrimonio_graph()
 
 if __name__ == "__main__":
     #loop = asyncio.get_event_loop()
