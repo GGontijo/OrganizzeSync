@@ -15,16 +15,18 @@ class Dashboard:
 
     def evolucao_patrimonio_graph(self):
 
-        movimentacoes = self.investments.historico_movimentacoes()
+        movimentacoes_renda_variavel = self.investments.historico_movimentacoes() # Re
+        movimentacoes_renda_fixa = None 
 
         # Movimentacoes possui um multi index entre data_movimentacao e ticker, gostaria de manter apenas o data_movimentacao como index preservando o ticker
         #movimentacoes.reset_index('ticker', inplace=True)
 
          # Cria o gráfico Plotly
         chart_ptfvalue = go.Figure()
-        chart_ptfvalue.add_trace(go.Scatter(x=movimentacoes.index, y=movimentacoes.valor_carteira,
+        chart_ptfvalue.add_trace(go.Scatter(x=movimentacoes_renda_variavel.index, y=movimentacoes_renda_variavel.valor_carteira,
                             mode='lines',
                             name='Global Value',
+                            fill='tozeroy',
                             line=dict(color='white')))
         chart_ptfvalue.layout.template = 'plotly_dark'
         chart_ptfvalue.layout.height=500
@@ -41,7 +43,7 @@ class Dashboard:
         # Define o layout do dashboard usando componentes HTML do Dash
         self.app.layout = html.Div(children=[
             html.H1('Dashboard de Investimentos'),
-            dcc.Graph(figure=chart_ptfvalue)  # Insere o gráfico no dashboard
+            dcc.Graph(figure=chart_ptfvalue),  # Insere o gráfico no dashboard
         ])
 
         #movimentacoes['indice'] = movimentacoes.index

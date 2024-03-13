@@ -26,8 +26,6 @@ class Investments:
         self.logger = logger
         self.organizze = organizze
         self.b3 = b3_service
-        self.sync_proventos()
-        self.sync_movimentacoes()
 
     def sync_renda_fixa(self, valor_liquido: float):
         saldo_conta = sum(x.amount_cents for x in list(filter(lambda x: x.account_id == EnumOrganizzeAccounts.RENDA_FIXA.value, self.organizze.old_transactions)))
@@ -137,6 +135,9 @@ class Investments:
             return None
         
 
+    def historico_renda_fixa(self):
+        conn = self.db.connection()
+        rf_raw = ''
 
 
         
@@ -147,16 +148,13 @@ class Investments:
         # Filtra as movimentações não desejadas (subscrição, cessão de direitos etc..)
         mov = mov_raw.query("preco_unitario.notna()")
 
-        
-
         datas_mov = [datetime.strptime(data, '%Y-%m-%dT%H:%M:%S') for data in mov['data_movimentacao'].unique()]
-
-        
 
         # Define a data mínima e máxima do rastreamento
         data_inicio = datetime.strptime(mov['data_movimentacao'].min(), '%Y-%m-%dT%H:%M:%S') - timedelta(days=10)
         data_fim = datetime.strptime(mov['data_movimentacao'].max(), '%Y-%m-%dT%H:%M:%S')
 
+        # Obtém datas úteis para preencher os intervalos vazios
         datas_uteis = get_dias_uteis(data_inicio, data_fim, exclude_list=datas_mov)
 
         mov['data_movimentacao'] = pd.to_datetime(mov['data_movimentacao'], format='%Y-%m-%dT%H:%M:%S')
